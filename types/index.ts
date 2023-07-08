@@ -25,6 +25,11 @@
 //     transmission: string
 // } 
 
+export interface PersonProps {
+    id: number,
+    name: string,
+} 
+
 export interface DropDownProps {
     getter?: string,
     setter?: (currency: string) => void

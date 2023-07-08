@@ -21,3 +21,12 @@
 .custom-btn {
     @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
+.icons-small {
+    @apply h-[26px] w-[26px];
+}
+.icons-medium {
+    @apply h-[36px] w-[36px];
+}
+.icons-large {
+    @apply h-[48px] w-[48px];
+}

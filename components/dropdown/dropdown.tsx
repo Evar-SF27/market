@@ -3,6 +3,7 @@
 import { Fragment } from "react"
 import { Menu, Transition } from "@headlessui/react"
 import { DropDownProps } from "@/types"
+import { ChevronDownIcon } from "@heroicons/react/20/solid"
 
 
 const Dropdown = ({ getter, setter, dropdownStyles, selectedStyles, elementStyles, dropdownElements } : DropDownProps) => {
@@ -11,7 +12,7 @@ const Dropdown = ({ getter, setter, dropdownStyles, selectedStyles, elementStyle
       <div>
         <Menu.Button className={selectedStyles}>
           {getter}
-          {/* <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" /> */}
+          <ChevronDownIcon className="mx-1 h-5 w-5 text-white" aria-hidden="true" />
         </Menu.Button>
       </div>
 

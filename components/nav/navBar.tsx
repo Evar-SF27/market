@@ -1,10 +1,10 @@
-import { TopBar } from ".."
+import { MainBar, TopBar } from ".."
 
 const navBar = () => {
   return (
     <div>
         <TopBar />
-      NavBar
+        <MainBar />
     </div>
   )
 }

@@ -20,8 +20,9 @@ module.exports = {
         "secondary": {
           DEFAULT: "#B5B5B5",
           100: "#D8D8D8",
-          500: "#A2A2A2",
-          800: "#868686"
+          500: "#B2B2B2",
+          800: "#999999",
+          900: "#505050"
         }
       },
       backgroundImage: {
