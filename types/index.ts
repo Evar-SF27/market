@@ -38,3 +38,8 @@ export interface DropDownProps {
     elementStyles: string,
     dropdownElements: string[]
 }
+
+export interface ConnectionOptions {
+    useUnifiedTopology: boolean,
+    useNewUrlParser: boolean
+}
