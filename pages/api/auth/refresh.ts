@@ -1,3 +1,5 @@
+"use server"
+
 import dbConnect from "../../../config/dbConfig"
 import User from "../../../model/User"
 import jwt, { JwtPayload, Secret } from "jsonwebtoken"
