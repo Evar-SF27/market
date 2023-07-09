@@ -30,3 +30,6 @@
 .icons-large {
     @apply h-[48px] w-[48px];
 }
+.list-nav {
+    @apply border-l text-white px-8 text-[18px];
+}

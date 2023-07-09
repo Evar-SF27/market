@@ -18,11 +18,10 @@ module.exports = {
           100: "#F5F8FF",
         },
         "secondary": {
-          DEFAULT: "#B5B5B5",
-          100: "#D8D8D8",
-          500: "#B2B2B2",
-          800: "#999999",
-          900: "#505050"
+          100: "#EFEFEF",
+          500: "#C3C3C3",
+          800: "#B0B0B0",
+          900: "#90900"
         }
       },
       backgroundImage: {
@@ -33,3 +32,4 @@ module.exports = {
   },
   plugins: [],
 };
+
