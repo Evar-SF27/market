@@ -3,23 +3,23 @@ import { SearchBar } from ".."
 
 const MainBar = () => {
   return (
-    <div className="sm:mx-8 mx-2 h-20 flex items-center justify-between">
+    <div className="max-sm:mx-2 mx-8 h-20 flex items-center justify-between">
         <div className="flex justify-between w-[70%]">
-            <div className="w-[90px] sm:w-[180px]">
-                <h1 className="sm:text-[35px] text-[24px] font-semibold h-[55px] flex items-center">
-                    Market
+            <div className="w-[180px] max-sm:w-[90px] mr-4">
+                <h1 className="max-sm:text-[24px] text-[35px] font-semibold h-[55px] flex items-center">
+                    MarketPlace
                 </h1>
             </div>
-            <div className="flex-start">
-                <SearchBar />
+            <div className="flex justify-center">
+                <SearchBar otherStyles={sm:}/>
             </div>
         </div>
-        <div className="w-[250px] flex justify-around mr-2">
+        <div className="sm:w-[270px] w-[170px] flex justify-around mr-2">
             <div className="flex">
                 <button>
                     <UserIcon className="text-secondary-900 icons-medium" />
                 </button>
-                <div className="mt-[20px]">
+                <div className="mt-[20px] hidden sm:block">
                     <p className="text-sm">Hello</p>
                     <p className="text-sm font-bold">Sign In</p>
                 </div>
@@ -37,9 +37,9 @@ const MainBar = () => {
                     </div>
                     <ShoppingCartIcon className="text-secondary-900 icons-medium" />
                 </button>
-                <div className="mt-[28px] ml-[10px]">
-                    <p className="text-[10px]">Total</p>
-                    <p className="text-sm font-bold">$20.0</p>
+                <div className="mt-[18px] ml-[15px] hidden sm:block">
+                    <p className="text-[15px]">Total</p>
+                    <p className="text-[18px] font-bold">$20.0</p>
                 </div>
             </div>
         </div>
