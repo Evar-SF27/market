@@ -16,7 +16,7 @@ const topBar = () => {
                 className="icons-small text-white" 
                 onClick={() => setIsOpen(!isOpen)}
             />
-            <div className={`${isOpen ? "fixed" : "hidden"} top-0 left-0 bg-secondary-800 h-[70%] w-[55%] opacity-[95%] py-2 px-4`}>
+            <div className={`${isOpen ? "fixed" : "hidden"} top-0 left-0 bg-secondary-800 h-[100%] w-[55%] opacity-[95%] py-2 px-4  overflow-x-scroll`}>
                 <div className="flex justify-end">
                     <XCircleIcon 
                         className="icons-small text-white"

@@ -6,7 +6,7 @@ const MainBar = () => {
     <div className="max-sm:mx-2 mx-8 h-20 flex items-center justify-between">
         <div className="flex justify-between w-[70%]">
             <div className="w-[180px] max-sm:w-[90px] mr-4">
-                <h1 className="max-sm:text-[24px] text-[35px] font-semibold h-[55px] flex items-center">
+                <h1 className="max-sm:text-[28px] text-[35px] sm:ml-0 ml-4 font-semibold h-[55px] flex items-center">
                     MarketPlace
                 </h1>
             </div>
