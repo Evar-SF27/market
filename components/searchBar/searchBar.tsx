@@ -15,7 +15,7 @@ const people = [
   { id: 6, name: 'Hellen Schmidt' },
 ]
 
-export default function SearchBar({ otherStyles }: string) {
+export default function SearchBar({ otherStyles }: string | any) {
   const [selected, setSelected] = useState(people[0])
   const [query, setQuery] = useState('')
 
@@ -30,7 +30,7 @@ export default function SearchBar({ otherStyles }: string) {
         )
 
   return (
-    <div className="ml-8 w-[55vw] sm:block hidden">
+    <div className={`${otherStyles}`}>
       <Combobox value={selected} onChange={setSelected}>
         <div className="relative">
           <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
@@ -39,7 +39,7 @@ export default function SearchBar({ otherStyles }: string) {
               displayValue={(person: PersonProps) => person.name}
               onChange={(event) => setQuery(event.target.value)}
             />
-            <Combobox.Button className="bg-primary w-[13%] justify-center absolute inset-y-0 right-0 flex items-center">
+            <Combobox.Button className="bg-primary sm:w-[13%] w-[25%] justify-center absolute inset-y-0 right-0 flex items-center">
               <MagnifyingGlassIcon className="text-white icons-small" />
             </Combobox.Button>
           </div>
@@ -60,7 +60,7 @@ export default function SearchBar({ otherStyles }: string) {
                   <Combobox.Option
                     key={person.id}
                     className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                      `relative cursor-default select-none py-2 sm:pl-10 sm:pr-4 pl-6 ${
                         active ? 'bg-teal-600 text-white' : 'text-gray-900'
                       }`
                     }

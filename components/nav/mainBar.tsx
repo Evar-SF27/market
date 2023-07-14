@@ -11,7 +11,7 @@ const MainBar = () => {
                 </h1>
             </div>
             <div className="flex justify-center">
-                <SearchBar otherStyles={sm:}/>
+                <SearchBar otherStyles="sm:block hidden ml-8 w-[55vw]" />
             </div>
         </div>
         <div className="sm:w-[270px] w-[170px] flex justify-around mr-2">

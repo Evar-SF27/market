@@ -16,15 +16,15 @@ const topBar = () => {
                 className="icons-small text-white" 
                 onClick={() => setIsOpen(!isOpen)}
             />
-            <div className={`${isOpen ? "fixed" : "hidden"} top-0 left-0 bg-secondary-800 h-[70%] w-[45%] opacity-[95%] py-2 px-4`}>
+            <div className={`${isOpen ? "fixed" : "hidden"} top-0 left-0 bg-secondary-800 h-[70%] w-[55%] opacity-[95%] py-2 px-4`}>
                 <div className="flex justify-end">
                     <XCircleIcon 
                         className="icons-small text-white"
                         onClick={() => setIsOpen(!isOpen)}
                     />
                 </div>
-                <SearchBar otherStyles="df" />
-                <ul className="block py-8">
+                <SearchBar otherStyles="block sm:hidden w-[100%] mt-4" />
+                <ul className="block py-4">
                     <li className="vertical-nav"><Link href="#">Home</Link></li>
                     <li className="vertical-nav"><Link href="#">Shop</Link></li>
                     <li className="vertical-nav"><Link href="#">Store</Link></li>
