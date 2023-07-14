@@ -8,16 +8,16 @@ const BottomBar = () => {
     const [categoryOpen, setCategoryOpen] = useState(true)
     
   return (
-    <div className="sm:mx-8 h-12 flex">
-      <div className="sm:w-[25%] w-[100%] h-[50px] sm:h-[65px] sm:mr-2 flex sm:block">
-        <div className="bg-primary flex h-[100%] items-center justify-center sm:px-8 w-[20%] sm:w-[100%]">
+    <div className="sm:mx-8 h-13 bg-secondary-500 flex border border-gray-300">
+      <div className="lg:w-[25%] md:w-[15%] w-[100%] h-[50px] sm:h-[65px] sm:mr-2 flex sm:block">
+        <div className="bg-primary flex h-[100%] items-center justify-center sm:px-8 w-[25%] sm:w-[100%]">
             <QueueListIcon 
                 className="icons-medium text-white" 
                 onClick={() => setCategoryOpen(!categoryOpen)}
             />
-            <p className="text-white text-[20px] ml-4 hidden sm:block">Browse Categories</p>
+            <p className="hidden lg:block text-white text-[20px] ml-4">Browse Categories</p>
         </div>
-        <div className={`${!categoryOpen ? "hidden" : "w-[80%] sm:w-[100%] flex sm:flex-col overflow-y-scroll sm:overflow-y-none"}`}>
+        <div className={`${!categoryOpen ? "hidden" : "flex sm:fixed w-[95%] md:opacity-90 md:w-[100%] sm:flex-col overflow-x-scroll h-[100%]"}`}>
             <div className="side-nav__items">
                 <p className="side-nav__p">Category One</p>
                 <ChevronRightIcon className="hidden sm:block icons-medium text-white" />
@@ -48,7 +48,7 @@ const BottomBar = () => {
             </div>
         </div>
       </div>
-      <div className="bg-secondary-500 w-[75%] sm:flex hidden h-[65px] justify-end items-center">
+      <div className="bg-secondary-500 w-[85%] lg:w-[75%] sm:flex hidden h-[65px] justify-end items-center">
         <ul className="flex">
             <li className="list-nav"><Link href="#">Home</Link></li>
             <li className="list-nav"><Link href="#">Shop</Link></li>
