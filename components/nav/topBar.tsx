@@ -1,15 +1,39 @@
 "use client"
 
-import { DropDown } from ".."
+import { DropDown, SearchBar } from ".."
 import { useState } from "react"
-import { HomeModernIcon } from "@heroicons/react/20/solid"
+import { HomeModernIcon, ListBulletIcon, XCircleIcon,  } from "@heroicons/react/20/solid"
+import Link from "next/link"
 
 const topBar = () => {
     const [selectedCurrency, setSelectedCurrency] = useState("USD")
     const [selectedLanguage, setSelectedLanguage] = useState("ENG")
+    const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="h-11 bg-secondary-800 flex-between px-3">
-        <div className="flex">
+        <div className="flex sm:hidden">
+            <ListBulletIcon 
+                className="icons-small text-white" 
+                onClick={() => setIsOpen(!isOpen)}
+            />
+            <div className={`${isOpen ? "fixed" : "hidden"} top-0 left-0 bg-secondary-800 h-[70%] w-[45%] opacity-[95%] py-2 px-4`}>
+                <div className="flex justify-end">
+                    <XCircleIcon 
+                        className="icons-small text-white"
+                        onClick={() => setIsOpen(!isOpen)}
+                    />
+                </div>
+                <SearchBar otherStyles="df" />
+                <ul className="block py-8">
+                    <li className="vertical-nav"><Link href="#">Home</Link></li>
+                    <li className="vertical-nav"><Link href="#">Shop</Link></li>
+                    <li className="vertical-nav"><Link href="#">Store</Link></li>
+                    <li className="vertical-nav"><Link href="#">Special Offers</Link></li>
+                    <li className="vertical-nav"><Link href="#">Account</Link></li>
+                </ul>
+            </div>
+        </div>
+        <div className="hidden sm:flex">
             <HomeModernIcon className="w-[18px] h-[18px] mr-2 text-white" />
             <p className="text-sm text-white">
                 Up to 70% off the entire store!
@@ -32,7 +56,7 @@ const topBar = () => {
                 elementStyles="flex justify-center px-4 py-2 text-sm"
                 dropdownElements={["ENG", "FRE", "POR"]}
             />
-            <a href="#" className="ml-2 text-sm text-white">Become an Affiliate</a>
+            <a href="#" className="ml-2 text-sm text-white hidden sm:block">Become an Affiliate</a>
         </div>
     </div>
   )

@@ -27,7 +27,7 @@ const Dropdown = ({ getter, setter, dropdownStyles, selectedStyles, elementStyle
       >
         <Menu.Items className={`${dropdownStyles}`}>
             {dropdownElements.map((element) => (
-                <div className="py-1">
+                <div className="py-1" key={element}>
                 <Menu.Item>
                   {({ active }) => (
                     <button

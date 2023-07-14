@@ -15,7 +15,7 @@ const people = [
   { id: 6, name: 'Hellen Schmidt' },
 ]
 
-export default function SearchBar() {
+export default function SearchBar({ otherStyles }: string) {
   const [selected, setSelected] = useState(people[0])
   const [query, setQuery] = useState('')
 
@@ -30,7 +30,7 @@ export default function SearchBar() {
         )
 
   return (
-    <div className="ml-8 w-[55vw]">
+    <div className="ml-8 w-[55vw] sm:block hidden">
       <Combobox value={selected} onChange={setSelected}>
         <div className="relative">
           <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
