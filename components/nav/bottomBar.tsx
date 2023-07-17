@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 const BottomBar = () => {
-    const [categoryOpen, setCategoryOpen] = useState(true)
+    const [categoryOpen, setCategoryOpen] = useState(false)
     
   return (
     <div className="sm:mx-8 h-13 bg-secondary-500 flex border border-gray-300">
