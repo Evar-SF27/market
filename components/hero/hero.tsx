@@ -35,9 +35,9 @@ const Hero = () => {
         </div>
       </div>
       <div className="w-[100%] flex gap-2 max-sm:flex-col">
-        <div className="bg-secondary-500 h-fit sm:w-[50%] w-[100%]">
+        <div className="bg-secondary-500 h-[250px] max-sm:h-fit sm:w-[50%] w-[100%]">
             <div className="flex max-sm:flex-col py-4 px-4">
-                <div className="flex flex-1 justify-center">
+                <div className="flex flex-2 justify-center">
                     <Image 
                         src="/images/discount.png"
                         alt="Discount"
@@ -45,7 +45,7 @@ const Hero = () => {
                         height={200}
                     />
                 </div>
-                <div className="flex flex-col flex-1 justify-center py-4 pl-2">
+                <div className="flex flex-col flex-1 justify-center py-4 pl-4">
                     <h3 className="font-bold text-[35px]">
                         Promos  & Offers
                     </h3>
@@ -60,7 +60,7 @@ const Hero = () => {
                 </div>
             </div>
         </div>
-        <div className="bg-secondary-800 h-fit sm:w-[50%] w-[100%]">
+        <div className="bg-secondary-800 h-[250px] max-sm:h-fit sm:w-[50%] w-[100%]">
             <div className="flex max-sm:flex-col py-4 px-4 items-center">
                 <div className="flex flex-1 justify-center mt-4">
                     <Image 

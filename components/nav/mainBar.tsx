@@ -3,7 +3,7 @@ import { SearchBar } from ".."
 
 const MainBar = () => {
   return (
-    <div className="max-sm:mx-2 mx-8 h-20 flex items-center justify-between">
+    <div className="max-sm:mx-2 mx-12 h-20 flex items-center justify-between">
         <div className="flex justify-between w-[70%]">
             <div className="w-[180px] max-sm:w-[90px] mr-2">
                 <h1 className="max-sm:text-[28px] text-[35px] sm:ml-0 ml-4 font-semibold h-[55px] flex items-center">

@@ -17,7 +17,7 @@ const BottomBar = () => {
             />
             <p className="hidden lg:block text-white text-[20px] ml-4">Browse Categories</p>
         </div>
-        <div className={`${!categoryOpen ? "hidden" : "flex sm:fixed w-[100%] sm:w-[35%] sm:opacity-90  sm:flex-col overflow-x-scroll h-[100%]"}`}>
+        <div className={`${!categoryOpen ? "hidden" : "flex sm:absolute w-[100%] sm:w-[35%] sm:opacity-90  sm:flex-col overflow-x-scroll h-[100%]"}`}>
             <div className="side-nav__items">
                 <p className="side-nav__p">Category One</p>
                 <ChevronRightIcon className="hidden sm:block icons-medium text-white" />
