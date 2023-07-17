@@ -31,7 +31,7 @@
     @apply h-[48px] w-[48px];
 }
 .list-nav {
-    @apply border-l text-white lg:px-8 px-6 text-[18px] font-semibold;
+    @apply border-l text-white lg:px-8 px-6 text-[12px] md:text-[18px] font-semibold;
 }
 .side-nav__items {
     @apply bg-secondary-500 border-b border-white h-[65px] flex items-center justify-between sm:px-8 px-2;

@@ -9,7 +9,7 @@ const BottomBar = () => {
     
   return (
     <div className="sm:mx-8 h-13 bg-secondary-500 flex border border-gray-300">
-      <div className="lg:w-[25%] md:w-[15%] w-[100%] h-[50px] sm:h-[65px] sm:mr-2 flex sm:block">
+      <div className="lg:w-[30%] sm:w-[15%] w-[100%] h-[50px] sm:h-[65px] sm:mr-2 flex sm:block">
         <div className="bg-primary flex h-[100%] items-center justify-center sm:px-8 w-[25%] sm:w-[100%]">
             <QueueListIcon 
                 className="icons-medium text-white" 
@@ -17,7 +17,7 @@ const BottomBar = () => {
             />
             <p className="hidden lg:block text-white text-[20px] ml-4">Browse Categories</p>
         </div>
-        <div className={`${!categoryOpen ? "hidden" : "flex sm:fixed w-[95%] md:opacity-90 md:w-[100%] sm:flex-col overflow-x-scroll h-[100%]"}`}>
+        <div className={`${!categoryOpen ? "hidden" : "flex sm:fixed w-[100%] sm:w-[35%] sm:opacity-90  sm:flex-col overflow-x-scroll h-[100%]"}`}>
             <div className="side-nav__items">
                 <p className="side-nav__p">Category One</p>
                 <ChevronRightIcon className="hidden sm:block icons-medium text-white" />
