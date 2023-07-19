@@ -7,7 +7,7 @@ const Login = () => {
         <Head>
             <title>Market | Sign In</title>
         </Head>
-        <div>
+        <div className="h-[100vh] bg-gray-200 overflow-y-scroll">
             <AuthForm />
         </div>
     </>
