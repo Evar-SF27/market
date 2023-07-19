@@ -1,9 +1,9 @@
 "use client"
 
-import { DropDown, SearchBar } from ".."
-import { useState } from "react"
-import { HomeModernIcon, ListBulletIcon, XCircleIcon,  } from "@heroicons/react/20/solid"
-import Link from "next/link"
+import { DropDown, SearchBar } from '..'
+import { useState } from 'react'
+import { HomeModernIcon, ListBulletIcon, XCircleIcon,  } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 const topBar = () => {
     const [selectedCurrency, setSelectedCurrency] = useState("USD")

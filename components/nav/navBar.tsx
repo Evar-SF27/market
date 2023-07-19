@@ -1,4 +1,4 @@
-import { BottomBar, MainBar, TopBar } from ".."
+import { BottomBar, MainBar, TopBar } from '..'
 
 const navBar = () => {
   return (

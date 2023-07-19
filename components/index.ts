@@ -4,6 +4,7 @@ export { default as NavBar } from "./nav/navBar"
 export { default as MainBar } from "./nav/mainBar"
 export { default as BottomBar } from "./nav/bottomBar"
 export { default as Hero } from "./hero/hero"
+export { default as AuthForm } from "./form/form"
 
 // Reusable Components
 export { default as DropDown } from "./dropDown/dropdown"

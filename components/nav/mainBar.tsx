@@ -1,5 +1,5 @@
-import { HeartIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/20/solid"
-import { SearchBar } from ".."
+import { HeartIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/20/solid'
+import { SearchBar } from '..'
 
 const MainBar = () => {
   return (

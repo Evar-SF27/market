@@ -1,9 +1,9 @@
 "use client"
 
-import { Fragment } from "react"
-import { Menu, Transition } from "@headlessui/react"
-import { DropDownProps } from "@/types"
-import { ChevronDownIcon } from "@heroicons/react/20/solid"
+import { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react'
+import { DropDownProps } from '@/types'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 
 const Dropdown = ({ getter, setter, dropdownStyles, selectedStyles, elementStyles, dropdownElements } : DropDownProps) => {
