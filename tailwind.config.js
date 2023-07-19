@@ -15,7 +15,7 @@ module.exports = {
         "black-100": "#2B2C35",
         "primary": {
           DEFAULT: "#FF007D",
-          100: "#F5F8FF",
+          100: "#DD0055",
         },
         "secondary": {
           100: "#EFEFEF",
