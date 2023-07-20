@@ -1,14 +1,22 @@
 import { HeartIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/20/solid'
 import { SearchBar } from '..'
+import Image from 'next/image'
 
 const MainBar = () => {
   return (
     <div className="max-sm:mx-2 mx-12 h-20 flex items-center justify-between">
         <div className="flex justify-between w-[70%]">
             <div className="w-[180px] max-sm:w-[90px] mr-2">
-                <h1 className="max-sm:text-[28px] text-[35px] sm:ml-0 ml-4 font-semibold h-[55px] flex items-center">
+                {/* <h1 className="max-sm:text-[28px] text-[35px] sm:ml-0 ml-4 font-semibold h-[55px] flex items-center">
                     MarketPlace
-                </h1>
+                </h1> */}
+                <Image 
+                    src="/images/logo.png"
+                    alt="logo"
+                    width={50}
+                    height={50}
+                    className="w-[250px] h-[90%]"
+                />
             </div>
             <div className="flex justify-center w-[100%]">
                 <SearchBar otherStyles="sm:block hidden ml-8 w-[100%]" />

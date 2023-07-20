@@ -53,10 +53,6 @@ const Hero = () => {
                         Register and Shop Now to benefit from the latest offers and exclusive offers from
                         shops in your area.
                     </p>
-                    <button className="flex justify-around mt-[20px] bg-primary w-[130px] py-[10px] px-[24px] hover:bg-primary-100 text-white text-[18px] font-semibold rounded-[10px]">
-                        Visit
-                        <ArrowRightIcon className="icons-small" />
-                    </button>
                 </div>
             </div>
         </div>
