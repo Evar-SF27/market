@@ -43,8 +43,12 @@
     @apply border-b border-white h-[50px] flex items-center justify-start text-white text-[18px] font-semibold;
 }
 .input {
-    @apply text-[18px] mx-2 px-2 bg-gray-50 w-[90%] h-[40px];
+    @apply text-[18px] mx-2 px-2 bg-gray-50 w-[90%] h-[40px] outline-none;
 }
 .input_container {
     @apply h-[55px] mb-4 flex items-center bg-gray-50 rounded-[5px];
+}
+
+.input_container:focus {
+    @apply border-2 border-primary;
 }
