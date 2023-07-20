@@ -1,10 +1,8 @@
-import dbConnect from "../../../config/dbConfig"
-import User from "../../../model/User"
+import User from "@/model/User"
 import bcrypt from "bcrypt"
 
-
 export default async function handler(req: any, res: any) {
-    dbConnect()
+    
     const { method } = req
     if (method !== 'POST') return res.status(405).json({ success: false, message: "Method not supported"})
 

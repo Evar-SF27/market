@@ -1,14 +1,12 @@
 "use server"
 
-import dbConnect from "../../../config/dbConfig"
-import User from "../../../model/User"
-import jwt, { JwtPayload, Secret } from "jsonwebtoken"
-import Cookies from "cookies"
-import dotenv from "dotenv"
+import User from '@/model/User'
+import jwt, { JwtPayload, Secret } from 'jsonwebtoken'
+import Cookies from 'cookies'
+import dotenv from 'dotenv'
 
 export default async function handler(req: any, res: any) {
     dotenv.config()
-    dbConnect()
 
     const ACCESS_KEY: Secret = process.env.JWT_ACCESS_SECRET_KEY!
     const REFRESH_KEY: Secret = process.env.JWT_REFRESH_SECRET_KEY!
