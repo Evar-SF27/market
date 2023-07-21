@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { Formik } from 'formik'
-import { axiosPrivate as axios } from '@/config/axios' 
+import axios from '@/config/axios' 
 import { useRouter } from 'next/navigation'
 import * as yup from 'yup'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/20/solid'
@@ -51,13 +51,18 @@ const Form = () => {
         try {
             const response = await axios.post(
                 "api/auth/register",
-                JSON.stringify(values)
+                JSON.stringify(values),
+                { 
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true
+                }
             )
 
             if(response) {
                 router.push("/")
             }
         } catch (err: any) {
+            console.log(err)
             if (!err?.response) {
                 setErrorMessage("No Server Response")
             } else if (err.response?.status === 409) {
@@ -76,7 +81,11 @@ const Form = () => {
         try {
             const response = await axios.post(
                 "api/auth/login",
-                JSON.stringify(values)
+                JSON.stringify(values),
+                { 
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true
+                }
             )
 
             if(response) {
@@ -88,6 +97,7 @@ const Form = () => {
                 router.push("/")
             }
         } catch (err: any) {
+            console.log(err)
             if (!err?.response) {
                 setErrorMessage(err.message)
             } else if (err.response?.status === 400) {
