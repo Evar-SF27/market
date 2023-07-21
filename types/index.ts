@@ -43,3 +43,9 @@ export interface ConnectionOptions {
     useUnifiedTopology: boolean,
     useNewUrlParser: boolean
 }
+
+export interface AuthState {
+    isAuth: boolean,
+    user: object,
+    access_token: string
+}

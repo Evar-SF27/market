@@ -1,6 +1,7 @@
 import dbConnect from '@/config/dbConfig'
 import type { Metadata } from 'next'
 import './globals.css'
+import { ReduxProvider } from '@/redux/provider'
 
 export const metadata: Metadata = {
   title: 'Market',
@@ -14,7 +15,9 @@ export default function RootLayout({ children, }: {
   return (
     <html lang="en">
       <body>
-        {children}
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   )

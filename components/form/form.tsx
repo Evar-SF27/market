@@ -1,11 +1,14 @@
 "use client"
 
-import { useState, useRef, LegacyRef } from 'react'
+import { useState, useRef } from 'react'
 import { Formik } from 'formik'
 import { axiosPrivate as axios } from '@/config/axios' 
 import { useRouter } from 'next/navigation'
 import * as yup from 'yup'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/20/solid'
+import { logIn, logOut } from '@/redux/features/authSlice'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '@/redux/store'
 
 const registerSchema = yup.object().shape({
     username: yup.string().required("Username is required"),
@@ -36,6 +39,7 @@ const Form = () => {
     const [toggledPassword, setToggledPassword] = useState(false)
 
     const router = useRouter()
+    const dispatch = useDispatch<AppDispatch>()
     // const userRef = useRef<HTMLInputElement | undefined>(null)
     // const legacyUserRef: LegacyRef = userRef
     const legacyErrorRef = useRef<HTMLDivElement>()
@@ -76,6 +80,11 @@ const Form = () => {
             )
 
             if(response) {
+                dispatch(logIn({
+                    user: response,
+                    access_token: response
+
+                }))
                 router.push("/")
             }
         } catch (err: any) {
