@@ -1,10 +1,13 @@
 import { HeartIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/20/solid'
 import { SearchBar } from '..'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '@/redux/store'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const MainBar = () => {
-    const isAuth = useSelector((state) => state.authReducer.isAuth)
+    const isAuth = useAppSelector((state) => state.authReducer.isAuth)
+    const access_token = useAppSelector((state) => state.authReducer.access_token)
+    const user = useAppSelector((state) => state.authReducer.user)
 
   return (
     <div className="max-sm:mx-2 mx-12 h-20 flex items-center justify-between">
@@ -32,7 +35,12 @@ const MainBar = () => {
                 </button>
                 <div className="mt-[20px] hidden sm:block">
                     <p className="text-sm">Hello</p>
-                    <p className="text-sm font-bold">Sign In</p>
+                    {isAuth ? (
+                        <p className="text-sm font-bold">{user?.username.length > 8 ? user?.username : user?.username.slice(0, 8) + "..."}</p>
+                    ) : (
+                        <Link href={`/signin`} className="text-sm font-bold">Sign In</Link>
+                    )}
+                    
                 </div>
             </div>
             <button className="mb-6">

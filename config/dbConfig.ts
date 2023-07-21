@@ -11,6 +11,8 @@ const dbConnect = async () => {
     serverSelectionTimeoutMS: 5000, 
   }
 
+  mongoose.connection.setMaxListeners(20)
+
   try {
     MONGODB_URI && (
       await mongoose.connect(MONGODB_URI, CONNECTION_OPTIONS)
