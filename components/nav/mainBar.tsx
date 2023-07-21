@@ -1,8 +1,11 @@
 import { HeartIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/20/solid'
 import { SearchBar } from '..'
+import { useSelector } from 'react-redux'
 import Image from 'next/image'
 
 const MainBar = () => {
+    const isAuth = useSelector((state) => state.authReducer.isAuth)
+
   return (
     <div className="max-sm:mx-2 mx-12 h-20 flex items-center justify-between">
         <div className="flex justify-between w-[70%]">
