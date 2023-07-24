@@ -1,23 +1,21 @@
-import dbConnect from '@/config/dbConfig'
-import type { Metadata } from 'next'
 import './globals.css'
-import { ReduxProvider } from '@/redux/provider'
+import { store } from '@/redux/store'
+import { Provider } from 'react-redux'
 
-export const metadata: Metadata = {
-  title: 'Market',
-  description: 'An Ecommerce web application',
-}
+// export const metadata: Metadata = {
+//   title: 'Market',
+//   description: 'An Ecommerce web application',
+// }
 
-export default function RootLayout({ children, }: {
+export default function RootLayout({ children }: {
   children: React.ReactNode
 }) {
-  dbConnect()
   return (
     <html lang="en">
       <body>
-        <ReduxProvider>
+        <Provider store={store}>
           {children}
-        </ReduxProvider>
+        </Provider>
       </body>
     </html>
   )

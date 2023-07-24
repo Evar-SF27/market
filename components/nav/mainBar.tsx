@@ -5,9 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const MainBar = () => {
-    const isAuth = useAppSelector((state) => state.authReducer.isAuth)
-    const access_token = useAppSelector((state) => state.authReducer.access_token)
-    const user = useAppSelector((state) => state.authReducer.user)
+    const isAuth = useAppSelector((state) => state.authReducer.value.isAuth)
+    const access_token = useAppSelector((state) => state.authReducer.value.access_token)
+    const user = useAppSelector((state) => state.authReducer.value.user)
 
   return (
     <div className="max-sm:mx-2 mx-12 h-20 flex items-center justify-between">

@@ -3,9 +3,11 @@ import bcrypt from 'bcrypt'
 import jwt, { Secret } from 'jsonwebtoken'
 import Cookies from 'cookies'
 import dotenv from 'dotenv'
+import dbConnect from '@/config/dbConfig'
 
 export default async function handler(req: any, res: any) {
     dotenv.config()
+    dbConnect()
     const { method } = req
 
     const ACCESS_KEY: Secret  = process.env.JWT_ACCESS_SECRET_KEY!

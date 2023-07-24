@@ -44,6 +44,10 @@ export interface ConnectionOptions {
     useNewUrlParser: boolean
 }
 
+export interface InitialState {
+    value: AuthState
+}
+
 export interface UserProps {
     username: string,
     email: string,

@@ -1,8 +1,11 @@
+import dbConnect from '@/config/dbConfig'
 import User from '@/model/User'
 import Cookies from 'cookies'
 
 
 export default async function handler(req: any, res: any) {
+    dbConnect()
+
     const { method } = req
     if (method !== 'GET') return res.status(405).json({ success: false, message: "Method not supported"})
 

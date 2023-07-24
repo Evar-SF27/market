@@ -19,6 +19,7 @@ const dbConnect = async () => {
     )
   } catch (err) {
     console.error(err)
+    return Promise.reject(err)
   }
 
   mongoose.connection.once('open', (_: any) => {
