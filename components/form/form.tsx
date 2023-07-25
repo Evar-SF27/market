@@ -89,9 +89,10 @@ const Form = () => {
             )
 
             if(response) {
+                console.log(response.data)
                 dispatch(logIn({
-                    user: response,
-                    access_token: response
+                    user: response.data.user,
+                    access_token: response.data.accessToken
 
                 }))
                 router.push("/")

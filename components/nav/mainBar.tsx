@@ -1,3 +1,5 @@
+"use client"
+
 import { HeartIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/20/solid'
 import { SearchBar } from '..'
 import { useAppSelector } from '@/redux/store'
@@ -28,15 +30,15 @@ const MainBar = () => {
                 <SearchBar otherStyles="sm:block hidden ml-8 w-[100%]" />
             </div>
         </div>
-        <div className="sm:w-[270px] w-[170px] flex justify-around mr-2">
+        <div className="sm:w-[270px] w-[200px] flex justify-around mr-2">
             <div className="flex">
                 <button>
                     <UserIcon className="text-secondary-900 icons-medium" />
                 </button>
-                <div className="mt-[20px] hidden sm:block">
+                <div className="mt-[20px] max-w-[400px]:hidden">
                     <p className="text-sm">Hello</p>
                     {isAuth ? (
-                        <p className="text-sm font-bold">{user?.username.length > 8 ? user?.username : user?.username.slice(0, 8) + "..."}</p>
+                        <p className="text-sm font-bold">{user?.username.length > 5 ? user?.username : user?.username.slice(0, 5) + "..."}</p>
                     ) : (
                         <Link href={`/signin`} className="text-sm font-bold">Sign In</Link>
                     )}
