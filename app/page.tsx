@@ -1,4 +1,4 @@
-import { Hero, NavBar } from '@/components'
+import { Hero, NavBar, Offers, Sales } from '@/components'
 import Image from 'next/image'
 
 export default function Home() {
@@ -7,6 +7,8 @@ export default function Home() {
       <NavBar />
       <main className="sm:px-8">
         <Hero />
+        <Offers />
+        <Sales />
       </main>
     </>
   )

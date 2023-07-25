@@ -18,7 +18,7 @@ const Hero = () => {
                     Gold Aluminum Case with Midnight Sport Band.
                     Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Water Resistant
                 </p>
-                <button className="flex justify-around items-center mt-[30px] bg-primary sm:w-[230px] w-[200px] py-4 px-[24px] hover:bg-primary-100 text-white sm:text-[28px] font-semibold rounded-[10px]">
+                <button className="flex justify-around items-center mt-[30px] bg-primary sm:w-[230px] w-[200px] py-4 px-[24px] hover:bg-primary-900 text-white sm:text-[28px] font-semibold rounded-[10px]">
                     Shop Now
                     <ShoppingBagIcon className="icons-small font-bold" />
                 </button>
@@ -35,13 +35,13 @@ const Hero = () => {
         </div>
       </div>
       <div className="w-[100%] flex gap-2 max-md:flex-col">
-        <div className="bg-secondary-500 min-h-[250px] h-fit md:w-[50%] w-[100%]">
+        <div className="bg-secondary-500 min-h-[250px] md:w-[50%] w-[100%]">
             <div className="flex max-sm:flex-col py-4 px-4">
                 <div className="flex flex-2 justify-center">
                     <Image 
                         src="/images/discount.png"
                         alt="Discount"
-                        width={200}
+                        width={160}
                         height={100}
                     />
                 </div>
@@ -56,7 +56,7 @@ const Hero = () => {
                 </div>
             </div>
         </div>
-        <div className="bg-secondary-800 min-h-[250px] h-fit md:w-[50%] w-[100%]">
+        <div className="bg-secondary-800 min-h-[250px] md:w-[50%] w-[100%]">
             <div className="flex max-sm:flex-col py-4 px-4 items-center">
                 <div className="flex flex-1 justify-center mt-4">
                     <Image 

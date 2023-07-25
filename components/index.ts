@@ -9,3 +9,5 @@ export { default as AuthForm } from "./form/form"
 // Reusable Components
 export { default as DropDown } from "./dropDown/dropdown"
 export { default as SearchBar } from "./searchBar/searchBar"
+export { default as Offers } from "./offers/offers"
+export { default as Sales } from "./sales/sales"
