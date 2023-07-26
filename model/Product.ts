@@ -28,6 +28,9 @@ const productSchema = new mongoose.Schema({
     quantity: {
         type: Number
     },
+    quantity_sold: {
+        type: Number,
+    },
     unit: {
         type: String,
     },
@@ -46,6 +49,10 @@ const productSchema = new mongoose.Schema({
     store: {
         type: String,
         required: true
+    },
+    photo_gallery: {
+        type: Map,
+        of: String
     }
 })
 

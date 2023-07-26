@@ -27,8 +27,7 @@ const topBar = () => {
                 <ul className="block py-4">
                     <li className="vertical-nav"><Link href="#">Home</Link></li>
                     <li className="vertical-nav"><Link href="#">Shop</Link></li>
-                    <li className="vertical-nav"><Link href="#">Store</Link></li>
-                    <li className="vertical-nav"><Link href="#">Special Offers</Link></li>
+                    <li className="vertical-nav"><Link href="/store">My Store</Link></li>
                     <li className="vertical-nav"><Link href="#">Account</Link></li>
                 </ul>
             </div>

@@ -26,6 +26,9 @@ const storeSchema = new mongoose.Schema({
         type: Map,
         of: String
     },
+    contact: {
+        type: String
+    },
     photo_url: {
         type: String
     }

@@ -52,8 +52,7 @@ const BottomBar = () => {
         <ul className="flex">
             <li className="list-nav"><Link href="#">Home</Link></li>
             <li className="list-nav"><Link href="#">Shop</Link></li>
-            <li className="list-nav"><Link href="#">Store</Link></li>
-            <li className="list-nav"><Link href="#">Special Offers</Link></li>
+            <li className="list-nav"><Link href="/store">My Store</Link></li>
             <li className="list-nav"><Link href="#">Account</Link></li>
         </ul>
       </div>
