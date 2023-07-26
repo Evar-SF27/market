@@ -14,7 +14,7 @@ const MainBar = () => {
   return (
     <div className="max-sm:mx-2 mx-12 h-20 flex items-center justify-between">
         <div className="flex justify-between w-[70%]">
-            <div className="w-[180px] max-sm:w-[90px] mr-2">
+            <div className="w-[200px] max-sm:w-[90px] mr-2">
                 {/* <h1 className="max-sm:text-[28px] text-[35px] sm:ml-0 ml-4 font-semibold h-[55px] flex items-center">
                     MarketPlace
                 </h1> */}
@@ -30,7 +30,7 @@ const MainBar = () => {
                 <SearchBar otherStyles="sm:block hidden ml-8 w-[100%]" />
             </div>
         </div>
-        <div className="sm:w-[270px] w-[200px] flex justify-around mr-2">
+        <div className="sm:w-[270px] w-[250px] flex justify-around mr-2">
             <div className="flex">
                 <button>
                     <UserIcon className="text-secondary-900 icons-medium" />

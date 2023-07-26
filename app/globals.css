@@ -60,3 +60,12 @@
 .offers {
     @apply flex items-center justify-center bg-secondary-100 w-[50%] max-sm:w-[90%] h-[140px] rounded-2xl px-2;
 }
+.category-bg {
+    @apply bg-secondary-100 p-4 rounded-[50%] mr-4 hover:bg-secondary-500 w-[200px] h-[190px] max-sm:w-[120px] max-sm:h-[110px];
+}
+.col-flex {
+    @apply flex flex-col items-center justify-center;
+}
+.row-flex {
+    @apply flex items-center justify-center;
+}

@@ -1,4 +1,4 @@
-import { Hero, NavBar, Offers, Sales } from '@/components'
+import { Categories, Hero, NavBar, Offers, Sales } from '@/components'
 import Image from 'next/image'
 
 export default function Home() {
@@ -9,6 +9,7 @@ export default function Home() {
         <Hero />
         <Offers />
         <Sales />
+        <Categories />
       </main>
     </>
   )
