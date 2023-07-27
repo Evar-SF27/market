@@ -1,6 +1,5 @@
 import dbConnect from '@/config/dbConfig'
 import Store from '@/model/Store'
-import { Query } from 'mongoose'
 
 export default async function handler(req: { body?: any; method?: any }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { success: boolean; message?: any; store?: any }): void; new(): any }; end: { (arg0: string): void; new(): any } }; sendHeader: (arg0: string, arg1: string[]) => void }) {
     dbConnect()

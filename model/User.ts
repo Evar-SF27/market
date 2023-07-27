@@ -1,10 +1,10 @@
 import mongoose from 'mongoose'
 
 var userSchema = new mongoose.Schema({
-    firstName: {
+    first_name: {
         type: String
     },
-    lastName: {
+    last_name: {
         type: String
     },
     username: {
@@ -19,9 +19,6 @@ var userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    gender: {
-        type: String
     },
     contact: {
         type: String
