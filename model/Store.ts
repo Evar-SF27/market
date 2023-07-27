@@ -5,6 +5,10 @@ const storeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    slug: {
+        type: String,
+        required: true
+    },
     user: {
         type: String,
         required: true
@@ -34,4 +38,5 @@ const storeSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.models.store || mongoose.model("store", storeSchema)
+var Store = mongoose.models.store || mongoose.model("store", storeSchema)
+export default Store
