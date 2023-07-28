@@ -5,9 +5,7 @@ import { Formik } from 'formik'
 import axios from '@/config/axios' 
 import { useRouter } from 'next/navigation'
 import * as yup from 'yup'
-import { useDispatch } from 'react-redux'
 import { useAppSelector } from '@/redux/store'
-import { AppDispatch } from '@/redux/store'
 
 const createSchema = yup.object().shape({
     store_name: yup.string().required("Store name is required"),
@@ -17,30 +15,44 @@ const createSchema = yup.object().shape({
     photo_url: yup.string().required("Photo URL is required"),
 })
 
-const initialValuesCreate = {
-  store_name: "",
-  location: "",
-  description: "",
-  contact: "",
-  photo_url: "",
-}
-
 const StoreForm = () => {
     const [errorMessage, setErrorMessage] = useState("")
+    const [store_name, setStore_name] = useState("")
+    const [location, setLocation] = useState("")
+    const [description, setDescription] = useState("")
+    const [contact, setContact] = useState("")
+    const [photo, setPhoto] = useState("")
+
     const user = useAppSelector((state) => state.authReducer.value.user)
 
     const router = useRouter()
 
-    const createStore = async (values: any, onSubmitProps: any) => {
+    const createStore = async (e: { preventDefault: () => void }) => {
+        e.preventDefault()
+        console.log("Creating Store")
+        const values = {
+            "store_name": store_name,
+            "slug": store_name.toLowerCase().split(" ").join("_"),
+            "location": location,
+            "description": description,
+            "contact": contact,
+            "user": user._id,
+            // "photo": photo
+        }
+        console.log(values)
         try {
             const response = await axios.post(
                 "api/store/store",
-                JSON.stringify(values),
+                values,
                 { 
                     headers: { "Content-Type": "application/json" },
                     withCredentials: true
                 }
             )
+
+            if (response) {
+                console.log(response)
+            }
         } catch (err: any) {
             console.log(err)
             if (!err?.response) {
@@ -50,13 +62,7 @@ const StoreForm = () => {
             } else {
                 setErrorMessage("Cannot create store")
             }
-        } finally {
-            onSubmitProps.resetForm()
         }
-    }
-
-    const handleFormSubmit = async (values: any, onSubmitProps: any) => {
-        createStore(values, onSubmitProps)
     }
 
     const resetError = () => {
@@ -75,90 +81,66 @@ const StoreForm = () => {
                         <p className="text-center">Complete the fields to create your e-commerce store</p>
                     </div>
                     <div>
-                        <Formik
-                            onSubmit={handleFormSubmit}
-                            initialValues={initialValuesCreate}
-                            validationSchema={createSchema}
-                        >
-                            {({ values, errors, touched, handleBlur, handleChange, handleSubmit, resetForm }) => (
-                                <form onSubmit={handleSubmit} encType="multipart/form-data">
-                                    <div className="mx-8">
-                                        <div className={`${!errorMessage && "hidden"} bg-red-100 rounded-[5px] h-fit py-4 px-4 mb-6 text-red-500`}>
-                                            <span className="text-red-600 font-bold">Error: </span>{errorMessage}
-                                        </div>
-                                        <input 
-                                            placeholder="Store Name"
-                                            className="input_2"
-                                            type="text"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            onClick={resetError}
-                                            value={values.store_name}
-                                            name="store_name"
-                                        />
-                                        <input 
-                                            placeholder="Location"
-                                            className="input_2"
-                                            type="text"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            onClick={resetError}
-                                            value={values.location}
-                                            name="location"
-                                        />
-                                        <input 
-                                            placeholder="Contact"
-                                            className="input_2"
-                                            type="text"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            onClick={resetError}
-                                            value={values.contact}
-                                            name="contact"
-                                        />
-                                        <input 
-                                            placeholder="User"
-                                            className="input_2 hidden"
-                                            type="text"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            onClick={resetError}
-                                            value={user._id}
-                                            name="user"
-                                        />
-                                        <textarea 
-                                            placeholder="Description"
-                                            className="input_2"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            onClick={resetError}
-                                            value={values.description}
-                                            name="description"
-                                        />
-                                        <div>
-                                          <label htmlFor="photo">Display Photo: </label>
-                                          <input 
-                                              placeholder="Photo"
-                                              className="mt-2 mb-8 mx-4"
-                                              type="file"
-                                              onBlur={handleBlur}
-                                              onChange={handleChange}
-                                              onClick={resetError}
-                                              value={values.photo_url}
-                                              name="photo"
-                                          />
-                                        </div>
-                                        <button
-                                            type="submit"
-                                            className="mt-8 bg-primary w-[100%] py-4 rounded-[5px] text-white text-[18px] font-semibold"
-                                        >
-                                            Create Store
-                                        </button>
-                                    </div>
-                                </form>
-                            )}
-
-                        </Formik>
+                        <form onSubmit={createStore} encType="multipart/form-data">
+                            <div className="mx-8">
+                                <div className={`${!errorMessage && "hidden"} bg-red-100 rounded-[5px] h-fit py-4 px-4 mb-6 text-red-500`}>
+                                    <span className="text-red-600 font-bold">Error: </span>{errorMessage}
+                                </div>
+                                <input 
+                                    placeholder="Store Name"
+                                    className="input_2"
+                                    type="text"
+                                    onChange={(e) => setStore_name(e.target.value)}
+                                    onClick={resetError}
+                                    value={store_name}
+                                    name="store_name"
+                                />
+                                <input 
+                                    placeholder="Location"
+                                    className="input_2"
+                                    type="text"
+                                    onChange={(e) => setLocation(e.target.value)}
+                                    onClick={resetError}
+                                    value={location}
+                                    name="location"
+                                />
+                                <input 
+                                    placeholder="Contact"
+                                    className="input_2"
+                                    type="text"
+                                    onChange={(e) => setContact(e.target.value)}
+                                    onClick={resetError}
+                                    value={contact}
+                                    name="contact"
+                                />
+                                <textarea 
+                                    placeholder="Description"
+                                    className="input_2"
+                                    onChange={(e) => setDescription(e.target.value)}
+                                    onClick={resetError}
+                                    value={description}
+                                    name="description"
+                                />
+                                <div>
+                                    <label htmlFor="photo">Display Photo: </label>
+                                    <input 
+                                        placeholder="Photo"
+                                        className="mt-2 mb-8 mx-4"
+                                        type="file"
+                                        onClick={resetError}
+                                        onChange={(e) => setPhoto(e.target.value)}
+                                        value={photo}
+                                        name="photo"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="mt-8 bg-primary w-[100%] py-4 rounded-[5px] text-white text-[18px] font-semibold"
+                                >
+                                    Create Store
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
