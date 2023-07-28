@@ -1,4 +1,5 @@
 import dbConnect from '@/config/dbConfig'
+import upload from '@/middlewares/multer'
 import Store from '@/model/Store'
 
 export default async function handler(req: { body?: any; method?: any }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { success: boolean; message?: any; store?: any }): void; new(): any }; end: { (arg0: string): void; new(): any } }; sendHeader: (arg0: string, arg1: string[]) => void }) {
@@ -12,6 +13,7 @@ export default async function handler(req: { body?: any; method?: any }, res: { 
             break
         case 'POST':
             const { method } = req
+            const file_name = upload.single("photo")
 
             try {
                 const { store_name, slug, user, location, description, contact, photo_url } = req.body
@@ -27,7 +29,7 @@ export default async function handler(req: { body?: any; method?: any }, res: { 
                     "location": location, 
                     "description": description, 
                     "contact": contact, 
-                    "photo_url": photo_url
+                    "photo_url": file_name
                 })
 
                 res.status(201).json({ success: true, message: `New Store ${store_name} created successfully!` })
