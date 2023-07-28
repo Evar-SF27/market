@@ -70,8 +70,6 @@ const Form = () => {
             } else {
                 setErrorMessage(err.message)
             }
-
-            // legacyErrorRef.current?.focus() 
         } finally {
             onSubmitProps.resetForm()
         }

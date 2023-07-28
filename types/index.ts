@@ -49,6 +49,7 @@ export interface InitialState {
 }
 
 export interface UserProps {
+    _id: string,
     username: string,
     email: string,
     store: Array<string>

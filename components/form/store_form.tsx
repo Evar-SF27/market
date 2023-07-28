@@ -5,8 +5,8 @@ import { Formik } from 'formik'
 import axios from '@/config/axios' 
 import { useRouter } from 'next/navigation'
 import * as yup from 'yup'
-import { logIn, logOut } from '@/redux/features/authSlice'
 import { useDispatch } from 'react-redux'
+import { useAppSelector } from '@/redux/store'
 import { AppDispatch } from '@/redux/store'
 
 const createSchema = yup.object().shape({
@@ -27,45 +27,29 @@ const initialValuesCreate = {
 
 const StoreForm = () => {
     const [errorMessage, setErrorMessage] = useState("")
+    const user = useAppSelector((state) => state.authReducer.value.user)
 
     const router = useRouter()
-    const dispatch = useDispatch<AppDispatch>()
 
     const createStore = async (values: any, onSubmitProps: any) => {
         try {
             const response = await axios.post(
-                "api/auth/login",
+                "api/store/store",
                 JSON.stringify(values),
                 { 
                     headers: { "Content-Type": "application/json" },
                     withCredentials: true
                 }
             )
-
-            if(response) {
-                console.log(response.data)
-                dispatch(logIn({
-                    user: response.data.user,
-                    access_token: response.data.accessToken
-
-                }))
-                router.push("/")
-            }
         } catch (err: any) {
             console.log(err)
             if (!err?.response) {
                 setErrorMessage(err.message)
-            } else if (err.response?.status === 400) {
-                setErrorMessage("Incomplete credentials: Username or Password is missing")
-            } else if (err.response?.status === 401) {
-                setErrorMessage("Unauthorised")
-            } else if (err.response?.status === 404) {
-                setErrorMessage("User not found")
+            } else if (err.response?.status === 409) {
+                setErrorMessage("Store already exists")
             } else {
-                setErrorMessage("Login failed")
+                setErrorMessage("Cannot create store")
             }
-
-            // legacyErrorRef.current?.focus() 
         } finally {
             onSubmitProps.resetForm()
         }
@@ -97,7 +81,7 @@ const StoreForm = () => {
                             validationSchema={createSchema}
                         >
                             {({ values, errors, touched, handleBlur, handleChange, handleSubmit, resetForm }) => (
-                                <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleSubmit} encType="multipart/form-data">
                                     <div className="mx-8">
                                         <div className={`${!errorMessage && "hidden"} bg-red-100 rounded-[5px] h-fit py-4 px-4 mb-6 text-red-500`}>
                                             <span className="text-red-600 font-bold">Error: </span>{errorMessage}
@@ -131,6 +115,16 @@ const StoreForm = () => {
                                             onClick={resetError}
                                             value={values.contact}
                                             name="contact"
+                                        />
+                                        <input 
+                                            placeholder="User"
+                                            className="input_2 hidden"
+                                            type="text"
+                                            onBlur={handleBlur}
+                                            onChange={handleChange}
+                                            onClick={resetError}
+                                            value={user._id}
+                                            name="user"
                                         />
                                         <textarea 
                                             placeholder="Description"
