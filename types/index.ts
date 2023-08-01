@@ -60,3 +60,7 @@ export interface AuthState {
     user: UserProps,
     access_token: string
 }
+
+export interface Props {
+    children: React.ReactNode
+}

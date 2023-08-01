@@ -6,6 +6,7 @@ export { default as BottomBar } from "./nav/bottomBar"
 export { default as Hero } from "./hero/hero"
 export { default as AuthForm } from "./form/form"
 export { default as Store } from "./store/store"
+export { default as ProtectedRoute } from "./layouts/protected"
 
 // Reusable Components
 export { default as DropDown } from "./dropDown/dropdown"

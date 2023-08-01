@@ -1,5 +1,6 @@
 "use client"
 
+import { ProtectedRoute } from '@/components'
 import './globals.css'
 import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
@@ -16,7 +17,9 @@ export default function RootLayout({ children }: {
     <html lang="en">
       <body>
         <Provider store={store}>
-          {children}
+          <ProtectedRoute>
+            {children}
+          </ProtectedRoute>
         </Provider>
       </body>
     </html>
