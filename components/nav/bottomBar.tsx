@@ -1,12 +1,14 @@
 "use client"
 
+import React, { useState } from 'react'
+import { useAppSelector } from '@/redux/store'
 import { ChevronRightIcon, QueueListIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
-import React, { useState } from 'react'
 
 const BottomBar = () => {
     const [categoryOpen, setCategoryOpen] = useState(false)
-    
+    const user = useAppSelector(state => state.authReducer.value.user)
+
   return (
     <div className="sm:mx-8 h-13 bg-secondary-500 flex border border-gray-300">
       <div className="lg:w-[30%] sm:w-[15%] w-[100%] h-[50px] sm:h-[65px] sm:mr-2 flex sm:block">
@@ -52,7 +54,7 @@ const BottomBar = () => {
         <ul className="flex">
             <li className="list-nav"><Link href="#">Home</Link></li>
             <li className="list-nav"><Link href="#">Shop</Link></li>
-            <li className="list-nav"><Link href="/store">My Store</Link></li>
+            {user && <li className="list-nav"><Link href="/store">My Store</Link></li>}
             <li className="list-nav"><Link href="#">Account</Link></li>
         </ul>
       </div>

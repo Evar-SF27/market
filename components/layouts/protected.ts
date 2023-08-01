@@ -1,19 +1,18 @@
 "use client"
 
-import { useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import { useAppSelector } from '@/redux/store'
 import { Props } from '@/types'
 
 
 const ProtectedLayout = ({ children }: Props) => {
-    const router = useRouter()
     const user = useAppSelector((state) => state.authReducer.value.user)
     var isAuthenticated = user ? true : false
 
     if (isAuthenticated) {
         return children
     } else {
-        router.push("/login")
+        redirect("/login")
     }
 
 }

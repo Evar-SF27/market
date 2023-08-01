@@ -4,7 +4,7 @@ import { AuthState, InitialState } from '@/types'
 const state = {
     value: {
         isAuth: false,
-        user: {},
+        user: null,
         access_token: ""
     } as AuthState  
 } as InitialState
