@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useAppSelector } from '@/redux/store'
 import { Props } from '@/types'
 
@@ -9,19 +8,12 @@ import { Props } from '@/types'
 const ProtectedLayout = ({ children }: Props) => {
     const router = useRouter()
     const user = useAppSelector((state) => state.authReducer.value.user)
-    var isAuthenticated = false
-
-    useEffect(() => {
-        isAuthenticated = Boolean(user)
-    }, [user])
+    var isAuthenticated = user ? true : false
 
     if (isAuthenticated) {
         return children
     } else {
-        router.push({
-            pathname: "/login",
-            query: { returnUrl: router.asPath }
-        })
+        router.push("/login")
     }
 
 }

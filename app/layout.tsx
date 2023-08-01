@@ -17,9 +17,10 @@ export default function RootLayout({ children }: {
     <html lang="en">
       <body>
         <Provider store={store}>
-          <ProtectedRoute>
+          {/* <ProtectedRoute>
             {children}
-          </ProtectedRoute>
+          </ProtectedRoute> */}
+          {children}
         </Provider>
       </body>
     </html>

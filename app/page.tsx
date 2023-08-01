@@ -1,15 +1,18 @@
-import { Categories, Hero, NavBar, Offers, Sales } from '@/components'
+import { Categories, Hero, NavBar, Offers, ProtectedRoute, Sales } from '@/components'
 
 export default function Home() {
   return (
-    <>
-      <NavBar />
-      <main className="sm:px-8">
-        <Hero />
-        <Offers />
-        <Sales />
-        <Categories />
-      </main>
-    </>
+    <ProtectedRoute>
+        <>
+          <NavBar />
+          <main className="sm:px-8">
+            <Hero />
+            <Offers />
+            <Sales />
+            <Categories />
+          </main>
+        </>
+    </ProtectedRoute>
+    
   )
 }
