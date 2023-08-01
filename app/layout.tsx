@@ -1,14 +1,10 @@
 "use client"
 
-import { ProtectedRoute } from '@/components'
 import './globals.css'
 import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
-
-// export const metadata: Metadata = {
-//   title: 'Market',
-//   description: 'An Ecommerce web application',
-// }
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
 
 export default function RootLayout({ children }: {
   children: React.ReactNode
@@ -17,10 +13,9 @@ export default function RootLayout({ children }: {
     <html lang="en">
       <body>
         <Provider store={store}>
-          {/* <ProtectedRoute>
+          <PersistGate loading={null} persistor={persistStore(store)}>
             {children}
-          </ProtectedRoute> */}
-          {children}
+          </PersistGate>
         </Provider>
       </body>
     </html>

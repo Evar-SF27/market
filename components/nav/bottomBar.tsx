@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const BottomBar = () => {
     const [categoryOpen, setCategoryOpen] = useState(false)
-    const user = useAppSelector(state => state.authReducer.value.user)
+    const user = useAppSelector(state => state.persistedAuthReducer.value.user)
 
   return (
     <div className="sm:mx-8 h-13 bg-secondary-500 flex border border-gray-300">
