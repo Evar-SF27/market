@@ -7,9 +7,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const MainBar = () => {
-    const isAuth = useAppSelector((state) => state.authReducer.value.isAuth)
-    const access_token = useAppSelector((state) => state.authReducer.value.access_token)
-    const user = useAppSelector((state) => state.authReducer.value.user)
+    const isAuth = useAppSelector((state) => state.persistedAuthReducer.value.isAuth)
+    const access_token = useAppSelector((state) => state.persistedAuthReducer.value.access_token)
+    const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
 
   return (
     <div className="max-sm:mx-2 mx-12 h-20 flex items-center justify-between">
@@ -38,7 +38,7 @@ const MainBar = () => {
                 <div className="mt-[20px] max-w-[400px]:hidden">
                     <p className="text-sm">Hello</p>
                     {isAuth ? (
-                        <p className="text-sm font-bold">{user?.username.length > 5 ? user?.username : user?.username.slice(0, 5) + "..."}</p>
+                        <p className="text-sm font-bold">{user && user?.username.length > 5 ? user?.username : user?.username.slice(0, 5) + "..."}</p>
                     ) : (
                         <Link href={`/signin`} className="text-sm font-bold">Sign In</Link>
                     )}

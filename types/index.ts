@@ -57,7 +57,7 @@ export interface UserProps {
 
 export interface AuthState {
     isAuth: boolean,
-    user: UserProps | null,
+    user: UserProps | null | undefined,
     access_token: string
 }
 

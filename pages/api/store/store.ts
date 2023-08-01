@@ -28,8 +28,7 @@ export default async function handler(req: { body?: any; method?: any }, res: { 
                     "user": user, 
                     "location": location, 
                     "description": description, 
-                    "contact": contact, 
-                    "photo_url": file_name
+                    "contact": contact
                 })
 
                 res.status(201).json({ success: true, message: `New Store ${store_name} created successfully!` })

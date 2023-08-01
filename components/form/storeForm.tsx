@@ -23,7 +23,7 @@ const StoreForm = () => {
     const [contact, setContact] = useState("")
     const [photo, setPhoto] = useState("")
 
-    const user = useAppSelector((state) => state.authReducer.value.user)
+    const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
 
     const router = useRouter()
 
@@ -36,8 +36,7 @@ const StoreForm = () => {
             "location": location,
             "description": description,
             "contact": contact,
-            "user": user._id,
-            // "photo": photo
+            "user": user && user._id,
         }
         console.log(values)
         try {
@@ -121,18 +120,6 @@ const StoreForm = () => {
                                     value={description}
                                     name="description"
                                 />
-                                <div>
-                                    <label htmlFor="photo">Display Photo: </label>
-                                    <input 
-                                        placeholder="Photo"
-                                        className="mt-2 mb-8 mx-4"
-                                        type="file"
-                                        onClick={resetError}
-                                        onChange={(e) => setPhoto(e.target.value)}
-                                        value={photo}
-                                        name="photo"
-                                    />
-                                </div>
                                 <button
                                     type="submit"
                                     className="mt-8 bg-primary w-[100%] py-4 rounded-[5px] text-white text-[18px] font-semibold"

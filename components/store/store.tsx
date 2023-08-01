@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Store = () => {
+const StoreFront = () => {
   return (
     <div>
       Store
@@ -8,4 +8,4 @@ const Store = () => {
   )
 }
 
-export default Store
+export default StoreFront
