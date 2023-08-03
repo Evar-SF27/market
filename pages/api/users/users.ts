@@ -1,4 +1,3 @@
-// import { NextResponse } from 'next/server'
 import dbConnect from '@/config/dbConfig'
 import User from '@/model/User'
 

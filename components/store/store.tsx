@@ -1,9 +1,10 @@
-import React from 'react'
+import { StorePoster } from "@/components"
 
 const StoreFront = () => {
   return (
-    <div>
-      Store
+    <div className="">
+      <StorePoster />
+      <div></div>
     </div>
   )
 }

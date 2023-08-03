@@ -1,19 +1,9 @@
 "use client"
 
 import { useState } from 'react'
-import { Formik } from 'formik'
 import axios from '@/config/axios' 
 import { useRouter } from 'next/navigation'
-import * as yup from 'yup'
 import { useAppSelector } from '@/redux/store'
-
-const createSchema = yup.object().shape({
-    store_name: yup.string().required("Store name is required"),
-    location: yup.string().required("Location is required"),
-    description: yup.string().required("Description is required"),
-    contact: yup.string().required("Contact is required"),
-    photo_url: yup.string().required("Photo URL is required"),
-})
 
 const StoreForm = () => {
     const [errorMessage, setErrorMessage] = useState("")
@@ -21,7 +11,6 @@ const StoreForm = () => {
     const [location, setLocation] = useState("")
     const [description, setDescription] = useState("")
     const [contact, setContact] = useState("")
-    const [photo, setPhoto] = useState("")
 
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
 
