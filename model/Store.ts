@@ -19,12 +19,11 @@ const storeSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        unique: true,
         required: true
     },
     rating: {
-        type: Float32Array,
-        required: true
+        type: Number,
+        default: 0
     },
     subscribers: {
         type: Map,

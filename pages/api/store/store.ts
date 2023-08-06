@@ -11,33 +11,33 @@ export default async function handler(req: { body?: any; method?: any }, res: { 
             const stores = await Store.find()
             res.status(200).json({ success: true, message: stores })
             break
-        case 'POST':
-            const { method } = req
-            const file_name = upload.single("photo")
+        // case 'POST':
+        //     const { method } = req
 
-            try {
-                const { store_name, slug, user, location, description, contact, photo_url } = req.body
-                if (!store_name || !slug || !user || !location || !description || !contact ) return res.status(401).json({ success: false, message: "Incomplete credentials" })
+        //     try {
+        //         const { store_name, slug, user, location, description, contact } = req.body
+        //         if (!store_name || !slug || !user || !location || !description || !contact ) return res.status(401).json({ success: false, message: "Incomplete credentials" })
                 
-                const store = await Store.findOne({ slug }).exec()
-                if (store) return res.status(409).json({ success: false, message: "Store already exists" })
+        //         const store = await Store.findOne({ slug }).exec()
+        //         if (store) return res.status(409).json({ success: false, message: "Store already exists" })
 
-                await Store.create({
-                    "store_name": store_name,
-                    "slug": slug,
-                    "user": user, 
-                    "location": location, 
-                    "description": description, 
-                    "contact": contact
-                })
+        //         await Store.create({
+        //             "store_name": store_name,
+        //             "slug": slug,
+        //             "user": user, 
+        //             "location": location, 
+        //             "description": description, 
+        //             "contact": contact
+        //         })
 
-                res.status(201).json({ success: true, message: `New Store ${store_name} created successfully!` })
+        //         res.status(201).json({ success: true, message: `New Store ${store_name} created successfully!` })
 
-            } catch (error: any) {
-                res.status(500).json({ success: false, message: error.message })
-            }
+        //     } catch (error: any) {
+        //         console.log(error)
+        //         res.status(500).json({ success: false, message: error.message })
+        //     }
             
-            break
+        //     break
         case 'PUT':
             var { id } = req.body
             if (!id) return res.status(401).json({ success: false, message: "Unauthorised: ID required" })
