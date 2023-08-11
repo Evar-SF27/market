@@ -2,42 +2,28 @@ import dbConnect from '@/config/dbConfig'
 import upload from '@/middlewares/multer'
 import Store from '@/model/Store'
 
-export default async function handler(req: { body?: any; method?: any }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { success: boolean; message?: any; store?: any }): void; new(): any }; end: { (arg0: string): void; new(): any } }; sendHeader: (arg0: string, arg1: string[]) => void }) {
+export default async function handler(req: {
+    params: { id: any; slug: any; }; body?: any; method?: any 
+}, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { success: boolean; message?: any; store?: any }): void; new(): any }; end: { (arg0: string): void; new(): any } }; sendHeader: (arg0: string, arg1: string[]) => void }) {
     dbConnect()
     const { method } = req
 
     switch(method) {
         case 'GET':
-            const stores = await Store.find()
-            res.status(200).json({ success: true, message: stores })
-            break
-        // case 'POST':
-        //     const { method } = req
-
-        //     try {
-        //         const { store_name, slug, user, location, description, contact } = req.body
-        //         if (!store_name || !slug || !user || !location || !description || !contact ) return res.status(401).json({ success: false, message: "Incomplete credentials" })
-                
-        //         const store = await Store.findOne({ slug }).exec()
-        //         if (store) return res.status(409).json({ success: false, message: "Store already exists" })
-
-        //         await Store.create({
-        //             "store_name": store_name,
-        //             "slug": slug,
-        //             "user": user, 
-        //             "location": location, 
-        //             "description": description, 
-        //             "contact": contact
-        //         })
-
-        //         res.status(201).json({ success: true, message: `New Store ${store_name} created successfully!` })
-
-        //     } catch (error: any) {
-        //         console.log(error)
-        //         res.status(500).json({ success: false, message: error.message })
-        //     }
-            
-        //     break
+            var { id, slug } = req.body;
+            if (id) {
+                const stores = await Store.findOne({_id: id}).exec()
+                res.status(200).json({ success: true, message: stores })
+                break
+            } else if (slug) {
+                const stores = await Store.find({slug})
+                res.status(200).json({ success: true, message: stores })
+                break
+            } else {
+                const stores = await Store.find()
+                res.status(200).json({ success: true, message: stores })
+                break
+            }
         case 'PUT':
             var { id } = req.body
             if (!id) return res.status(401).json({ success: false, message: "Unauthorised: ID required" })

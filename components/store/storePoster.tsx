@@ -3,15 +3,18 @@ import Image from 'next/image'
 
 const StorePoster = () => {
   return (
-    <div className="mx-4 flex border-b pb-8">
+    <div className="mx-4 md:flex border-b pb-8">
         <div className="flex-2">
           <Image 
             src="/images/discount.png"
             alt="Store Photo URL"
             width={200}
             height={200}
-            className="bg-secondary-500 rounded-xl"
+            className="bg-secondary-500 rounded-xl max-md:mx-8"
           />
+          {/* <form action="" method="">
+            <input type="file" placeholder="Upload Image" />
+          </form> */}
         </div>
         <div className="flex-1 mx-8">
           <h1 className="text-[48px] font-bold text-primary">Store Name</h1>

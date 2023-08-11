@@ -1,10 +1,10 @@
-import { StorePoster } from "@/components"
+import { StoreDashboard, StorePoster } from "@/components"
 
 const StoreFront = () => {
   return (
     <div className="">
       <StorePoster />
-      <div></div>
+      <StoreDashboard />
     </div>
   )
 }
