@@ -15,15 +15,16 @@ module.exports = {
       colors: {
         "black-100": "#2B2C35",
         "primary": {
-          DEFAULT: "#FF007D",
-          100: "#E53F6F25",
-          900: "#DD0055"
+          DEFAULT: "#FF2148FF",
+          100: "#FF214822",
+          // 900: "#DD0055"
+          900: "#E94B3CFF"
         },
         "secondary": {
-          100: "#EFEFEF",
-          500: "#C3C3C3",
-          800: "#B0B0B0",
-          900: "#90900"
+          100: "#DFDFDF",
+          500: "#B3B3B3",
+          800: "#909090",
+          900: "#888888"
         }
       },
       screens: {
