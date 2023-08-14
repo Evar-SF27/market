@@ -5,13 +5,23 @@ import { useState } from 'react'
 
 const StoreDashboard = () => {
     const [active, setActive] = useState("")
+    const [searchValue, setSearchValue] = useState("")
   return (
     <div>
-        <div className="bg-secondary-800 h-[50px] flex">
-            <h1 className="flex items-center text-white font-bold mx-4 text-[18px]"><span><UserIcon className="icons-small mr-2" /></span>Admin Panel</h1>
+        <div className="bg-secondary-800 h-[80px] flex items-center justify-between px-4">
+            <h1 className="flex items-center text-white font-bold mx-4 text-[26px]">Admin Dashboard</h1>
+            <div className="w-[80%] flex justify-end">
+                <input 
+                    className="w-[65%] text-[20px] h-[50px] px-4 rounded-tl-xl rounded-bl-xl" 
+                    placeholder="Search..." 
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                />
+                <button className="w-[120px] text-[20px] text-white h-[50px] rounded-tr-xl rounded-br-xl bg-primary">Search</button>
+            </div>  
         </div>
         <div className="flex">
-            <div className="w-[25%] border-r-2">
+            <div className="w-[30%] border-r-2">
                 <nav className="border-b-[40px] border-secondary-800">
                     <p className="store_nav" onClick={() => setActive("categories")}>Categories<span>0</span></p>
                     <p className="store_nav" onClick={() => setActive("products")}>Products<span>0</span></p>
@@ -30,7 +40,7 @@ const StoreDashboard = () => {
                     <input type="range" />
                 </div>
             </div>
-            <div className="w-[75%]">
+            <div className="w-[70%]">
                 {
                     active == "categories" 
                     ? <p>Categories</p>
