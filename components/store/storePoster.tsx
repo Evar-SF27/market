@@ -1,7 +1,36 @@
+"use client"
+
+import axios from '@/config/axios'
 import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
+import { useState } from 'react'
 
 const StorePoster = () => {
+  const [image, setImage] = useState("")
+
+  const uploadImage = async (e: { preventDefault: () => void }) => {
+    e.preventDefault()
+    const values = {
+      "image": image,
+  }
+    try {
+      const response = await axios.post(
+          "api/upload/image",
+          values,
+          { 
+              headers: { "Content-Type": "application/json" },
+              withCredentials: true
+          }
+      )
+
+      if (response) {
+          console.log(response)
+      }
+  } catch (err: any) {
+      console.log(err)
+  }
+
+  }
   return (
     <div className="sm:mx-4 md:flex border-b pb-8">
         <div className="flex-2">
@@ -12,9 +41,14 @@ const StorePoster = () => {
             height={200}
             className="bg-secondary-500 rounded-xl max-md:mx-8"
           />
-          {/* <form action="" method="">
-            <input type="file" placeholder="Upload Image" />
-          </form> */}
+          {/* <input 
+              type="file" 
+              name="image" 
+              placeholder="Upload Image" 
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+          />
+          <button onClick={uploadImage}>Upload</button> */}
         </div>
         <div className="flex-1 sm:mx-8 mx-4">
           <h1 className="md:text-[44px] text-[36px] font-bold text-primary">Store Name</h1>

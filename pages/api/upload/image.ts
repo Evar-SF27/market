@@ -4,9 +4,8 @@ import upload from '@/middlewares/multer'
 export default async function handler (req: any, res: any) {
     dbConnect()
 
-    var { method, file } = req
+    var { method, image } = req
     if (method != "POST") return res.status(400).json({ success: false, message: "Method is not allowed"})
-    if (!file) return res.status(400).json({ success: false, message: "There is no file attached"})
 
 
     var uploadImage = upload.single("image")
