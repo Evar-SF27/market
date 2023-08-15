@@ -1,2 +1,0 @@
-start_local_server: brew services start mongodb-community@6.0
-stop_local_server: brew services stop mongodb-community@6.0
