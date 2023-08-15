@@ -13,6 +13,7 @@ export { default as SearchBar } from "./searchBar/searchBar"
 export { default as Offers } from "./offers/offers"
 export { default as Sales } from "./sales/sales"
 export { default as Categories } from "./category/category"
+export { default as UserCategories } from "./category/categoryView"
 
 // Store Components
 export { default as StoreFront } from "./store/store"

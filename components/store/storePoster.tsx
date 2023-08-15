@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const StorePoster = () => {
   return (
-    <div className="mx-4 md:flex border-b pb-8">
+    <div className="sm:mx-4 md:flex border-b pb-8">
         <div className="flex-2">
           <Image 
             src="/images/discount.png"
@@ -16,14 +16,14 @@ const StorePoster = () => {
             <input type="file" placeholder="Upload Image" />
           </form> */}
         </div>
-        <div className="flex-1 mx-8">
-          <h1 className="text-[48px] font-bold text-primary">Store Name</h1>
+        <div className="flex-1 sm:mx-8 mx-4">
+          <h1 className="md:text-[44px] text-[36px] font-bold text-primary">Store Name</h1>
           <div className="flex flex-col">
           <div className="flex">
             <div>
-              <h3 className="text-[16px] font-semibold text-[#555555]">@store owner username</h3>
-              <p className="text-[16px] text-[#555555]">Location: Malingo, Buea.</p>
-              <p className="text-[16px] text-[#555555]">Tel: (XXX) XXX-XXX-XXX</p>
+              <h3 className="text-[14px] font-semibold text-[#555555]">@store owner username</h3>
+              <p className="text-[14px] text-[#555555]">Location: Malingo, Buea.</p>
+              <p className="text-[14px] text-[#555555]">Tel: (XXX) XXX-XXX-XXX</p>
             </div>
             <div className="pl-[20%]">
               <p className="stats"><span>00</span>Subscribers</p>
