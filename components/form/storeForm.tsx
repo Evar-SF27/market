@@ -4,6 +4,9 @@ import { useState } from 'react'
 import axios from '@/config/axios' 
 import { useRouter } from 'next/navigation'
 import { useAppSelector } from '@/redux/store'
+import { AppDispatch } from '@/redux/store'
+import { useDispatch } from 'react-redux'
+import { registerStore } from '@/redux/features/authSlice'
 
 const StoreForm = () => {
     const [errorMessage, setErrorMessage] = useState("")
@@ -11,9 +14,10 @@ const StoreForm = () => {
     const [location, setLocation] = useState("")
     const [description, setDescription] = useState("")
     const [contact, setContact] = useState("")
+    const [photo, setPhoto] = useState("")
 
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
-
+    const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
 
     const createStore = async (e: { preventDefault: () => void }) => {
@@ -26,11 +30,11 @@ const StoreForm = () => {
             "description": description,
             "contact": contact,
             "user": user && user._id,
+            "image": photo
         }
-        console.log(values)
         try {
             const response = await axios.post(
-                "api/store/store",
+                "http://localhost:5000/store/create",
                 values,
                 { 
                     headers: { "Content-Type": "application/json" },
@@ -39,7 +43,8 @@ const StoreForm = () => {
             )
 
             if (response) {
-                console.log(response)
+                dispatch(registerStore({ store: response.data.store._id }))
+                // router.push("#")
             }
         } catch (err: any) {
             console.log(err)
@@ -101,6 +106,16 @@ const StoreForm = () => {
                                     value={contact}
                                     name="contact"
                                 />
+                                <div className="mb-4">
+                                    <label htmlFor="store_poster" className="mr-4">Store Poster:</label>
+                                    <input 
+                                        placeholder="Choose Store Poster"
+                                        type="file"
+                                        onChange={(e) => setPhoto(e.target.value)}
+                                        onClick={resetError}
+                                        name="image"
+                                    />
+                                </div>
                                 <textarea 
                                     placeholder="Description"
                                     className="input_2"
