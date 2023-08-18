@@ -47,6 +47,11 @@ export interface ConnectionOptions {
 export interface InitialState {
     value: AuthState
 }
+export interface InitialStoreState {
+    store: StoreProps,
+    loading: 'idle' | 'pending' | 'succeeded' | 'failed'
+}
+
 
 export interface UserProps {
     _id: string,
@@ -64,4 +69,17 @@ export interface AuthState {
 
 export interface Props {
     children: React.ReactNode
+}
+
+export interface StoreProps {
+    id: string,
+    store_name: String,
+    slug: String,
+    user: String,
+    location: String,
+    description: String,
+    rating: Number,
+    subscribers: Array<string>,
+    contact: String,
+    photo_url: String
 }
