@@ -6,40 +6,31 @@ import { useAppSelector } from '@/redux/store'
 import { QueueListIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import React, { useState, useEffect } from 'react'
 
-interface IdProps {
-    id: string
-}
-
 const StoreDashboard = () => {
     const [store, setStore] = useState({})
     const [active, setActive] = useState("")
     const [searchValue, setSearchValue] = useState("")
     const [toggledMenu, setToggledMenu] = useState(false)
 
-    // const fetchStore = async () => {
-    //     try {
-    //         const store = useAppSelector((state) => state.persistedAuthReducer.value?.store)
-    //         const value = {
-    //             id: store[0]
-    //         }
-    //         const response = await axios.get(
-    //             "http:localhost:5000/store",
-    //             // value,
-    //             {
-    //                 headers: { "Content-Type": "application/json" },
-    //                 withCredentials: true
-    //             }
+    const fetchStore = async () => {
+        try {
+            const store = useAppSelector((state) => state.persistedAuthReducer.value?.store)
+            const store_id = store[0]
+            const response = await axios.get(
+                "/store",
+                {
+                    params: { id: store_id },
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true
+                }
+            )
+            console.log(response.data.message)
+        } catch (err: any) {
+            console.log(err.message)
+        }
+    }
 
-    //         )
-    //     } catch (err) {
-    //         console.error(err)
-    //     }
-    //     console.log(store)
-    // }
-
-    // useEffect(() => {
-    //     fetchStore()
-    // }, [])
+    fetchStore()
   return (
     <div>
         <div className="bg-secondary-800 h-[60px] flex items-center justify-between px-4">
@@ -100,3 +91,5 @@ const StoreDashboard = () => {
 }
 
 export default React.memo(StoreDashboard)
+
+
