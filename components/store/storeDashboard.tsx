@@ -1,16 +1,14 @@
 "use client"
 
-import { getStoreById } from '@/apis'
 import { UserCategories } from '@/components'
-import { StoreProps } from '@/types'
 import { QueueListIcon, XMarkIcon } from '@heroicons/react/20/solid'
-import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import React, { useState, useEffect } from 'react'
 
 const StoreDashboard = () => {
     const [active, setActive] = useState("")
     const [searchValue, setSearchValue] = useState("")
     const [toggledMenu, setToggledMenu] = useState(false)
+
   return (
     <div>
         <div className="bg-secondary-800 h-[60px] flex items-center justify-between px-4">

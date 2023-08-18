@@ -49,7 +49,7 @@ export interface InitialState {
 }
 export interface InitialStoreState {
     store: StoreProps,
-    loading: 'idle' | 'pending' | 'succeeded' | 'failed'
+    status: 'idle' | 'pending' | 'succeeded' | 'failed'
 }
 
 
