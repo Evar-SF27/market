@@ -1,35 +1,17 @@
 "use client"
 
 import axios from '@/config/axios'
+import { AppDispatch } from '@/redux/store'
 import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteStore } from '@/redux/features/authSlice'
 
 const StorePoster = () => {
-  const [image, setImage] = useState("")
-
-  const uploadImage = async (e: { preventDefault: () => void }) => {
-    e.preventDefault()
-    const values = {
-      "image": image,
-  }
-    try {
-      const response = await axios.post(
-          "api/upload/image",
-          values,
-          { 
-              headers: { "Content-Type": "application/json" },
-              withCredentials: true
-          }
-      )
-
-      if (response) {
-          console.log(response)
-      }
-  } catch (err: any) {
-      console.log(err)
-  }
-
+  const dispatch = useDispatch<AppDispatch>()
+  const deleteStoreState = () => {
+    console.log("Pressed")
+    dispatch(deleteStore)
   }
   return (
     <div className="sm:mx-4 md:flex border-b pb-8">
@@ -41,17 +23,6 @@ const StorePoster = () => {
             height={200}
             className="bg-secondary-500 rounded-xl max-md:mx-8"
           />
-          <form action="api/upload/image" method="post" encType="multipart/form-data">
-            <input 
-                type="file" 
-                name="image" 
-                placeholder="Upload Image" 
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-            />
-            <button type="submit">Upload</button>
-          </form>
-          
           
         </div>
         <div className="flex-1 sm:mx-8 mx-4">
@@ -80,7 +51,7 @@ const StorePoster = () => {
               <PencilIcon className="icons-x-small" />
               Edit Store
             </button>
-            <button className="flex bg-primary w-[130px] h-[50px] p-2 rounded-xl text-white justify-around items-center text-[15px]">
+            <button className="flex bg-primary w-[130px] h-[50px] p-2 rounded-xl text-white justify-around items-center text-[15px]" onClick={deleteStoreState} >
               <TrashIcon className="icons-x-small" />
               Delete Store
             </button>

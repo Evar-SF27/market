@@ -34,7 +34,7 @@ const StoreForm = () => {
         }
         try {
             const response = await axios.post(
-                "store/create",
+                "/store/create",
                 values,
                 { 
                     headers: { "Content-Type": "application/json" },
