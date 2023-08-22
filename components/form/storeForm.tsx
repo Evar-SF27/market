@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from '@/config/axios' 
 import { useRouter } from 'next/navigation'
 import { useAppSelector } from '@/redux/store'
@@ -17,12 +17,17 @@ const StoreForm = () => {
     const [photo, setPhoto] = useState("")
 
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
+    var store = useAppSelector((state) => state.persistedAuthReducer.value.store)
+    var hasStore = store.length == 0 || undefined
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
 
+    useEffect(() => {
+        !hasStore && router.push("/store")
+    }, [])
+
     const createStore = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
-        console.log("Creating Store")
         const values = {
             "store_name": store_name,
             "slug": store_name.toLowerCase().split(" ").join("_"),
@@ -44,10 +49,9 @@ const StoreForm = () => {
 
             if (response) {
                 dispatch(registerStoreId({ store: response.data.store._id }))
-                // router.push("#")
+                router.push("/store")
             }
         } catch (err: any) {
-            console.log(err)
             if (!err?.response) {
                 setErrorMessage(err.message)
             } else if (err.response?.status === 409) {

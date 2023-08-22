@@ -4,11 +4,13 @@ import { DropDown, SearchBar } from '..'
 import { useState } from 'react'
 import { HomeModernIcon, ListBulletIcon, XCircleIcon,  } from '@heroicons/react/20/solid'
 import Link from 'next/link'
+import { useAppSelector } from '@/redux/store'
 
 const topBar = () => {
     const [selectedCurrency, setSelectedCurrency] = useState("USD")
     const [selectedLanguage, setSelectedLanguage] = useState("ENG")
     const [isOpen, setIsOpen] = useState(false)
+    const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
   return (
     <div className="h-11 bg-secondary-800 flex-between px-3">
         <div className="flex sm:hidden">
@@ -27,7 +29,7 @@ const topBar = () => {
                 <ul className="block py-4">
                     <li className="vertical-nav"><Link href="#">Home</Link></li>
                     <li className="vertical-nav"><Link href="#">Shop</Link></li>
-                    <li className="vertical-nav"><Link href="/store">My Store</Link></li>
+                    {user && <li className="vertical-nav"><Link href="/create_store">My Store</Link></li>}
                     <li className="vertical-nav"><Link href="#">Account</Link></li>
                 </ul>
             </div>

@@ -90,8 +90,8 @@ const Form = () => {
                 console.log(response.data)
                 dispatch(logIn({
                     user: response.data.user,
-                    access_token: response.data.accessToken
-
+                    access_token: response.data.accessToken,
+                    store: response.data.store
                 }))
                 router.push("/")
             }

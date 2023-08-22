@@ -47,5 +47,5 @@ const storeSlice = createSlice({
         }
 })
 
-export const {} = storeSlice.actions
+export const { registerStore } = storeSlice.actions
 export default storeSlice.reducer

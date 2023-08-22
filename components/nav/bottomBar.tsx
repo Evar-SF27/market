@@ -54,7 +54,7 @@ const BottomBar = () => {
         <ul className="flex">
             <li className="list-nav"><Link href="#">Home</Link></li>
             <li className="list-nav"><Link href="#">Shop</Link></li>
-            {user && <li className="list-nav"><Link href="/store">My Store</Link></li>}
+            {user && <li className="list-nav"><Link href="/create_store">My Store</Link></li>}
             <li className="list-nav"><Link href="#">Account</Link></li>
         </ul>
       </div>
