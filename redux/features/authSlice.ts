@@ -23,7 +23,7 @@ export const auth = createSlice({
             state.value.access_token = action.payload.access_token
             state.value.store = action.payload.store
         },
-        registerStore: (state, action: PayloadAction<any>) => {
+        registerStoreId: (state, action: PayloadAction<any>) => {
             state.value.store = [action.payload.store]
             
         },
@@ -33,5 +33,5 @@ export const auth = createSlice({
     }
 })
 
-export const { logIn, logOut, registerStore, deleteStore } = auth.actions
+export const { logIn, logOut, registerStoreId, deleteStore } = auth.actions
 export default auth.reducer

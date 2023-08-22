@@ -1,16 +1,16 @@
 import axios from '@/config/axios'
 import { InitialStoreState } from '@/types'
-import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
 
 const storeAdapter = createEntityAdapter()
 
 const fetchStoreById = createAsyncThunk(
     'store/fetchStore',
-    async (storeId: String) => {
+    async () => {
       const response = await axios.get(
         "/store",
         {
-            params: { id: storeId },
+            // params: { id: storeId },
             headers: { "Content-Type": "application/json" },
             withCredentials: true
         }
@@ -27,7 +27,11 @@ const state = {
 const storeSlice = createSlice({
     name: "Store",
     initialState: state,
-    reducers: {},
+    reducers: {
+        registerStore: (state, action: PayloadAction<any>) => {
+            state.store = action.payload.store
+        }
+    },
     extraReducers(builder) {
         builder
             .addCase(fetchStoreById.pending, (state) => {
@@ -37,7 +41,7 @@ const storeSlice = createSlice({
                 state.status = 'succeeded'
                 state.store = action.payload
             })
-            .addCase(fetchStoreById.rejected, (state, action) => {
+            .addCase(fetchStoreById.rejected, (state) => {
                 state.status = 'failed'
             })
         }

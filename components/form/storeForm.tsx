@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useAppSelector } from '@/redux/store'
 import { AppDispatch } from '@/redux/store'
 import { useDispatch } from 'react-redux'
-import { registerStore } from '@/redux/features/authSlice'
+import { registerStoreId } from '@/redux/features/authSlice'
 
 const StoreForm = () => {
     const [errorMessage, setErrorMessage] = useState("")
@@ -43,7 +43,7 @@ const StoreForm = () => {
             )
 
             if (response) {
-                dispatch(registerStore({ store: response.data.store._id }))
+                dispatch(registerStoreId({ store: response.data.store._id }))
                 // router.push("#")
             }
         } catch (err: any) {
