@@ -2,17 +2,16 @@
 
 import { UserCategories } from '@/components'
 import { AppDispatch, useAppSelector } from '@/redux/store'
+import { StoreProps } from '@/types'
 import { QueueListIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import fetchStoreById  from '@/redux/features/storeSlice'
 
 const StoreDashboard = () => {
     const [active, setActive] = useState("")
     const [searchValue, setSearchValue] = useState("")
     const [toggledMenu, setToggledMenu] = useState(false)
     const dispatch = useDispatch<AppDispatch>()
-    const store = useAppSelector((state) => state.persistedAuthReducer.value.store)[0]
 
   return (
     <div>

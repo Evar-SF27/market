@@ -1,13 +1,16 @@
 "use client"
 
 import React, { useState } from 'react'
-import { useAppSelector } from '@/redux/store'
+import { AppDispatch, useAppSelector } from '@/redux/store'
 import { ChevronRightIcon, QueueListIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
+import { logOut } from '@/redux/features/authSlice'
+import { useDispatch } from 'react-redux'
 
 const BottomBar = () => {
     const [categoryOpen, setCategoryOpen] = useState(false)
     const user = useAppSelector(state => state.persistedAuthReducer.value.user)
+    const dispatch = useDispatch<AppDispatch>()
 
   return (
     <div className="sm:mx-8 h-13 bg-secondary-500 flex border border-gray-300">
@@ -56,6 +59,7 @@ const BottomBar = () => {
             <li className="list-nav"><Link href="#">Shop</Link></li>
             {user && <li className="list-nav"><Link href="/create_store">My Store</Link></li>}
             <li className="list-nav"><Link href="#">Account</Link></li>
+            <li onClick={() => dispatch(logOut())}>Logout</li>
         </ul>
       </div>
     </div>

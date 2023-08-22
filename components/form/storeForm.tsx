@@ -18,12 +18,11 @@ const StoreForm = () => {
 
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
     var store = useAppSelector((state) => state.persistedAuthReducer.value.store)
-    var hasStore = store.length == 0 || undefined
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
 
     useEffect(() => {
-        !hasStore && router.push("/store")
+        store != null && router.push(`/store/${store}`)
     }, [])
 
     const createStore = async (e: { preventDefault: () => void }) => {
@@ -49,7 +48,7 @@ const StoreForm = () => {
 
             if (response) {
                 dispatch(registerStoreId({ store: response.data.store._id }))
-                router.push("/store")
+                router.push(`/store/?_id=${response.data.store._id}`)
             }
         } catch (err: any) {
             if (!err?.response) {

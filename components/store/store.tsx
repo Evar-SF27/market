@@ -1,9 +1,10 @@
 import { StoreDashboard, StorePoster } from '@/components'
+import { StoreProps } from '@/types'
 
-const StoreFront = () => {
+const StoreFront = ({ store }: StoreProps | any) => {
   return (
     <div className="">
-      <StorePoster />
+      <StorePoster store={store}/>
       <StoreDashboard />
     </div>
   )

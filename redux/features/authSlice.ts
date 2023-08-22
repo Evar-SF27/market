@@ -6,7 +6,7 @@ const state = {
         isAuth: false,
         user: null,
         access_token: "",
-        store: []
+        store: null
     } as AuthState  
 } as InitialState
 
@@ -28,7 +28,7 @@ export const auth = createSlice({
             
         },
         deleteStore: (state) => {
-            state.value.store = []
+            state.value.store = null
         },
     }
 })

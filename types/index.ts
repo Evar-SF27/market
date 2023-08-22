@@ -64,7 +64,7 @@ export interface AuthState {
     isAuth: boolean,
     user: UserProps | null | undefined,
     access_token: string,
-    store: Array<string>
+    store: Array<string> | null
 }
 
 export interface Props {

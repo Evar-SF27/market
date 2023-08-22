@@ -50,7 +50,7 @@ const Form = () => {
     const register = async (values: any, onSubmitProps: any) => {
         try {
             const response = await axios.post(
-                "api/auth/register",
+                "auth/register",
                 JSON.stringify(values),
                 { 
                     headers: { "Content-Type": "application/json" },
@@ -78,7 +78,7 @@ const Form = () => {
     const login = async (values: any, onSubmitProps: any) => {
         try {
             const response = await axios.post(
-                "api/auth/login",
+                "auth/login",
                 JSON.stringify(values),
                 { 
                     headers: { "Content-Type": "application/json" },
