@@ -48,7 +48,7 @@ const StoreForm = () => {
 
             if (response) {
                 dispatch(registerStoreId({ store: response.data.store._id }))
-                router.push(`/store/?_id=${response.data.store._id}`)
+                router.push(`/store/${response.data.store._id}`)
             }
         } catch (err: any) {
             if (!err?.response) {
@@ -73,7 +73,7 @@ const StoreForm = () => {
                 
                 <div>
                     <div className="flex flex-col items-center justify-center py-8">
-                        <h1 className="text-primary font-bold text-[3rem] max-sm:text-[2.5rem]">Market Place</h1>
+                        <h1 className="text-primary font-bold text-[3rem] max-sm:text-[2.5rem]">Market Place Store</h1>
                         <p className="text-center">Complete the fields to create your e-commerce store</p>
                     </div>
                     <div>

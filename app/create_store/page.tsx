@@ -8,10 +8,7 @@ const CreateStore = () => {
     console.log(store)
 
   return (
-    <>
-        <StoreHeader />
-        <StoreForm />
-    </>
+    <StoreForm />
   )
 }
 

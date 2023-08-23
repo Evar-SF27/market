@@ -24,7 +24,7 @@ export const auth = createSlice({
             state.value.store = action.payload.store
         },
         registerStoreId: (state, action: PayloadAction<any>) => {
-            state.value.store = [action.payload.store]
+            state.value.store = action.payload.store
             
         },
         deleteStore: (state) => {
