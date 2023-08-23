@@ -94,5 +94,5 @@ export interface CategoryProps {
 
 export interface StorePageProps {
     store: StoreProps,
-    categories: CategoryProps
+    categories: Array<CategoryProps>
 }
