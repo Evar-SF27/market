@@ -1,5 +1,7 @@
 // import { MouseEventHandler } from 'react'
 
+import Category from "@/components/category/category"
+
 // export interface CustomButtonProps {
 //     title: string,
 //     containerStyles: string,
@@ -72,7 +74,7 @@ export interface Props {
 }
 
 export interface StoreProps {
-    id: string,
+    id: String,
     store_name: String,
     slug: String,
     user: String,
@@ -82,4 +84,15 @@ export interface StoreProps {
     subscribers: Array<string>,
     contact: String,
     photo_url: String
+}
+
+export interface CategoryProps {
+    id: String,
+    category_name: String,
+    category_slug: String
+}
+
+export interface StorePageProps {
+    store: StoreProps,
+    categories: CategoryProps
 }

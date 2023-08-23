@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 const BottomBar = () => {
     const [categoryOpen, setCategoryOpen] = useState(false)
     const user = useAppSelector(state => state.persistedAuthReducer.value.user)
+    const store = useAppSelector(state => state.persistedAuthReducer.value.store)
     const dispatch = useDispatch<AppDispatch>()
 
   return (
@@ -57,7 +58,7 @@ const BottomBar = () => {
         <ul className="flex">
             <li className="list-nav"><Link href="#">Home</Link></li>
             <li className="list-nav"><Link href="#">Shop</Link></li>
-            {user && <li className="list-nav"><Link href="/create_store">My Store</Link></li>}
+            {user && <li className="list-nav"><Link href={store == null ? "/create_store" : `store/${store}`}>My Store</Link></li>}
             <li className="list-nav"><Link href="#">Account</Link></li>
             <li onClick={() => dispatch(logOut())}>Logout</li>
         </ul>

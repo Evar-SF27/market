@@ -1,5 +1,6 @@
 import { StoreFront, StoreHeader } from '@/components'
-import axios from '@/config/axios'
+import { fetchCategories } from '@/services/categories'
+import { fetchStoreById } from '@/services/store'
 
 
 interface PageProps {
@@ -7,26 +8,13 @@ interface PageProps {
 }
 
 const Store = async ({ params }: PageProps) => {
-    
-    const fetchStore = async () => {
-      const storeId = params.id
-      const response = await axios.get(
-        "/store",
-        {
-            params: { id: storeId },
-            headers: { "Content-Type": "application/json" },
-            withCredentials: true
-        }
-    )
-      return response.data.message
-    }
-
-    const store = await fetchStore()
+  const store = await fetchStoreById(params.id)
+  const categories = await fetchCategories()
 
   return (
     <>
         <StoreHeader />
-        <StoreFront store={store[0]} />
+        <StoreFront store={store[0]} categories={categories} />
     </>
   )
 }

@@ -7,26 +7,28 @@ import { QueueListIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-const StoreDashboard = () => {
+const StoreDashboard = ({ store }: StoreProps | any) => {
     const [active, setActive] = useState("")
     const [searchValue, setSearchValue] = useState("")
     const [toggledMenu, setToggledMenu] = useState(false)
+    const user = useAppSelector(state => state.persistedAuthReducer.value.user)
     const dispatch = useDispatch<AppDispatch>()
+    const checkStatus = user && user._id == store.user
 
   return (
     <div>
         <div className="bg-secondary-800 h-[60px] flex items-center justify-between px-4">
-            <h1 className="max-sm:hidden flex items-center text-white font-bold mx-4 text-[26px]">Admin Dashboard</h1>
             {!toggledMenu ? 
                 <QueueListIcon 
-                    className="icons-medium text-white" 
+                    className="icons-medium text-white -mr-2 flex items-center" 
                     onClick={() => setToggledMenu(true)}
                 /> : 
                 <XMarkIcon 
-                    className="icons-medium text-white" 
+                    className="icons-medium text-white flex items-center" 
                     onClick={() => setToggledMenu(false)}
                 />}
-            <div className="w-[80%] flex justify-end">
+                {checkStatus && <p className="max-sm:hidden flex items-center text-white font-bold mx-4 text-[20px]">Admin Dashboard</p>}
+            <div className="w-[70%] flex justify-end">
                 <input 
                     className="w-[65%] text-[16px] h-[40px] px-4 rounded-tl-xl rounded-bl-xl" 
                     placeholder="Search..." 
