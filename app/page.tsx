@@ -1,6 +1,8 @@
 import { Categories, Hero, NavBar, Offers, ProtectedRoute, Sales } from '@/components'
+import { fetchCategories } from '@/services/categories'
 
-export default function Home() {
+export default async function Home() {
+  const { categories } = await fetchCategories()
   return (
     <ProtectedRoute>
         <>
@@ -9,7 +11,7 @@ export default function Home() {
             <Hero />
             <Offers />
             <Sales />
-            <Categories />
+            <Categories categories={categories} />
           </main>
         </>
     </ProtectedRoute>

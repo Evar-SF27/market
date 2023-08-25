@@ -8,16 +8,11 @@ interface PageProps {
 
 const Store = async ({ params }: PageProps) => {
   const store = await fetchStoreById(params.id)
-  // const categories = await fetchCategories()
-  const props = {
-    store: store[0],
-    categories: null
-  }
 
   return (
     <>
         <StoreHeader />
-        <StoreFront props={props} />
+        <StoreFront store={store} />
     </>
   )
 }

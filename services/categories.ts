@@ -1,17 +1,24 @@
 import axios from '@/config/axios'
 
 const fetchCategories = async () => {
+    var categories = null
+    var products = null
+    var stores = null
     try {
         const response = await axios.get(
             "/category",
         )
 
-        return response
+        categories = response.data.message
     } catch (err: any) {
         console.error(err.message)
     }
 
-    return null
+    return {
+        categories: categories,
+        products: products,
+        stores: stores
+    }
 }
 
 const fetchCategoriesById = async (category_id: String) => {
@@ -23,7 +30,7 @@ const fetchCategoriesById = async (category_id: String) => {
             }
         )
 
-        return response
+        return response.data.message
     } catch (err: any) {
         console.error(err.message)
     }
@@ -40,7 +47,7 @@ const fetchCategoriesBySlug = async (category_slug: String) => {
             }
         )
 
-        return response
+        return response.data.message
     } catch (err: any) {
         console.error(err.message)
     }
