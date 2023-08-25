@@ -20,11 +20,11 @@ const StoreDashboard = ({ store }: StoreProps | any) => {
         <div className="bg-secondary-800 h-[60px] flex items-center justify-between px-4">
             {!toggledMenu ? 
                 <QueueListIcon 
-                    className="icons-medium text-white -mr-2 flex items-center" 
+                    className="icons-medium text-white -mr-2 flex items-center sm:hidden" 
                     onClick={() => setToggledMenu(true)}
                 /> : 
                 <XMarkIcon 
-                    className="icons-medium text-white flex items-center" 
+                    className="icons-medium text-white flex items-center sm:hidden" 
                     onClick={() => setToggledMenu(false)}
                 />}
                 {checkStatus && <p className="max-sm:hidden flex items-center text-white font-bold mx-4 text-[20px]">Admin Dashboard</p>}
@@ -39,7 +39,7 @@ const StoreDashboard = ({ store }: StoreProps | any) => {
             </div>  
         </div>
         <div className="flex">
-            <div className={`${!toggledMenu && 'hidden'} sm:w-[30%] w-[50%] border-r-2`}>
+            <div className={`${!toggledMenu && 'max-sm:hidden'} sm:w-[30%] w-[50%] border-r-2`}>
                 <nav className="border-b-[40px] border-secondary-800">
                     <p className="store_nav" onClick={() => setActive("categories")}>Categories<span>0</span></p>
                     <p className="store_nav" onClick={() => setActive("products")}>Products<span>0</span></p>
