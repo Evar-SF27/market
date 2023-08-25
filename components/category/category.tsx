@@ -1,3 +1,5 @@
+"use client"
+
 import { setCategories } from '@/redux/features/categorySlice'
 import { AppDispatch } from '@/redux/store'
 import { CategoryProps } from '@/types'
@@ -8,7 +10,7 @@ import { useDispatch } from 'react-redux'
 const Category = ({ categories }: Array<CategoryProps> | any) => {
     const dispatch = useDispatch<AppDispatch>()
     const set = () => {
-        setCategories(categories)
+        dispatch(setCategories(categories))
     }
 
     set()

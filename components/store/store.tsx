@@ -8,11 +8,11 @@ import { useDispatch } from 'react-redux'
 
 const StoreFront = ({ store }: StoreProps | any) => {
   const dispatch = useDispatch<AppDispatch>()
-  const set = () => {
-    dispatch(registerStore(store))
+  const setStore = () => {
+    dispatch(registerStore(store[0]))
   }
 
-  set()
+  setStore()
   return (
     <div>
       <StorePoster store={store} />

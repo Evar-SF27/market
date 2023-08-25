@@ -11,7 +11,7 @@ const storeSlice = createSlice({
     initialState: state,
     reducers: {
         registerStore: (state, action: PayloadAction<any>) => {
-            state.store = action.payload.store
+            state.store = action.payload
         }
     }
 })
