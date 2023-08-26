@@ -1,6 +1,6 @@
 "use client"
 
-import { UserCategories } from '@/components'
+import { CategoryForm, UserCategories } from '@/components'
 import { AppDispatch, useAppSelector } from '@/redux/store'
 import { StoreProps } from '@/types'
 import { QueueListIcon, XMarkIcon } from '@heroicons/react/20/solid'
@@ -14,6 +14,22 @@ const StoreDashboard = ({ store }: StoreProps | any) => {
     const user = useAppSelector(state => state.persistedAuthReducer.value.user)
     const dispatch = useDispatch<AppDispatch>()
     const checkStatus = user && user._id == store.user
+
+    const setView = (active: String) => {
+        switch (active) {
+            case "categories":
+                return <UserCategories setActive={setActive} />
+            case "add-categories":
+                return <CategoryForm setActive={setActive} />
+            case "products":
+                return <p>Products</p>
+            case "add-products":
+                return <p>Add Products</p>
+            default:
+                return <p>Products</p>
+        }
+    }
+    
 
   return (
     <div>
@@ -59,15 +75,7 @@ const StoreDashboard = ({ store }: StoreProps | any) => {
                 </div>
             </div>
             <div className="w-[70%]">
-                {
-                    active == "categories" 
-                    ? <UserCategories />
-                    : (
-                        active == 'products' 
-                        ? <p>Products</p>
-                        : <p>Others</p>
-                    )
-                }
+                {setView(active)}
             </div>
         </div>
     </div>    

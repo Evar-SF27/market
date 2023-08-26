@@ -6,7 +6,7 @@ import { CategoryProps } from '@/types'
 import { Key } from 'react'
 import { useRouter } from 'next/navigation'
 
-const CategoryView = () => {
+const CategoryView = ({ setActive }: Function | any) => {
   const store = useAppSelector(state => state.persistedStoreReducer.store.user)
   const user = useAppSelector(state => state.persistedAuthReducer.value.user?._id)
   const router = useRouter()
@@ -38,7 +38,7 @@ const CategoryView = () => {
             })}
         </div>
       {isAdmin && <button 
-        onClick={() => console.log("Clicked")}
+        onClick={() => setActive("add-category")}
         className="px-6 py-4 bg-primary hover:bg-primary-900 text-white text-[16px] rounded-xl">Add Category</button>}
     </div>
   )

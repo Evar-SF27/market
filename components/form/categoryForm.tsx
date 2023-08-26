@@ -8,7 +8,7 @@ import { AppDispatch } from '@/redux/store'
 import { useDispatch } from 'react-redux'
 import { registerStoreId } from '@/redux/features/authSlice'
 
-const CategoryForm = () => {
+const CategoryForm = ({ setSActive }: Function | any) => {
     const [errorMessage, setErrorMessage] = useState("")
     const [category_name, setCategory_name] = useState("")
     const [photo, setPhoto] = useState("")
