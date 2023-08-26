@@ -1,13 +1,15 @@
 "use client"
 
+import Image from 'next/image'
 import { useAppSelector } from '@/redux/store'
 import { CategoryProps } from '@/types'
-import Image from 'next/image'
 import { Key } from 'react'
+import { useRouter } from 'next/navigation'
 
 const CategoryView = () => {
   const store = useAppSelector(state => state.persistedStoreReducer.store.user)
   const user = useAppSelector(state => state.persistedAuthReducer.value.user?._id)
+  const router = useRouter()
   const categories = useAppSelector(state =>  state.persistedCategoryReducer.categories)
   const isAdmin = store == user
   return (
@@ -17,10 +19,12 @@ const CategoryView = () => {
                 let key: Key = category.category_slug as Key
                 return (
                     <div key={key} className="col-flex-v">
-                        <div className="row-flex category-bg-v">
+                        <div 
+                        onClick={() => router.push('/')}
+                          className="row-flex category-bg-v">
                             <Image 
                                 src="/images/laptops.png"
-                                alt="category-one"
+                                alt={`${category.category_slug}`}
                                 width={150}
                                 height={150}
                             />
