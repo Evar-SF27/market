@@ -21,7 +21,7 @@ const Category = ({ categories }: Array<CategoryProps> | any) => {
             <h1 className="font-bold text-[46px] max-sm:text-[40px]">Top Categories</h1>
         </div>
         <div className="w-[90%] flex-wrap gap-4 my-8 flex justify-around max-sm:mx-2">
-            {categories.slice(0,4).map((category: CategoryProps) => {
+            {categories && categories.slice(0,4).map((category: CategoryProps) => {
                 let key: Key = category.category_slug as Key
                 return (
                     <div key={key} className="col-flex">
