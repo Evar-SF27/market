@@ -37,10 +37,10 @@
     @apply border-l text-white lg:px-8 px-6 text-[12px] md:text-[18px] font-semibold;
 }
 .side-nav__items {
-    @apply bg-secondary-100 border-b border-white h-[65px] flex items-center justify-between sm:px-8 px-2;
+    @apply bg-secondary-100 border-b border-white h-[62px] flex items-center justify-center sm:px-8 px-2;
 }
 .side-nav__p {
-    @apply text-white text-[18px] sm:w-fit w-[150px] mr-4 -mt-2 border-r sm:border-none;
+    @apply text-white text-[18px] sm:w-fit w-[90%] mr-8 -mt-2 border-r sm:border-none;
 }
 .vertical-nav {
     @apply border-b border-white h-[50px] flex items-center justify-start text-white text-[18px] font-semibold;

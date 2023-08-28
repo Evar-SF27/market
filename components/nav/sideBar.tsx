@@ -43,6 +43,18 @@ const CategorySideBar = () => {
                 <p className="side-nav__p">Category Seven</p>
                 <ChevronRightIcon className="hidden sm:block icons-medium text-white" />
             </div>
+            <div className="side-nav__items">
+                <p className="side-nav__p">Category Seven</p>
+                <ChevronRightIcon className="hidden sm:block icons-medium text-white" />
+            </div>
+            <div className="side-nav__items">
+                <p className="side-nav__p">Category Seven</p>
+                <ChevronRightIcon className="hidden sm:block icons-medium text-white" />
+            </div>
+            <div className="side-nav__items">
+                <p className="side-nav__p">Category Seven</p>
+                <ChevronRightIcon className="hidden sm:block icons-medium text-white" />
+            </div>
         </div>
       </div>
   )
