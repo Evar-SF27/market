@@ -13,7 +13,7 @@ const CategoryForm = ({ setSActive }: Function | any) => {
     const [category_name, setCategory_name] = useState("")
     const [photo, setPhoto] = useState("")
 
-    var store = useAppSelector((state) => state.persistedStoreReducer.store.id)
+    var store = useAppSelector((state) => state.persistedStoreReducer.store._id)
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
 
@@ -30,7 +30,7 @@ const CategoryForm = ({ setSActive }: Function | any) => {
         }
         try {
             const response = await axios.post(
-                "/store/create",
+                "/category",
                 values,
                 { 
                     headers: { "Content-Type": "application/json" },
@@ -57,15 +57,12 @@ const CategoryForm = ({ setSActive }: Function | any) => {
         setErrorMessage("")
     }
   return (
-    <div className="flex h-[100vh]">
-        <div className="flex-1 h-[100%] bg-primary max-lg:hidden">
-        </div>
-        <div className="flex-1 flex justify-center items-center h-[100%]">
-            <div className="flex flex-col h-[650px] bg-white max-lg:w-[70%] max-md:w-[90%] w-[90%]">
-                
+    <div className="h-[100%]">
+        <div className="flex justify-center items-center h-[100%]">
+            <div className="flex flex-col h-fit bg-white w-[100%]">
                 <div>
                     <div className="flex flex-col items-center justify-center py-8">
-                        <h1 className="text-primary font-bold text-[3rem] max-sm:text-[2.5rem]">Market Place Store</h1>
+                        <h1 className="text-primary font-bold text-[2rem] max-sm:text-[1.5rem]">Market Place Store</h1>
                         <p className="text-center">Complete the fields to create your e-commerce store</p>
                     </div>
                     <div>
@@ -75,7 +72,7 @@ const CategoryForm = ({ setSActive }: Function | any) => {
                                     <span className="text-red-600 font-bold">Error: </span>{errorMessage}
                                 </div>
                                 <input 
-                                    placeholder="Store Name"
+                                    placeholder="Category Name"
                                     className="input_2"
                                     type="text"
                                     onChange={(e) => setCategory_name(e.target.value)}
@@ -84,9 +81,9 @@ const CategoryForm = ({ setSActive }: Function | any) => {
                                     name="category_name"
                                 />
                                 <div className="mb-4">
-                                    <label htmlFor="store_poster" className="mr-4">Store Poster:</label>
+                                    <label htmlFor="category_name" className="mr-4">Category Image:</label>
                                     <input 
-                                        placeholder="Choose Store Poster"
+                                        placeholder="Choose Category Image"
                                         type="file"
                                         onChange={(e) => setPhoto(e.target.value)}
                                         onClick={resetError}

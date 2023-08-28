@@ -6,9 +6,14 @@ import { CategoryProps } from '@/types'
 import { Key } from 'react'
 import { useRouter } from 'next/navigation'
 
-const CategoryView = ({ setActive }: Function | any) => {
+interface PageProps {
+  setActive: Function | any,
+  isOpen: boolean,
+  closeModal: Function 
+}
+
+const CategoryView = ({ setActive, isOpen, closeModal }: PageProps) => {
   const s = useAppSelector(state => state.persistedAuthReducer.value.user)
-  console.log("s", s)
   const store = useAppSelector(state => state.persistedStoreReducer.store.user)
   const user = useAppSelector(state => state.persistedAuthReducer.value.user?._id)
   const router = useRouter()
@@ -41,7 +46,7 @@ const CategoryView = ({ setActive }: Function | any) => {
             })}
         </div>
       {isAdmin && <button 
-        onClick={() => setActive("add-category")}
+        onClick={() => closeModal(!isOpen)}
         className="px-6 py-4 bg-primary hover:bg-primary-900 text-white text-[16px] rounded-xl">Add Category</button>}
     </div>
   )

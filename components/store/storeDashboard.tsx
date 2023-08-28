@@ -1,25 +1,26 @@
 "use client"
 
-import { CategoryForm, UserCategories } from '@/components'
+import { AddCategoryModal, CategoryForm, UserCategories } from '@/components'
 import { AppDispatch, useAppSelector } from '@/redux/store'
-import { StoreProps } from '@/types'
 import { QueueListIcon, XMarkIcon } from '@heroicons/react/20/solid'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 const StoreDashboard = () => {
     const [active, setActive] = useState("")
     const [searchValue, setSearchValue] = useState("")
     const [toggledMenu, setToggledMenu] = useState(false)
+    const [showForm, setShowForm] = useState(false)
     const user = useAppSelector(state => state.persistedAuthReducer.value.user)
     const store = useAppSelector(state => state.persistedStoreReducer.store)
     const dispatch = useDispatch<AppDispatch>()
     const checkStatus = user && user._id == store.user
 
+
     const setView = (active: String) => {
         switch (active) {
             case "categories":
-                return <UserCategories setActive={setActive} />
+                return <UserCategories setActive={setActive} isOpen={showForm} closeModal={setShowForm} />
             case "add-categories":
                 return <CategoryForm setActive={setActive} />
             case "products":
@@ -33,7 +34,9 @@ const StoreDashboard = () => {
     
 
   return (
+
     <div>
+        <AddCategoryModal isOpen={showForm} closeModal={() => setShowForm(false)} />
         <div className="bg-secondary-800 h-[60px] flex items-center justify-between px-4">
             {!toggledMenu ? 
                 <QueueListIcon 

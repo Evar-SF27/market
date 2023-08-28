@@ -8,13 +8,13 @@ interface PageProps {
 
 const Store = async ({ params }: PageProps) => {
   var store = await fetchStoreById(params.id)
-  console.log("store", store)
+  console.log("Store Pg", store)
 
   return (
-    <>
+    <div className="w-full">
         <StoreHeader />
         <StoreFront store={store} />
-    </>
+    </div>
   )
 }
 

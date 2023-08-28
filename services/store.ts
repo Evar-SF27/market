@@ -9,8 +9,8 @@ const fetchStoreById = async (id: String) => {
       }
   )
     var store = response.data.message
-    store = store.filter((obj: StoreProps) => obj._id === id)
-
+    store = store.filter((obj: StoreProps) => obj._id == id)
+    
     return store[0]
   }
 

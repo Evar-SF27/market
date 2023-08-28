@@ -6,7 +6,7 @@ import { Props } from '@/types'
 
 
 const ProtectedLayout = ({ children }: Props) => {
-    const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
+    const user = useAppSelector((state) => state.persistedAuthReducer.value.isAuth)
     var isAuthenticated = user ? true : false
 
     if (isAuthenticated) {
