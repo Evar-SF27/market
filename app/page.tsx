@@ -8,11 +8,11 @@ export default async function Home() {
         <>
           <NavBar />
           <main className="sm:px-4">
-            <div className="w-[100%] flex justify-between">
-              <div className="w-[23%] mr-1 max-md:hidden">
+            <div className="w-full flex justify-between">
+              <div className="w-[25%] mr-1 max-md:hidden">
                 <CategorySideBar categories={categories.slice(0,9)} />
               </div>
-              <div className="w-[77%] max-md:w-[100%]">
+              <div className="w-[75%] max-md:w-[100%]">
                 <BottomBar />
                 <Hero />
               </div>

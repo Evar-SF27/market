@@ -12,25 +12,22 @@ const MainBar = () => {
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
 
   return (
-    <div className="max-sm:mx-2 mx-6 h-20 flex items-center justify-between">
-        <div className="flex justify-between w-[70%]">
-            <div className="w-[200px] max-sm:w-[90px] mr-2">
-                {/* <h1 className="max-sm:text-[28px] text-[35px] sm:ml-0 ml-4 font-semibold h-[55px] flex items-center">
-                    MarketPlace
-                </h1> */}
+    <div className="max-sm:mx-2 mx-6 h-24 flex items-center justify-between">
+        <div className="flex justify-between w-[77%]">
+            <div className="w-[250px] max-md:w-[120px] mr-2">
                 <Image 
                     src="/images/logo.png"
                     alt="logo"
-                    width={50}
-                    height={50}
+                    width={240}
+                    height={150}
                     className="w-[250px] h-[90%]"
                 />
             </div>
-            <div className="flex justify-center w-[100%]">
-                <SearchBar otherStyles="xs:block hidden ml-8 w-[100%]" />
+            <div className="flex justify-center items-center w-[75%]">
+                <SearchBar otherStyles="md:block hidden ml-8 w-full" />
             </div>
         </div>
-        <div className="sm:w-[270px] w-[250px] flex justify-around mr-2">
+        <div className="w-[260px] flex justify-around mr-2">
             <div className="flex">
                 <button>
                     <UserIcon className="text-secondary-900 icons-medium" />
@@ -47,14 +44,14 @@ const MainBar = () => {
             </div>
             <button className="mb-6">
                 <div className="relative inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary rounded-full top-[12px] left-4">
-                    20
+                    0
                 </div>
                 <HeartIcon className="text-secondary-900 icons-medium" />
             </button>
             <div className="flex">
                 <button className="mb-6">
                     <div className="relative inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary rounded-full top-[12px] left-4">
-                        20
+                        0
                     </div>
                     <ShoppingCartIcon className="text-secondary-900 icons-medium" />
                 </button>
