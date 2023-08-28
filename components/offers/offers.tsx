@@ -3,8 +3,8 @@ import React from 'react'
 
 const Offers = () => {
   return (
-    <div className="my-8 flex justify-center">
-      <div className="w-[100%] flex max-lg:flex-col items-center justify-center gap-4">
+    <div className="my-6 md:mx-4 flex justify-center">
+      <div className="w-[100%] flex max-lg:flex-col items-center justify-center gap-2">
         <div className="offers-box">
             <div className="offers">
                 <div className="icons-bg">

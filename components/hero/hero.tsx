@@ -11,8 +11,8 @@ const Hero = () => {
                 <p className="text-primary font-semibold uppercase text-[16px]">
                     Summer sale up to 70%
                 </p>
-                <h3 className="font-bold text-[28px] lg:text-[42px]">
-                    Apple Watch Series 8 [GPS 45mm] Smart Watch
+                <h3 className="font-bold text-[26px] lg:text-[40px]">
+                    Apple Watch Series 8 <br />[GPS 45mm] Smart Watch
                 </h3>
                 <p className="lg:text-[20px] text-[18px]">
                     Gold Aluminum Case with Midnight Sport Band.

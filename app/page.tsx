@@ -10,7 +10,7 @@ export default async function Home() {
           <main className="sm:px-4">
             <div className="w-[100%] flex justify-between">
               <div className="w-[23%] mr-1 max-md:hidden">
-                <CategorySideBar />
+                <CategorySideBar categories={categories.slice(0,9)} />
               </div>
               <div className="w-[77%] max-md:w-[100%]">
                 <BottomBar />
