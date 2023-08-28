@@ -15,25 +15,25 @@ const StorePoster = ({ store }: StoreProps | any) => {
     console.log("Deleted")
   }
   return (
-    <div className="sm:mx-4 md:flex border-b pb-8">
+    <div className="sm:mx-4 md:flex border-b pb-8 bg-secondary-100 mb-4 p-8">
         <div className="flex-2">
           <Image 
             src="/images/discount.png"
-            alt="Store Photo URL"
-            width={200}
+            alt="Store Photo_URL"
+            width={300}
             height={200}
-            className="bg-secondary-500 rounded-xl max-md:mx-8"
+            className="bg-secondary-500 rounded-[50%] max-md:mx-8 border-4 border-secondary-900"
           />
           
         </div>
         <div className="flex-1 sm:mx-8 mx-4">
-          <h1 className="md:text-[44px] text-[36px] font-bold text-primary">{store.store_name}</h1>
+          <h1 className="md:text-[48px] text-[36px] font-bold text-primary">{store.store_name}</h1>
           <div className="flex flex-col">
-          <div className="flex">
+          <div className="flex mx-4">
             <div>
-              <h3 className="text-[14px] font-semibold text-[#555555]">@store owner username</h3>
-              <p className="text-[14px] text-[#555555]">{store.location}</p>
-              <p className="text-[14px] text-[#555555]">{store.contact}</p>
+              <h3 className="text-[18px] lg:text-[22px] font-semibold">@storeowner username</h3>
+              <p className="text-[16px] lg:text-[20px]">{store.location}</p>
+              <p className="text-[16px] lg:text-[20px]">{store.contact}</p>
             </div>
             <div className="pl-[20%]">
               <p className="stats"><span>00</span>Subscribers</p>
@@ -43,11 +43,11 @@ const StorePoster = ({ store }: StoreProps | any) => {
               <br/>
             </div>
           </div>
-          <div>
-            <h1 className="font-semibold">Description</h1>
-            <p className="text-[14px]">{store.description}</p>
+          <div className="mx-4">
+            <h1 className="font-semibold text-[20px]">Description</h1>
+            <p className="text-[16px] lg:text-[18px]">{store.description}</p>
           </div>
-          <div className="flex w-[250px] justify-between mt-4">
+          <div className="flex w-[250px] justify-between mt-4 mx-8">
             <button className="flex bg-primary w-[110px] h-[50px] p-2 rounded-xl text-white justify-around items-center text-[15px]">
               <PencilIcon className="icons-x-small" />
               Edit Store

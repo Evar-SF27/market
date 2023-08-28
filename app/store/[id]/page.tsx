@@ -1,5 +1,4 @@
 import { StoreFront, StoreHeader } from '@/components'
-import { fetchCategories } from '@/services/categories'
 import { fetchStoreById } from '@/services/store'
 
 interface PageProps {

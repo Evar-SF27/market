@@ -15,8 +15,8 @@ const StoreFront = ({ store }: StoreProps | any) => {
   setStore()
   return (
     <div>
-      <StorePoster store={store} />
-      <StoreDashboard store={store} />
+      <StorePoster store={store[0]} />
+      <StoreDashboard store={store[0]} />
     </div>
   )
 }
