@@ -9,10 +9,10 @@ export default async function Home() {
           <NavBar />
           <main className="sm:px-4">
             <div className="w-[100%] flex justify-between">
-              <div className="w-[25%] mr-1">
+              <div className="w-[25%] mr-1 max-md:hidden">
                 <CategorySideBar />
               </div>
-              <div className="w-[75%]">
+              <div className="w-[75%] max-md:w-[100%]">
                 <BottomBar />
                 <Hero />
               </div>

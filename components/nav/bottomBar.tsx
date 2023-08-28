@@ -13,7 +13,7 @@ const BottomBar = () => {
     const dispatch = useDispatch<AppDispatch>()
 
   return (
-    <div className="flex border">
+    <div className="flex">
       <div className="bg-secondary-500 w-[100%] sm:flex hidden h-[65px] justify-end items-center">
         <ul className="flex">
             <li className="list-nav"><Link href="#">Home</Link></li>

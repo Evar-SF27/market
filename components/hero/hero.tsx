@@ -4,21 +4,21 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className="flex flex-col gap-2 mt-1">
+    <div className="flex flex-col gap-2 mt-[2px]">
       <div className="flex items-center w-[100%] h-fit sm:h-[500px] bg-secondary-100">
         <div className="flex max-sm:flex-col py-12 px-4 items-center">
             <div className="flex flex-col flex-1 max-lg:pl-2 pl-8 justify-center">
                 <p className="text-primary font-semibold uppercase text-[16px]">
                     Summer sale up to 70%
                 </p>
-                <h3 className="font-bold text-[35px] lg:text-[48px]">
+                <h3 className="font-bold text-[28px] lg:text-[42px]">
                     Apple Watch Series 8 [GPS 45mm] Smart Watch
                 </h3>
-                <p className="lg:text-[22px] text-[20px]">
+                <p className="lg:text-[20px] text-[18px]">
                     Gold Aluminum Case with Midnight Sport Band.
                     Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Water Resistant
                 </p>
-                <button className="flex justify-around items-center mt-[30px] bg-primary sm:w-[230px] w-[200px] py-4 px-[24px] hover:bg-primary-900 text-white sm:text-[28px] font-semibold rounded-[10px]">
+                <button className="flex justify-around items-center mt-[30px] bg-primary w-[170px] py-4 px-[14px] hover:bg-primary-900 text-white sm:text-[22px] font-semibold rounded-[10px]">
                     Shop Now
                     <ShoppingBagIcon className="icons-small font-bold" />
                 </button>
@@ -27,8 +27,8 @@ const Hero = () => {
                 <Image 
                     src="/images/watch.png"
                     alt="Apple Smart Watch"
-                    width={350}
-                    height={300}
+                    width={330}
+                    height={270}
                     className="object-fit"
                 />
             </div>

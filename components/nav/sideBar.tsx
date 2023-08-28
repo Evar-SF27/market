@@ -14,7 +14,7 @@ const CategorySideBar = () => {
             />
             <p className="text-white text-[20px] ml-4">Browse Categories</p>
         </div>
-        <div className={`${!categoryOpen ? "hidden" : "flex w-[100%] mt-1 flex-col overflow-x-scroll"}`}>
+        <div className={`${!categoryOpen ? "hidden" : "flex w-[100%] mt-[2px] flex-col overflow-x-scroll"}`}>
             <div className="side-nav__items">
                 <p className="side-nav__p">Category One</p>
                 <ChevronRightIcon className="hidden sm:block icons-medium text-white" />
