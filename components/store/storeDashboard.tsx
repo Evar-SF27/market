@@ -7,11 +7,12 @@ import { QueueListIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-const StoreDashboard = ({ store }: StoreProps | any) => {
+const StoreDashboard = () => {
     const [active, setActive] = useState("")
     const [searchValue, setSearchValue] = useState("")
     const [toggledMenu, setToggledMenu] = useState(false)
     const user = useAppSelector(state => state.persistedAuthReducer.value.user)
+    const store = useAppSelector(state => state.persistedStoreReducer.store)
     const dispatch = useDispatch<AppDispatch>()
     const checkStatus = user && user._id == store.user
 

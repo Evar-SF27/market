@@ -9,14 +9,14 @@ import { useDispatch } from 'react-redux'
 const StoreFront = ({ store }: StoreProps | any) => {
   const dispatch = useDispatch<AppDispatch>()
   const setStore = () => {
-    dispatch(registerStore(store[0]))
+    dispatch(registerStore(store))
   }
 
   setStore()
   return (
     <div>
-      <StorePoster store={store[0]} />
-      <StoreDashboard store={store[0]} />
+      <StorePoster />
+      <StoreDashboard />
     </div>
   )
 }

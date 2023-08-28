@@ -74,7 +74,7 @@ export interface Props {
 }
 
 export interface StoreProps {
-    id: String,
+    _id: String,
     store_name: String,
     slug: String,
     user: String,

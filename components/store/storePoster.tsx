@@ -1,14 +1,15 @@
 "use client"
 
-import { AppDispatch } from '@/redux/store'
+import { AppDispatch, useAppSelector } from '@/redux/store'
 import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux'
 import { deleteStore } from '@/redux/features/authSlice'
 import { StoreProps } from '@/types'
 
-const StorePoster = ({ store }: StoreProps | any) => {
+const StorePoster = () => {
   const dispatch = useDispatch<AppDispatch>()
+  const store = useAppSelector(state => state.persistedStoreReducer.store)
   const deleteStoreState = () => {
     console.log("Pressed")
     dispatch(deleteStore)
@@ -27,7 +28,7 @@ const StorePoster = ({ store }: StoreProps | any) => {
           
         </div>
         <div className="flex-1 sm:mx-8 mx-4">
-          <h1 className="md:text-[48px] text-[36px] font-bold text-primary">{store.store_name}</h1>
+          <h1 className="md:text-[48px] text-[36px] mb-4 font-bold text-primary">{store.store_name}</h1>
           <div className="flex flex-col">
           <div className="flex mx-4">
             <div>

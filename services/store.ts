@@ -1,4 +1,5 @@
 import axios from '@/config/axios'
+import { StoreProps } from '@/types'
 
 const fetchStoreById = async (id: String) => {
     const response = await axios.get(
@@ -7,7 +8,10 @@ const fetchStoreById = async (id: String) => {
           params: { id: id }
       }
   )
-    return response.data.message
+    var store = response.data.message
+    store = store.filter((obj: StoreProps) => obj._id === id)
+
+    return store[0]
   }
 
   export { fetchStoreById }

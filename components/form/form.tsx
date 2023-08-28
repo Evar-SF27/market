@@ -40,10 +40,7 @@ const Form = () => {
 
     const router = useRouter()
     const dispatch = useDispatch<AppDispatch>()
-    // const userRef = useRef<HTMLInputElement | undefined>(null)
-    // const legacyUserRef: LegacyRef = userRef
-    const legacyErrorRef = useRef<HTMLDivElement>()
-    // const legacyErrorRef: LegacyRef<HTMLDivElement | null | undefined> = errRef
+    // const legacyErrorRef = useRef<HTMLDivElement>()
     const isLogin = authType === "login"
     const isRegister = authType === "register"
 
@@ -59,6 +56,11 @@ const Form = () => {
             )
 
             if(response) {
+                dispatch(logIn({
+                    user: response.data.user,
+                    access_token: response.data.accessToken,
+                    store: response.data.store
+                }))
                 router.push("/")
             }
         } catch (err: any) {
@@ -87,7 +89,7 @@ const Form = () => {
             )
 
             if(response) {
-                console.log(response.data)
+                console.log("user", response.data)
                 dispatch(logIn({
                     user: response.data.user,
                     access_token: response.data.accessToken,

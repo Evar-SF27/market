@@ -7,11 +7,14 @@ import { Key } from 'react'
 import { useRouter } from 'next/navigation'
 
 const CategoryView = ({ setActive }: Function | any) => {
+  const s = useAppSelector(state => state.persistedAuthReducer.value.user)
+  console.log("s", s)
   const store = useAppSelector(state => state.persistedStoreReducer.store.user)
   const user = useAppSelector(state => state.persistedAuthReducer.value.user?._id)
   const router = useRouter()
   const categories = useAppSelector(state =>  state.persistedCategoryReducer.categories)
   const isAdmin = store == user
+  console.log("store " + store + " User " + user) 
   return (
     <div className="mx-4">
       <div className="w-[100%] flex-wrap gap-4 my-8 flex justify-start max-sm:mx-2">
