@@ -78,7 +78,7 @@ const StoreDashboard = () => {
                     <input type="range" />
                 </div>
             </div>
-            <div className="w-[70%]">
+            <div className="w-[70%] max-sm:w-[100%] flex justify-center">
                 {setView(active)}
             </div>
         </div>

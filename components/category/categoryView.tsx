@@ -22,7 +22,7 @@ const CategoryView = ({ setActive, isOpen, closeModal }: PageProps) => {
   console.log("store " + store + " User " + user) 
   return (
     <div className="mx-4">
-      <div className="w-[100%] flex-wrap gap-4 my-8 flex justify-start max-sm:mx-2">
+      <div className="w-[100%] flex-wrap gap-4 my-8 flex justify-around max-sm:mx-2">
             {categories.map((category: CategoryProps) => {
                 let key: Key = category.category_slug as Key
                 return (
