@@ -3,6 +3,8 @@
 import { useState, useRef } from 'react'
 import { Formik } from 'formik'
 import axios from '@/config/axios' 
+import svg from '@/public/svgs/auth.svg'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import * as yup from 'yup'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/20/solid'
@@ -131,7 +133,8 @@ const Form = () => {
     }
   return (
     <div className="flex h-[100vh]">
-        <div className="flex-1 h-[100%] bg-primary max-lg:hidden">
+        <div className="flex-1 h-[100%] flex items-center justify-center bg-primary max-lg:hidden">
+            <Image src={svg} alt="auth" width={400} height={600} />
         </div>
         <div className="flex-1 flex justify-center items-center h-[100%]">
             <div className="flex flex-col h-[650px] bg-white max-lg:w-[70%] max-md:w-[90%] w-[90%]">
