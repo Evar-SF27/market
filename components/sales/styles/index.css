@@ -1,0 +1,29 @@
+.background_one {
+    background-image: url('../../../public/images/bg_one.jpeg');
+    height: 500px;
+}
+.background_two {
+    background-image: url('../../../public/images/bg_four.jpeg');
+    height: 246px;
+}
+.background_three {
+    background-image: url('../../../public/images/bg_three.jpeg');
+    height: 246px;
+}
+.background_four {
+    background-image: url('../../../public/images/bg_two.jpeg');
+    height: 500px;
+}
+
+.backdrop {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: darken;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.backdrop:hover {
+    backdrop-filter: unset;
+}
