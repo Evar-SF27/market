@@ -1,4 +1,4 @@
-import { BottomBar, Categories, CategorySideBar, Hero, NavBar, Offers, ProtectedRoute, Sales } from '@/components'
+import { BottomBar, Categories, CategorySideBar, Hero, NavBar, Offers, PosterOne, ProtectedRoute, Sales } from '@/components'
 import { fetchCategories } from '@/services/categories'
 
 export default async function Home() {
@@ -21,6 +21,7 @@ export default async function Home() {
             <Sales />
             <Categories categories={categories} />
           </main>
+          <PosterOne />
         </>
     </ProtectedRoute>
     

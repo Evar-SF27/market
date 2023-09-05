@@ -26,3 +26,6 @@ export { default as CategoryForm } from "./form/categoryForm"
 export { default as Categories } from "./category/category"
 export { default as UserCategories } from "./category/categoryView"
 export { default as AddCategoryModal } from "./category/addCategoryModal"
+
+// Posters
+export { PosterOne } from "./poster/posters"
