@@ -74,22 +74,26 @@ export interface Props {
 }
 
 export interface StoreProps {
-    _id: String,
-    store_name: String,
-    slug: String,
-    user: String,
-    location: String,
-    description: String,
-    rating: Number,
+    _id: string,
+    store_name: string,
+    slug: string,
+    user: string,
+    location: string,
+    description: string,
+    rating: number,
     subscribers: Array<string>,
-    contact: String,
-    photo_url: String
+    contact: string,
+    photo_url: string
 }
 
 export interface CategoryProps {
-    id: String,
-    category_name: String,
-    category_slug: String
+    id: string,
+    category_name: string,
+    category_slug: string,
+    parent_category: string,
+    sub_categories: Array<string>,
+    is_sub: boolean,
+    photo: string
 }
 
 export interface StorePageProps {

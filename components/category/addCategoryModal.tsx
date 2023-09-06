@@ -26,7 +26,7 @@ const CarDetails = ({ isOpen, closeModal }: PageProps) => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="fixed inset-0 bg-black bg-opacity-25" />
+                    <div className="fixed inset-0 bg-black bg-opacity-50" />
                 </Transition.Child>
                 <div className="fixed inset-0 overflow-y-auto">
                     <div className="flex min-h-full items-center justify-center p-4 text-center">
@@ -48,7 +48,7 @@ const CarDetails = ({ isOpen, closeModal }: PageProps) => {
                                 className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
                             >
                                 <XCircleIcon 
-                                    className="icons-small text-black"
+                                    className="icons-small text-secondary-800"
                                 />
                             </button>
                             <CategoryForm />

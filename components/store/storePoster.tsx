@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useDispatch } from 'react-redux'
 import { deleteStore } from '@/redux/features/authSlice'
 import { StoreProps } from '@/types'
+import './styles/index.css'
 
 const StorePoster = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -16,7 +17,7 @@ const StorePoster = () => {
     // console.log("Deleted")
   }
   return (
-    <div className="sm:mx-4 md:flex border-b pb-8 bg-secondary-100 mb-4 md:p-8">
+    <div className="sm:mx-4 md:flex border-b pb-8 poster mb-4 md:p-8">
         <div className="flex-2 max-sm:py-4">
           <Image 
             src="/images/discount.png"

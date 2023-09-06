@@ -1,0 +1,5 @@
+.poster {
+    background-image: url('../../../public/svgs/bg_2.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

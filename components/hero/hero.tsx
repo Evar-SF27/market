@@ -1,11 +1,12 @@
 import { ArrowRightIcon, ShoppingBagIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import React from 'react'
+import './styles/index.css'
 
 const Hero = () => {
   return (
     <div className="flex flex-col gap-1 mt-[2px] w-[100%]">
-      <div className="flex items-center w-[100%] h-fit sm:h-[425px] bg-secondary-100">
+      <div className="flex items-center w-[100%] h-fit sm:h-[425px] hero">
         <div className="flex max-sm:flex-col py-12 px-4 items-center">
             <div className="flex flex-col flex-1 max-lg:pl-2 pl-8 justify-center">
                 <p className="text-primary font-semibold uppercase text-[16px]">

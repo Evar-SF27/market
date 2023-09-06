@@ -1,19 +1,22 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Key } from 'react'
 import axios from '@/config/axios' 
 import { useRouter } from 'next/navigation'
 import { useAppSelector } from '@/redux/store'
 import { AppDispatch } from '@/redux/store'
 import { useDispatch } from 'react-redux'
 import { registerStoreId } from '@/redux/features/authSlice'
+import { CategoryProps } from '@/types'
 
-const CategoryForm = ({ setSActive }: Function | any) => {
+const CategoryForm = ({ setActive }: Function | any) => {
     const [errorMessage, setErrorMessage] = useState("")
     const [category_name, setCategory_name] = useState("")
+    const [parentCategory, setParentCategory] = useState("None")
     const [photo, setPhoto] = useState("")
 
     var store = useAppSelector((state) => state.persistedStoreReducer.store._id)
+    var categories = useAppSelector((state) => state.persistedCategoryReducer.categories)
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
 
@@ -26,7 +29,10 @@ const CategoryForm = ({ setSActive }: Function | any) => {
         const values = {
             "category_name": category_name,
             "slug": category_name.toLowerCase().split(" ").join("_"),
-            "image": photo
+            "parent_category": parentCategory,
+            "is_sub": Boolean(parentCategory.length),
+            "image": photo,
+            "sub_categories": []
         }
         try {
             const response = await axios.post(
@@ -57,12 +63,12 @@ const CategoryForm = ({ setSActive }: Function | any) => {
         setErrorMessage("")
     }
   return (
-    <div className="h-[100%]">
+    <div className="h-[100%] my-6">
         <div className="flex justify-center items-center h-[100%]">
             <div className="flex flex-col h-fit bg-white w-[100%]">
                 <div>
                     <div className="flex flex-col items-center justify-center py-8">
-                        <h1 className="text-primary font-bold text-[2rem] max-sm:text-[1.5rem]">Market Place Store</h1>
+                        <h1 className="text-primary font-bold text-[3rem] max-sm:text-[1.5rem]">MarketPlace</h1>
                         <p className="text-center">Complete the fields to create your e-commerce store</p>
                     </div>
                     <div>
@@ -80,6 +86,18 @@ const CategoryForm = ({ setSActive }: Function | any) => {
                                     value={category_name}
                                     name="category_name"
                                 />
+                                <div className="mb-4">
+                                    <label htmlFor="category_name" className="mr-4 mb-4">Parent Category:</label>
+                                    <select className="input_2 px-4">
+                                        <option value="none">None</option>
+                                        {categories.map((category: CategoryProps) => {
+                                            const k = category.id as Key
+                                            return (
+                                                <option key={k} value={parentCategory} onChange={() => setParentCategory(category.category_slug)}>{category.category_name}</option>
+                                            )
+                                        })}
+                                    </select>
+                                </div>
                                 <div className="mb-4">
                                     <label htmlFor="category_name" className="mr-4">Category Image:</label>
                                     <input 

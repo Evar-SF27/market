@@ -19,10 +19,9 @@ const CategoryView = ({ setActive, isOpen, closeModal }: PageProps) => {
   const router = useRouter()
   const categories = useAppSelector(state =>  state.persistedCategoryReducer.categories)
   const isAdmin = store == user
-  console.log("store " + store + " User " + user) 
   return (
     <div className="mx-4">
-      <div className="w-[100%] flex-wrap gap-4 my-8 flex justify-around max-sm:mx-2">
+      <div className="w-[100%] flex-wrap gap-2 my-8 flex justify-center max-sm:mx-2">
             {categories.map((category: CategoryProps) => {
                 let key: Key = category.category_slug as Key
                 return (
