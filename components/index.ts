@@ -29,3 +29,6 @@ export { default as AddCategoryModal } from "./category/addCategoryModal"
 
 // Posters
 export { PosterOne } from "./poster/posters"
+
+// Loader
+export { default as Loader } from "./loader/loader"

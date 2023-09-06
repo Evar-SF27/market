@@ -165,7 +165,7 @@ const Form = () => {
                         >
                             {({ values, errors, touched, handleBlur, handleChange, handleSubmit, resetForm }) => (
                                 <form onSubmit={handleSubmit}>
-                                    <div className="mx-8">
+                                    <div className="mx-8 md:mx-20">
                                         <div className={`${!errorMessage && "hidden"} bg-red-100 rounded-[5px] h-fit py-4 px-4 mb-6 text-red-500`}>
                                             <span className="text-red-600 font-bold">Error: </span>{errorMessage}
                                         </div>

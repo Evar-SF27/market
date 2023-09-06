@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useSelector } from 'react-redux'
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
+import { config } from '@/config/reduxPersist'
 import authReducer from '@/redux/features/authSlice'
 import storeReducer from '@/redux/features/storeSlice'
 import categoryReducer from '@/redux/features/categorySlice'
-import { config } from '@/config/reduxPersist'
 
 const persistedAuthReducer = persistReducer(config, authReducer)
 const persistedStoreReducer = persistReducer(config, storeReducer)

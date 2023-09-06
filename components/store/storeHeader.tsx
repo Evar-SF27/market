@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 const StoreHeader = () => {
   const router = useRouter()
   return (
-    <div>
+    <div className='w-[100%]'>
       <div className="bg-secondary-800 h-12">
         Adverts
       </div>

@@ -12,6 +12,8 @@ const StoreDashboard = () => {
     const [toggledMenu, setToggledMenu] = useState(false)
     const [showForm, setShowForm] = useState(false)
     const user = useAppSelector(state => state.persistedAuthReducer.value.user)
+    const isAuth = useAppSelector(state => state.persistedAuthReducer.value.isAuth)
+    console.log('isAuth', isAuth)
     const store = useAppSelector(state => state.persistedStoreReducer.store)
     const dispatch = useDispatch<AppDispatch>()
     const checkStatus = user && user._id == store.user

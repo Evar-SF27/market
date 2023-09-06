@@ -11,7 +11,7 @@ const Store = async ({ params }: PageProps) => {
   console.log("Store Pg", store)
 
   return (
-    <div className="w-full">
+    <div className="w-[100vw]">
         <StoreHeader />
         <StoreFront store={store} />
     </div>
