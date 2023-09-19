@@ -93,7 +93,7 @@ export interface CategoryProps {
     parent_category: string,
     sub_categories: Array<string>,
     is_sub: boolean,
-    photo: string
+    photo_url: string | File
 }
 
 export interface StorePageProps {

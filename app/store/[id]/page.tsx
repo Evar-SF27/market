@@ -8,7 +8,6 @@ interface PageProps {
 
 const Store = async ({ params }: PageProps) => {
   var store = await fetchStoreById(params.id)
-  console.log("Store Pg", store)
 
   return (
     <div className="w-[100vw]">

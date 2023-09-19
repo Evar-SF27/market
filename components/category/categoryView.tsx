@@ -36,9 +36,8 @@ const CategoryView = ({ setActive, isOpen, closeModal }: PageProps) => {
                                 height={150}
                             />
                         </div>
-                        <div className="my-2 flex flex-col justify-center items-center">
+                        <div className="my-2 flex justify-center items-center">
                             <h3 className="text-primary font-sans text-[18px] max-sm:text-[14px] font-bold">{category.category_name}</h3>
-                            <p className="text-slate-900 font-sans text-[16px] max-sm:text-[12px]">{category.category_slug}</p>
                         </div>
                     </div>
                 )

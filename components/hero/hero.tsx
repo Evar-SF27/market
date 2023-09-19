@@ -109,7 +109,7 @@ const Hero = () => {
         };
       }, [currentElementIndex, heroElements])
   return (
-    <div className="flex flex-col gap-1 mt-[2px] w-[100%]">
+    <div className="flex flex-col gap-1 mt-[2px] w-[100%] transition-all duration-1000">
         {heroElements[currentElementIndex]}
       <div className="w-[100%] flex gap-1 max-md:flex-col">
         <div className="bg-secondary-500 min-h-[150px] md:w-[50%] w-[100%]">

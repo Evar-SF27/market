@@ -10,15 +10,21 @@ import { registerStoreId } from '@/redux/features/authSlice'
 import { CategoryProps } from '@/types'
 
 const CategoryForm = ({ setActive }: Function | any) => {
+    const [selectedFile, setSelectedFile] = useState<File | null>(null)
     const [errorMessage, setErrorMessage] = useState("")
     const [category_name, setCategory_name] = useState("")
     const [parentCategory, setParentCategory] = useState("None")
-    const [photo, setPhoto] = useState("")
 
     var store = useAppSelector((state) => state.persistedStoreReducer.store._id)
     var categories = useAppSelector((state) => state.persistedCategoryReducer.categories)
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length > 0) {
+            setSelectedFile(e.target.files[0])
+        }
+    }
 
     useEffect(() => {
         store != null && router.push(`/store/${store}`)
@@ -26,13 +32,13 @@ const CategoryForm = ({ setActive }: Function | any) => {
 
     const createStore = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
-        const values = {
+        let values = {
             "category_name": category_name,
             "slug": category_name.toLowerCase().split(" ").join("_"),
             "parent_category": parentCategory,
             "is_sub": Boolean(parentCategory.length),
-            "image": photo,
-            "sub_categories": []
+            "sub_categories": [],
+            "photo_url": selectedFile
         }
         try {
             const response = await axios.post(
@@ -103,7 +109,7 @@ const CategoryForm = ({ setActive }: Function | any) => {
                                     <input 
                                         placeholder="Choose Category Image"
                                         type="file"
-                                        onChange={(e) => setPhoto(e.target.value)}
+                                        onChange={handleFileChange}
                                         onClick={resetError}
                                         name="image"
                                     />

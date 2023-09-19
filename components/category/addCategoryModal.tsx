@@ -11,7 +11,7 @@ interface PageProps {
     closeModal: () => void
 }
 
-const CarDetails = ({ isOpen, closeModal }: PageProps) => {
+const AddCategoryForm = ({ isOpen, closeModal }: PageProps) => {
 
   return (
     <>
@@ -75,5 +75,5 @@ const CarDetails = ({ isOpen, closeModal }: PageProps) => {
   )
 }
 
-export default CarDetails
+export default AddCategoryForm
 
