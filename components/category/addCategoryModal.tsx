@@ -52,19 +52,6 @@ const AddCategoryForm = ({ isOpen, closeModal }: PageProps) => {
                                 />
                             </button>
                             <CategoryForm />
-                            {/* <div className="flex-1 flex flex-col gap-2">
-                                <h2 className="font-semibold text-xl capitalize">{car.make} {car.model}</h2>
-                                <div className="mt-3 flex flex-wrap gap-4">
-                                    {Object.entries(car).map(([key, value]) => (
-                                        <div className="flex justify-between gap-5 w-full text-right" key={key}>
-                                            <h4 className="text-gray capitalize">
-                                                {key.split("_").join(" ")}
-                                            </h4>
-                                            <h4 className="text-black-100 font-semibold">{value}</h4>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div> */}
                         </Dialog.Panel>
                     </Transition.Child>
                     </div>

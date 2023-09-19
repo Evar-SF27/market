@@ -10,10 +10,10 @@ import { registerStoreId } from '@/redux/features/authSlice'
 import { CategoryProps } from '@/types'
 
 const CategoryForm = ({ setActive }: Function | any) => {
-    const [selectedFile, setSelectedFile] = useState<File | null>(null)
+    const [selectedFile, setSelectedFile] = useState<any>("")
     const [errorMessage, setErrorMessage] = useState("")
     const [category_name, setCategory_name] = useState("")
-    const [parentCategory, setParentCategory] = useState("None")
+    const [parentCategory, setParentCategory] = useState("none")
 
     var store = useAppSelector((state) => state.persistedStoreReducer.store._id)
     var categories = useAppSelector((state) => state.persistedCategoryReducer.categories)
@@ -26,34 +26,25 @@ const CategoryForm = ({ setActive }: Function | any) => {
         }
     }
 
-    useEffect(() => {
-        store != null && router.push(`/store/${store}`)
-    }, [])
-
-    const createStore = async (e: { preventDefault: () => void }) => {
+    const createCategory = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
-        let values = {
-            "category_name": category_name,
-            "slug": category_name.toLowerCase().split(" ").join("_"),
-            "parent_category": parentCategory,
-            "is_sub": Boolean(parentCategory.length),
-            "sub_categories": [],
-            "photo_url": selectedFile
-        }
+        const formData = new FormData()
+        formData.append("category_name", category_name)
+        formData.append("parent_category", parentCategory)
+        formData.append("image", selectedFile)
+        
         try {
             const response = await axios.post(
-                "/category",
-                values,
+                "/category/create",
+                formData,
                 { 
-                    headers: { "Content-Type": "application/json" },
+                    headers: { "Content-Type": "multipart/form-data" },
                     withCredentials: true
                 }
             )
-
-            if (response) {
-                dispatch(registerStoreId({ store: response.data.store._id }))
-                router.push(`/store/${response.data.store._id}`)
-            }
+            // if (response) {
+            //     router.push(`store/${store}`)
+            // }
         } catch (err: any) {
             if (!err?.response) {
                 setErrorMessage(err.message)
@@ -78,7 +69,7 @@ const CategoryForm = ({ setActive }: Function | any) => {
                         <p className="text-center">Complete the fields to create your e-commerce store</p>
                     </div>
                     <div>
-                        <form onSubmit={createStore} encType="multipart/form-data">
+                        <form onSubmit={createCategory} encType="multipart/form-data">
                             <div className="mx-8">
                                 <div className={`${!errorMessage && "hidden"} bg-red-100 rounded-[5px] h-fit py-4 px-4 mb-6 text-red-500`}>
                                     <span className="text-red-600 font-bold">Error: </span>{errorMessage}
@@ -109,6 +100,7 @@ const CategoryForm = ({ setActive }: Function | any) => {
                                     <input 
                                         placeholder="Choose Category Image"
                                         type="file"
+                                        accept="images/"
                                         onChange={handleFileChange}
                                         onClick={resetError}
                                         name="image"
