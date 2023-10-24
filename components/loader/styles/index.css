@@ -1,9 +1,9 @@
 .dots {
     width: 126.7px;
-    height: 17.3px;
+    height: 22.3px;
     background: radial-gradient(farthest-side,#ff47a1 90%,#0000) 25% 0,
            radial-gradient(farthest-side,#ff47a1 90%,#0000) 75% 0;
-    background-size: 17.3px 17.3px;
+    background-size: 20.3px 20.3px;
     background-repeat: no-repeat;
     position: relative;
     animation: dots-q4kofwlg 1.4s linear infinite;
@@ -12,8 +12,8 @@
  .dots:before {
     content: "";
     position: absolute;
-    width: 17.3px;
-    height: 17.3px;
+    width: 20.3px;
+    height: 20.3px;
     border-radius: 50%;
     background: #ff47a1;
     inset: 0;
