@@ -13,7 +13,8 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
       },
       colors: {
-        "black-100": "#2B2C35",
+        "black-100": "#424242",
+        "black-200": "#626262",
         "primary": {
           DEFAULT: "#FF2178FF",
           100: "#FF214822",
@@ -21,10 +22,12 @@ module.exports = {
           900: "#A9171CFF"
         },
         "secondary": {
-          100: "#DFDFDF",
-          500: "#B3B3B3",
-          800: "#909090",
-          900: "#888888"
+          100: "#fcfcfc",
+          500: "#f8f8f8",
+          600: "#f3f3f3",
+          700: "#efefef",
+          800: "#e3e3e3",
+          900: "#d0d0d0"
         }
       },
       screens: {

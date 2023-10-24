@@ -7,17 +7,119 @@ import './styles/index.css'
 
 const Hero = () => {
     const [currentElementIndex, setCurrentElementIndex] = useState(0)
-    const heroElements = [
-        <div className="flex items-center w-[100%] h-fit sm:h-[425px] hero">
-            <div className="flex max-sm:flex-col py-12 px-4 items-center">
-                <div className="flex flex-col flex-1 max-lg:pl-2 pl-8 justify-center">
-                    <p className="text-primary font-semibold uppercase text-[16px]">
+    // const heroElements = [
+    //     <div className="flex items-center w-[100%] h-[600px]">
+    //         <div className="flex max-sm:flex-col py-12 px-4 items-center">
+    //             <div className="flex flex-col flex-1 max-lg:pl-2 pl-8 justify-center">
+    //                 <p className="text-primary font-semibold uppercase text-[16px]">
+    //                     Summer sale up to 70%
+    //                 </p>
+    //                 <h3 className="font-bold text-[26px] lg:text-[40px]">
+    //                     Apple Watch Series 8 <br />[GPS 45mm] Smart Watch
+    //                 </h3>
+    //                 <p className="lg:text-[20px] text-[18px]">
+    //                     Gold Aluminum Case with Midnight Sport Band.
+    //                     Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Water Resistant
+    //                 </p>
+    //                 <button className="flex justify-around items-center mt-[30px] bg-primary w-[170px] py-4 px-[14px] hover:bg-primary-900 text-white sm:text-[22px] font-semibold rounded-[10px]">
+    //                     Shop Now
+    //                     <ShoppingBagIcon className="icons-small font-bold" />
+    //                 </button>
+    //             </div>
+    //             <div className="flex flex-1 justify-center">
+    //                 <Image 
+    //                     src="/images/watch.png"
+    //                     alt="Apple Smart Watch"
+    //                     width={330}
+    //                     height={270}
+    //                     className="object-fit"
+    //                 />
+    //             </div>
+    //         </div>   
+    //     </div>,
+    //   <div className="flex items-center w-[100%] h-[600px]">
+    //     <div className="flex max-sm:flex-col py-12 px-4 items-center">
+    //         <div className="flex flex-col flex-1 max-lg:pl-2 pl-8 justify-center">
+    //             <p className="text-primary font-semibold uppercase text-[16px]">
+    //                 Summer sale up to 70%
+    //             </p>
+    //             <h3 className="font-bold text-[26px] lg:text-[40px]">
+    //                 Apple Watch Series 8 <br />[GPS 45mm] Smart Watch
+    //             </h3>
+    //             <p className="lg:text-[20px] text-[18px]">
+    //                 Gold Aluminum Case with Midnight Sport Band.
+    //                 Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Water Resistant
+    //             </p>
+    //             <button className="flex justify-around items-center mt-[30px] bg-primary w-[170px] py-4 px-[14px] hover:bg-primary-900 text-white sm:text-[22px] font-semibold rounded-[10px]">
+    //                 Shop Now
+    //                 <ShoppingBagIcon className="icons-small font-bold" />
+    //             </button>
+    //         </div>
+    //         <div className="flex flex-1 justify-center">
+    //             <Image 
+    //                 src="/images/laptops.png"
+    //                 alt="laptops"
+    //                 width={350}
+    //                 height={270}
+    //                 className="object-fit"
+    //             />
+    //         </div>
+    //     </div>
+    //   </div>,
+    //   <div className="flex items-center w-[100%] h-[600px]">
+    //     <div className="flex max-sm:flex-col py-12 px-4 items-center">
+    //         <div className="flex flex-col flex-1 max-lg:pl-2 pl-8 justify-center">
+    //             <p className="text-primary font-semibold uppercase text-[16px]">
+    //                 Summer sale up to 50%
+    //             </p>
+    //             <h3 className="font-bold text-[26px] lg:text-[40px]">
+    //                 Apple Iphone 14 Pro Max <br />[1TB SSD] Brand New
+    //             </h3>
+    //             <p className="lg:text-[20px] text-[18px]">
+    //                 Gold Aluminum Case with Midnight Sport Band.
+    //                 Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Water Resistant
+    //             </p>
+    //             <button className="flex justify-around items-center mt-[30px] bg-primary w-[170px] py-4 px-[14px] hover:bg-primary-900 text-white sm:text-[22px] font-semibold rounded-[10px]">
+    //                 Shop Now
+    //                 <ShoppingBagIcon className="icons-small font-bold" />
+    //             </button>
+    //         </div>
+    //         <div className="flex flex-1 justify-center">
+    //             <Image 
+    //                 src="/images/i14_black.png"
+    //                 alt="Iphone 14 black"
+    //                 width={300}
+    //                 height={270}
+    //                 className="object-fit"
+    //             />
+    //         </div>
+    //     </div>
+    //   </div>    
+    // ]
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       const nextIndex =
+    //         (currentElementIndex + 1) % heroElements.length
+    //       setCurrentElementIndex(nextIndex)
+    //     }, 5000)
+    
+    //     return () => {
+    //       clearInterval(interval);
+    //     };
+    //   }, [currentElementIndex, heroElements])
+  return (
+    <div className="flex flex-col gap-1 w-[100%] transition-all duration-1000">
+        <div className="flex items-center w-[100%] h-[600px] bg-secondary-600">
+            <div className="flex max-sm:flex-col py-12 px-4 lg:px-12 items-center">
+                <div className="flex flex-col flex-1 max-lg:pl-2 pl-12 justify-center">
+                    <p className="text-primary font-semibold uppercase text-[16px] lg:text-[18px]">
                         Summer sale up to 70%
                     </p>
-                    <h3 className="font-bold text-[26px] lg:text-[40px]">
+                    <h3 className="font-bold text-[26px] lg:text-[52px]">
                         Apple Watch Series 8 <br />[GPS 45mm] Smart Watch
                     </h3>
-                    <p className="lg:text-[20px] text-[18px]">
+                    <p className="lg:text-[20px] text-[26px]">
                         Gold Aluminum Case with Midnight Sport Band.
                         Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Water Resistant
                     </p>
@@ -30,87 +132,13 @@ const Hero = () => {
                     <Image 
                         src="/images/watch.png"
                         alt="Apple Smart Watch"
-                        width={330}
-                        height={270}
+                        width={350}
+                        height={300}
                         className="object-fit"
                     />
                 </div>
             </div>   
-        </div>,
-      <div className="flex items-center w-[100%] h-fit sm:h-[425px] hero">
-        <div className="flex max-sm:flex-col py-12 px-4 items-center">
-            <div className="flex flex-col flex-1 max-lg:pl-2 pl-8 justify-center">
-                <p className="text-primary font-semibold uppercase text-[16px]">
-                    Summer sale up to 70%
-                </p>
-                <h3 className="font-bold text-[26px] lg:text-[40px]">
-                    Apple Watch Series 8 <br />[GPS 45mm] Smart Watch
-                </h3>
-                <p className="lg:text-[20px] text-[18px]">
-                    Gold Aluminum Case with Midnight Sport Band.
-                    Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Water Resistant
-                </p>
-                <button className="flex justify-around items-center mt-[30px] bg-primary w-[170px] py-4 px-[14px] hover:bg-primary-900 text-white sm:text-[22px] font-semibold rounded-[10px]">
-                    Shop Now
-                    <ShoppingBagIcon className="icons-small font-bold" />
-                </button>
-            </div>
-            <div className="flex flex-1 justify-center">
-                <Image 
-                    src="/images/laptops.png"
-                    alt="laptops"
-                    width={350}
-                    height={270}
-                    className="object-fit"
-                />
-            </div>
         </div>
-      </div>,
-      <div className="flex items-center w-[100%] h-fit sm:h-[425px] hero">
-        <div className="flex max-sm:flex-col py-12 px-4 items-center">
-            <div className="flex flex-col flex-1 max-lg:pl-2 pl-8 justify-center">
-                <p className="text-primary font-semibold uppercase text-[16px]">
-                    Summer sale up to 50%
-                </p>
-                <h3 className="font-bold text-[26px] lg:text-[40px]">
-                    Apple Iphone 14 Pro Max <br />[1TB SSD] Brand New
-                </h3>
-                <p className="lg:text-[20px] text-[18px]">
-                    Gold Aluminum Case with Midnight Sport Band.
-                    Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Water Resistant
-                </p>
-                <button className="flex justify-around items-center mt-[30px] bg-primary w-[170px] py-4 px-[14px] hover:bg-primary-900 text-white sm:text-[22px] font-semibold rounded-[10px]">
-                    Shop Now
-                    <ShoppingBagIcon className="icons-small font-bold" />
-                </button>
-            </div>
-            <div className="flex flex-1 justify-center">
-                <Image 
-                    src="/images/i14_black.png"
-                    alt="Iphone 14 black"
-                    width={300}
-                    height={270}
-                    className="object-fit"
-                />
-            </div>
-        </div>
-      </div>    
-    ]
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-          const nextIndex =
-            (currentElementIndex + 1) % heroElements.length
-          setCurrentElementIndex(nextIndex)
-        }, 5000)
-    
-        return () => {
-          clearInterval(interval);
-        };
-      }, [currentElementIndex, heroElements])
-  return (
-    <div className="flex flex-col gap-1 mt-[2px] w-[100%] transition-all duration-1000">
-        {heroElements[currentElementIndex]}
       <div className="w-[100%] flex gap-1 max-md:flex-col">
         <div className="bg-secondary-500 min-h-[150px] md:w-[50%] w-[100%]">
             <div className="flex max-sm:flex-col py-2 px-4">

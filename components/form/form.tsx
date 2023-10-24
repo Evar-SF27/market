@@ -140,13 +140,13 @@ const Form = () => {
             <div className="flex flex-col h-[650px] bg-white max-lg:w-[70%] max-md:w-[90%] w-[90%]">
                 <div className="w-[100%] flex justify-between">
                     <div 
-                        className={`${isRegister && "bg-gray-100 font-bold"} w-[50%] flex justify-center items-center h-[60px] text-[18px] text-[#4a4a4a] font-semibold`}
+                        className={`${isRegister && "bg-secondary-700 font-bold"} w-[50%] flex justify-center items-center h-[60px] text-[18px] text-[#4a4a4a] font-semibold`}
                         onClick={() => setAuthType("register")}
                     >
                         Register
                     </div>
                     <div 
-                        className={`${isLogin && "bg-gray-50 font-bold"} w-[50%] flex justify-center items-center h-[60px] text-[18px] text-[#4a4a4a] font-semibold`}
+                        className={`${isLogin && "bg-secondary-700 font-bold"} w-[50%] flex justify-center items-center h-[60px] text-[18px] text-[#4a4a4a] font-semibold`}
                         onClick={() => setAuthType("login")}
                     >
                         Sign In

@@ -18,9 +18,9 @@ const MainBar = () => {
                 <Image 
                     src="/images/logo.png"
                     alt="logo"
-                    width={240}
+                    width={220}
                     height={150}
-                    className="w-[250px] h-[90%]"
+                    className="w-[230px] h-[90%]"
                 />
             </div>
             <div className="flex justify-center items-center w-[75%]">
@@ -30,7 +30,7 @@ const MainBar = () => {
         <div className="w-[260px] flex justify-around mr-2">
             <div className="flex">
                 <button>
-                    <UserIcon className="text-secondary-900 icons-medium" />
+                    <UserIcon className="text-black-200 icons-medium" />
                 </button>
                 <div className="mt-[20px] max-w-[400px]:hidden">
                     <p className="text-sm">Hello</p>
@@ -46,14 +46,14 @@ const MainBar = () => {
                 <div className="relative inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary rounded-full top-[12px] left-4">
                     0
                 </div>
-                <HeartIcon className="text-secondary-900 icons-medium" />
+                <HeartIcon className="text-black-200 icons-medium" />
             </button>
             <div className="flex">
                 <button className="mb-6">
                     <div className="relative inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary rounded-full top-[12px] left-4">
                         0
                     </div>
-                    <ShoppingCartIcon className="text-secondary-900 icons-medium" />
+                    <ShoppingCartIcon className="text-black-200 icons-medium" />
                 </button>
                 <div className="mt-[18px] ml-[15px] hidden sm:block">
                     <p className="text-[15px]">Total</p>

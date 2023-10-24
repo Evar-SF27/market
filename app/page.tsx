@@ -4,21 +4,20 @@ import { fetchCategories } from '@/services/categories'
 export default async function Home() {
   const { categories } = await fetchCategories()
   return (
-    <ProtectedRoute>
-        <div className='bg-secondary-100'>
-          <NavBar />
-          <main className="sm:px-4">
-            <div className="flex flex-col">
-                <BottomBar />
-                <Hero />
-            </div>
-            <Offers />
-            <Sales />
-            <Categories categories={categories} />
-          </main>
-          <PosterOne />
+    <div className='bg-secondary-100'>
+      <NavBar />
+      <main>
+        <div className="flex flex-col">
+          <Hero />
         </div>
-    </ProtectedRoute>
+        <Offers />
+        <Sales />
+        <Categories categories={categories} />
+      </main>
+      <PosterOne />
+    </div>
+    // <ProtectedRoute>
+    // </ProtectedRoute>
     
   )
 }
