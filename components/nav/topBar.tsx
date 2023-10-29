@@ -16,7 +16,7 @@ const topBar = () => {
     const store = useAppSelector(state => state.persistedAuthReducer.value.store)
     const dispatch = useDispatch<AppDispatch>()
   return (
-    <div className="h-11 bg-secondary-700 flex-between px-3 text-white">
+    <div className="h-11 bg-secondary-800 flex-between px-3 text-white">
         <div className="flex sm:hidden">
             <ListBulletIcon 
                 className="icons-small" 
