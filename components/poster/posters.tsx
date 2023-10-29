@@ -1,4 +1,4 @@
-import svg from '@/public/svgs/ecommerce-checkout-laptop-animate.svg'
+import svg from '@/public/svgs/Ecommerce web page-pana.svg'
 import Image from 'next/image'
 
 export const PosterOne = () => {
