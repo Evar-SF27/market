@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export const PosterOne = () => {
     return (
-        <div className="bg-secondary-100 flex p-16 gap-8">
+        <div className="bg-secondary-500 flex p-16 gap-8">
             <div>
                 <Image src={svg} alt="poster_one" width={450} />
             </div>

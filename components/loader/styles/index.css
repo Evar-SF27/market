@@ -1,50 +1,41 @@
-.dots {
-    width: 126.7px;
-    height: 22.3px;
-    background: radial-gradient(farthest-side,#ff47a1 90%,#0000) 25% 0,
-           radial-gradient(farthest-side,#ff47a1 90%,#0000) 75% 0;
-    background-size: 20.3px 20.3px;
-    background-repeat: no-repeat;
-    position: relative;
-    animation: dots-q4kofwlg 1.4s linear infinite;
- }
- 
- .dots:before {
-    content: "";
-    position: absolute;
-    width: 20.3px;
-    height: 20.3px;
-    border-radius: 50%;
-    background: #ff47a1;
-    inset: 0;
-    margin: auto;
-    animation: dots-svj0l9lg 1.4s cubic-bezier(0.5,300,0.5,-300) infinite;
- }
- 
- @keyframes dots-q4kofwlg {
-    0%, 24% {
-       background-position: 25% 0,75% 0;
-    }
- 
-    40% {
-       background-position: 25% 0,85% 0;
-    }
- 
-    50%, 72% {
-       background-position: 25% 0,75% 0;
-    }
- 
-    90% {
-       background-position: 15% 0,75% 0;
-    }
- 
-    100% {
-       background-position: 25% 0,75% 0;
-    }
- }
- 
- @keyframes dots-svj0l9lg {
-    100% {
-       transform: translate(0.14px);
-    }
- }
+.spinner {
+   width: 72px;
+   height: 72px;
+   display: grid;
+}
+
+.spinner::before,
+.spinner::after {
+   content: "";
+   grid-area: 1/1;
+   background: var(--c) 50%  0, 
+        var(--c) 50%  100%, 
+        var(--c) 100% 50%, 
+        var(--c) 0    50%;
+   background-size: 17.3px 17.3px;
+   background-repeat: no-repeat;
+   animation: spinner-3hs4a3 1s infinite;
+}
+
+.spinner::before {
+   --c: radial-gradient(farthest-side,#ff2178 92%,#0000);
+   margin: 5.8px;
+   background-size: 11.5px 11.5px;
+   animation-timing-function: linear;
+}
+
+.spinner::after {
+   --c: radial-gradient(farthest-side,#ff2178 92%,#0000);
+}
+
+@keyframes spinner-3hs4a3 {
+   100% {
+      transform: rotate(.5turn);
+   }
+}
+
+.child {
+   background: rgba(255,255,255,0.5);
+   -webkit-backdrop-filter: blur(10px);
+   backdrop-filter: blur(10px);
+}

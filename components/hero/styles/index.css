@@ -1,5 +1,5 @@
 .hero {
-    /* background-image: url('../../../public/svgs/bg_1.svg'); */
+    background-image: url('/svgs/blob.svg');
     background-size: cover;
     background-repeat: no-repeat;
 }

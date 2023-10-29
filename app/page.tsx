@@ -1,4 +1,4 @@
-import { BottomBar, Categories, CategorySideBar, Hero, NavBar, Offers, PosterOne, ProtectedRoute, Sales } from '@/components'
+import { Categories, Hero, NavBar, Offers, PosterOne, ProtectedRoute, Sales } from '@/components'
 import { fetchCategories } from '@/services/categories'
 
 export default async function Home() {
@@ -7,9 +7,7 @@ export default async function Home() {
     <div className='bg-secondary-100'>
       <NavBar />
       <main>
-        <div className="flex flex-col">
-          <Hero />
-        </div>
+        <Hero />
         <Offers />
         <Sales />
         <Categories categories={categories} />
