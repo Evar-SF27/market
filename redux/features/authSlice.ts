@@ -15,10 +15,6 @@ export const auth = createSlice({
     initialState: state,
     reducers: {
         logOut: (state) => {
-            // state.value.isAuth = false
-            // state.value.user = null
-            // state.value.access_token = ""
-            // state.value.store = null
             return state
         },
         logIn: (state, action: PayloadAction<any>) => {
@@ -27,15 +23,14 @@ export const auth = createSlice({
             state.value.access_token = action.payload.access_token
             state.value.store = action.payload.store
         },
-        registerStoreId: (state, action: PayloadAction<any>) => {
-            state.value.store = action.payload.store
-            
+        registerUserStore: (state, action: PayloadAction<any>) => {
+            state.value.store = action.payload.store    
         },
-        deleteStore: (state) => {
+        deleteUserStore: (state) => {
             state.value.store = null
         },
     }
 })
 
-export const { logIn, logOut, registerStoreId, deleteStore } = auth.actions
+export const { logIn, logOut, registerUserStore, deleteUserStore } = auth.actions
 export default auth.reducer

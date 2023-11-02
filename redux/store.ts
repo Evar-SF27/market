@@ -8,13 +8,12 @@ import categoryReducer from '@/redux/features/categorySlice'
 
 const persistedAuthReducer = persistReducer(config, authReducer)
 const persistedStoreReducer = persistReducer(config, storeReducer)
-const persistedCategoryReducer = persistReducer(config, categoryReducer)
 
 export const store = configureStore({
     reducer: {
         persistedAuthReducer,
         persistedStoreReducer,
-        persistedCategoryReducer
+        categoryReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: {

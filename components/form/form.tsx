@@ -42,7 +42,6 @@ const Form = () => {
 
     const router = useRouter()
     const dispatch = useDispatch<AppDispatch>()
-    // const legacyErrorRef = useRef<HTMLDivElement>()
     const isLogin = authType === "login"
     const isRegister = authType === "register"
 
@@ -90,8 +89,7 @@ const Form = () => {
                 }
             )
 
-            if(response) {
-                console.log("user", response.data)
+            if (response) {
                 dispatch(logIn({
                     user: response.data.user,
                     access_token: response.data.accessToken,
@@ -112,8 +110,6 @@ const Form = () => {
             } else {
                 setErrorMessage("Login failed")
             }
-
-            // legacyErrorRef.current?.focus() 
         } finally {
             onSubmitProps.resetForm()
         }

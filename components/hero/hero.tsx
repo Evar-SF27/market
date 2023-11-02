@@ -105,7 +105,7 @@ const Hero = () => {
             </Swiper> 
         </div>
         <div className="max-lg:w-[100%] w-[30%] xl:w-[23%] flex gap-1 flex-col md:flex-row lg:flex-col lg:mr-1">
-            <div className="bg-secondary-700 h-[173px] w-[100%]">
+            <div className="bg-secondary-700 h-[186px] w-[100%]">
                 <div className="flex py-4 px-2 pl-[10%] gap-2 items-center">
                     <div className="flex flex-2/5 justify-center mt-4">
                         <Image 
@@ -129,7 +129,7 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-secondary-700 h-[173px] w-[100%]">
+            <div className="bg-secondary-700 h-[186px] w-[100%]">
                 <div className="flex py-4 px-2 items-center justify-center">
                     <div className="flex basis-2/5 px-2 justify-center mt-4">
                         <Image 
@@ -149,7 +149,7 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-secondary-500 h-[196px] w-[100%]">
+            <div className="bg-secondary-500 h-[170px] w-[100%]">
                 <div className="flex py-2 justify-center items-center">
                     <div className="flex flex-col items-center justify-center py-4 px-2 w-[100%]">
                         <h3 className="flex justify-center font-bold text-[20px] opacity-80">

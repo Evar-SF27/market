@@ -36,6 +36,9 @@
 .list-nav {
     @apply flex justify-center px-4 text-sm text-white border-r border-white h-fit;
 }
+.list-nav-dropdown {
+    @apply flex justify-center p-2 text-sm text-white border-b border-white h-fit;
+}
 .side-nav__items {
     @apply bg-secondary-500 border-b border-white h-[62.1px] flex items-center justify-between sm:px-8 px-4;
 }

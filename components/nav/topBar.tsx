@@ -11,6 +11,7 @@ import { logOut } from '@/redux/features/authSlice'
 const topBar = () => {
     const [selectedCurrency, setSelectedCurrency] = useState("USD")
     const [selectedLanguage, setSelectedLanguage] = useState("ENG")
+    const [showAccountOptions, setShowAccountOptions] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
     const store = useAppSelector(state => state.persistedAuthReducer.value.store)
@@ -49,7 +50,14 @@ const topBar = () => {
                 <ul className="flex">
                     <li className="list-nav"><Link href="#">Shop</Link></li>
                     {user && <li className="list-nav"><Link href={store == null ? "/create_store" : `store/${store}`}>My Store</Link></li>}
-                    <li className="list-nav"><Link href="#">Account</Link></li>
+                    <li className="list-nav relative" onClick={() => setShowAccountOptions(!showAccountOptions)}>Account</li>
+                    <div className={`${!showAccountOptions && 'hidden'} absolute top-11 ml-14 z-20 w-[100px]`}>
+                        <div className='flex flex-col gap-2 bg-secondary-700 border-b-4 border-secondary-900 px-2'>
+                            <li className="list-nav-dropdown"><Link href="#">Store</Link></li>
+                            <li className="list-nav-dropdown"><Link href="#">Profile</Link></li>
+                            <li className="flex justify-center p-2 text-sm text-white h-fit"><Link href="#">Log Out</Link></li>
+                        </div>
+                    </div>
                     {/* <li onClick={() => dispatch(logOut())}>Logout</li> */}
                 </ul>
             </div>

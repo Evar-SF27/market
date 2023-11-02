@@ -27,7 +27,7 @@ const MainBar = () => {
                 <SearchBar otherStyles="md:block hidden ml-8 w-full" />
             </div>
         </div>
-        <div className="w-[260px] flex justify-around mr-2">
+        <div className="sm:w-[270px] w-[210px] flex justify-around mr-2">
             <div className="flex">
                 <button>
                     <UserIcon className="text-black-200 icons-medium" />

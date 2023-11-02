@@ -12,9 +12,12 @@ const storeSlice = createSlice({
     reducers: {
         registerStore: (state, action: PayloadAction<any>) => {
             state.store = action.payload
+        },
+        deleteStore: (state) => {
+            return state
         }
     }
 })
 
-export const { registerStore } = storeSlice.actions
+export const { registerStore, deleteStore } = storeSlice.actions
 export default storeSlice.reducer
