@@ -105,6 +105,16 @@ const Hero = () => {
             </Swiper> 
         </div>
         <div className="max-lg:w-[100%] w-[30%] xl:w-[23%] flex gap-1 flex-col md:flex-row lg:flex-col lg:mr-1">
+            <div className="bg-secondary-500 h-[178px] w-[100%]">
+                <div className="flex py-2 justify-center items-center">
+                    <div className="flex flex-col items-center justify-center py-4 px-2 w-[100%]">
+                        <h3 className="flex justify-center font-bold text-[20px] opacity-80">
+                            Start Selling Now!!
+                        </h3>
+                        <CustomButton text='Create Store' icon='' className='w-[220px] max-md:w-[200px] text-[20px] max-md:text-[18px] lg:text-[20px] mt-[20px]' />
+                    </div>
+                </div>
+            </div>
             <div className="bg-secondary-700 h-[186px] w-[100%]">
                 <div className="flex py-4 px-2 pl-[10%] gap-2 items-center">
                     <div className="flex flex-2/5 justify-center mt-4">
@@ -129,8 +139,8 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-secondary-700 h-[186px] w-[100%]">
-                <div className="flex py-4 px-2 items-center justify-center">
+            <div className="bg-secondary-700 h-[178px] w-[100%]">
+                <div className="flex py-4 px-2 gap-2 items-center justify-center">
                     <div className="flex basis-2/5 px-2 justify-center mt-4">
                         <Image 
                             src="/images/kitchen.png"
@@ -140,22 +150,12 @@ const Hero = () => {
                         />
                     </div>
                     <div className="flex flex-col basis-3/5 justify-center items-center py-2">
-                        <h3 className="text-primary font-bold uppercase text-[14px]">
+                        <h3 className="font-bold uppercase text-[13px]">
                             Get a discount from every kitchen appliance. Buy Now!!
                         </h3>
                         <div className="flex flex-col mt-4">
-                            <p className="text-[20px] text-primary font-bold">70% off</p>
+                            <p className="text-[18px] text-primary font-bold">70% off</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div className="bg-secondary-500 h-[170px] w-[100%]">
-                <div className="flex py-2 justify-center items-center">
-                    <div className="flex flex-col items-center justify-center py-4 px-2 w-[100%]">
-                        <h3 className="flex justify-center font-bold text-[20px] opacity-80">
-                            Start Selling Now!!
-                        </h3>
-                        <CustomButton text='Create Store' icon='' className='w-[220px] max-md:w-[200px] text-[20px] max-md:text-[18px] lg:text-[20px] mt-[20px]' />
                     </div>
                 </div>
             </div>
