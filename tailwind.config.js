@@ -17,8 +17,7 @@ module.exports = {
         "black-200": "#626262",
         "primary": {
           DEFAULT: "#FF2178FF",
-          100: "#FF214822",
-          // 900: "#DD0055"
+          100: "#FF214809",
           900: "#A9171CFF"
         },
         "secondary": {

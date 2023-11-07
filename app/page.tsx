@@ -4,7 +4,7 @@ import { fetchCategories } from '@/services/categories'
 export default async function Home() {
   const { categories } = await fetchCategories()
   return (
-    <div className='bg-secondary-100 w-full'>
+    <div className='bg-secondary-100 w-[100%]'>
       <NavBar />
       <main>
         <Hero />

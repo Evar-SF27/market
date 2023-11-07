@@ -12,7 +12,7 @@ import CustomButton from '../button/button'
 const Hero = () => {
     
   return (
-    <div className="flex max-lg:flex-col gap-1 w-[100%] h-fit transition-all duration-3000">
+    <div className="flex max-lg:flex-col gap-1 w-[100%] h-fit transition-all duration-3000 z-10">
         <div className="flex items-center w-[100%] lg:w-[70%] xl:w-[77%] h-[550px] max-md:h-fit bg-secondary-500">
             <Swiper
                 modules={[Pagination, Autoplay, EffectFade]}

@@ -64,7 +64,7 @@
     @apply max-lg:w-[100%] w-[50%] flex justify-center items-center max-sm:flex-col gap-4;
 }
 .offers {
-    @apply flex items-center justify-center bg-secondary-600 w-[50%] max-sm:w-[90%] h-[140px] rounded-2xl px-2;
+    @apply flex items-center justify-center bg-secondary-500 w-[50%] max-sm:w-[90%] h-[140px] rounded-2xl px-2;
 }
 .category-bg {
     @apply bg-secondary-100 p-4 rounded-[50%] mr-4 hover:bg-secondary-500 w-[200px] h-[190px] max-sm:w-[120px] max-sm:h-[110px];
@@ -95,4 +95,7 @@
 }
 .store_nav > span {
     @apply bg-primary p-[4px] ml-[3px] text-[14px] rounded text-white font-bold;
+}
+.zoom {
+    @apply w-full h-full transition-transform transform scale-100 hover:scale-110 object-contain;
 }
