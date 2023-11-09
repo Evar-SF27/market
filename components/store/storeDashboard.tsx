@@ -10,20 +10,18 @@ const StoreDashboard = () => {
     const [active, setActive] = useState("")
     const [searchValue, setSearchValue] = useState("")
     const [toggledMenu, setToggledMenu] = useState(false)
-    const [showForm, setShowForm] = useState(false)
     const user = useAppSelector(state => state.persistedAuthReducer.value.user)
     const isAuth = useAppSelector(state => state.persistedAuthReducer.value.isAuth)
     const store = useAppSelector(state => state.persistedStoreReducer.store)
     const dispatch = useDispatch<AppDispatch>()
-    const checkStatus = user && user._id == store.user
-
+    const checkStatus = user && user.username == store.user
 
     const setView = (active: String) => {
         switch (active) {
             case "categories":
-                return <UserCategories setActive={setActive} isOpen={showForm} closeModal={setShowForm} />
+                return <UserCategories setActive={setActive} search={searchValue} />
             case "add-categories":
-                return <CategoryForm setActive={setActive} />
+                return <CategoryForm setActive={setActive} search={searchValue} />
             case "products":
                 return <p>Products</p>
             case "add-products":
@@ -35,10 +33,8 @@ const StoreDashboard = () => {
     
 
   return (
-
     <div>
-        <AddCategoryModal isOpen={showForm} closeModal={() => setShowForm(false)} />
-        <div className="bg-secondary-800 h-[60px] flex items-center justify-between px-4">
+        <div className="bg-secondary-800 h-[60px] w-[100%] flex items-center justify-between px-4">
             {!toggledMenu ? 
                 <QueueListIcon 
                     className="icons-medium text-white -mr-2 flex items-center sm:hidden" 
@@ -47,8 +43,9 @@ const StoreDashboard = () => {
                 <XMarkIcon 
                     className="icons-medium text-white flex items-center sm:hidden" 
                     onClick={() => setToggledMenu(false)}
-                />}
-                {checkStatus && <p className="max-sm:hidden flex items-center text-white font-bold mx-4 text-[20px]">Admin Dashboard</p>}
+                />
+            }
+            {checkStatus && <p className="max-sm:hidden flex items-center text-white font-bold mx-4 text-[20px]">Admin Dashboard</p>}
             <div className="w-[70%] flex justify-end">
                 <input 
                     className="w-[65%] text-[16px] h-[40px] px-4 rounded-tl-xl rounded-bl-xl" 

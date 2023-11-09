@@ -29,6 +29,7 @@ const StorePoster = () => {
       <div className="sm:mx-4 md:flex border-b pb-8 poster mb-4 md:p-8">
         <div className="flex-2 max-sm:py-4">
           <Image 
+            // src={store.photo_url}
             src="/images/discount.png"
             alt="Store Photo_URL"
             width={300}

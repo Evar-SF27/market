@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useAppSelector } from '@/redux/store'
 import { AppDispatch } from '@/redux/store'
 import { useDispatch } from 'react-redux'
-import { registerStoreId } from '@/redux/features/authSlice'
+// import { registerStoreId } from '@/redux/features/authSlice'
 import { CategoryProps } from '@/types'
 
 const CategoryForm = ({ setActive }: Function | any) => {
@@ -16,7 +16,8 @@ const CategoryForm = ({ setActive }: Function | any) => {
     const [parentCategory, setParentCategory] = useState("none")
 
     var store = useAppSelector((state) => state.persistedStoreReducer.store._id)
-    var categories = useAppSelector((state) => state.persistedCategoryReducer.categories)
+    var categories = useAppSelector((state) => state.categoryReducer.categories)
+    var accessToken = useAppSelector((state) => state.persistedAuthReducer.value.access_token)
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
 
@@ -38,20 +39,18 @@ const CategoryForm = ({ setActive }: Function | any) => {
                 "/category/create",
                 formData,
                 { 
-                    headers: { "Content-Type": "multipart/form-data" },
+                    headers: { "Content-Type": "multipart/form-data", "Authorization": `Bearer ${accessToken}` },
                     withCredentials: true
                 }
             )
-            // if (response) {
-            //     router.push(`store/${store}`)
-            // }
+            
         } catch (err: any) {
             if (!err?.response) {
                 setErrorMessage(err.message)
             } else if (err.response?.status === 409) {
-                setErrorMessage("Store already exists")
+                setErrorMessage("Category already exists")
             } else {
-                setErrorMessage("Cannot create store")
+                setErrorMessage("Create Category failed")
             }
         }
     }

@@ -3,24 +3,33 @@
 import Image from 'next/image'
 import { useAppSelector } from '@/redux/store'
 import { CategoryProps } from '@/types'
-import { Key } from 'react'
+import { Key, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { AddCategoryModal } from '..'
 
 interface PageProps {
   setActive: Function | any,
-  isOpen: boolean,
-  closeModal: Function 
+  search: string 
 }
 
-const CategoryView = ({ setActive, isOpen, closeModal }: PageProps) => {
+const CategoryView = ({ setActive, search }: PageProps) => {
+  const [showForm, setShowForm] = useState(false)
+  const [categories, setCategories] = useState([])
+  const category = useAppSelector(state =>  state.categoryReducer.categories)
   const s = useAppSelector(state => state.persistedAuthReducer.value.user)
   const store = useAppSelector(state => state.persistedStoreReducer.store.user)
-  const user = useAppSelector(state => state.persistedAuthReducer.value.user?._id)
+  const userId = useAppSelector(state => state.persistedAuthReducer.value.user?.username)
   const router = useRouter()
-  const categories = useAppSelector(state =>  state.persistedCategoryReducer.categories)
-  const isAdmin = store == user
+  const isAdmin = store == userId
+
+  useEffect(() => {
+    const cat = category.filter((c: CategoryProps) => c.category_name == search)
+    setCategories(cat)  
+  }, [search])
+
   return (
     <div className="mx-4">
+      <AddCategoryModal isOpen={showForm} closeModal={() => setShowForm(false)} />
       <div className="w-[100%] flex-wrap gap-2 my-8 flex justify-center max-sm:mx-2">
             {categories.map((category: CategoryProps) => {
                 let key: Key = category.category_slug as Key
@@ -43,11 +52,15 @@ const CategoryView = ({ setActive, isOpen, closeModal }: PageProps) => {
                 )
             })}
         </div>
-      {isAdmin && <button 
-        onClick={() => closeModal(!isOpen)}
-        className="px-6 py-4 bg-primary hover:bg-primary-900 text-white text-[16px] rounded-xl">Add Category</button>}
+      {isAdmin && (
+        <button 
+        onClick={() => setShowForm(!showForm)}
+        className="px-6 py-4 bg-primary hover:bg-primary-900 text-white text-[16px] rounded-xl">Add Category</button>
+      )}
     </div>
   )
 }
 
 export default CategoryView
+
+
