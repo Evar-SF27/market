@@ -1,7 +1,6 @@
 "use client"
 
-import Image from 'next/image'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XCircleIcon,  } from '@heroicons/react/20/solid'
 import CategoryForm from '../form/categoryForm'

@@ -1,6 +1,6 @@
-import { StoreFront, StoreHeader } from '@/components'
-import { fetchStoreById } from '@/services/store'
-import { StoreProps } from '@/types'
+import { StoreFront, TopBar } from '@/components'
+import { fetchStoreById } from '@/services/store.services'
+import { fetchUserById } from '@/services/users.services'
 
 interface PageProps {
   params: { id: String }
@@ -8,10 +8,13 @@ interface PageProps {
 
 const Store = async ({ params }: PageProps) => {
   var store = await fetchStoreById(params.id)
+  const user = await fetchUserById(store.user)
+
+  store.user = user[0].username
 
   return (
     <div className="w-[100vw]">
-        <StoreHeader />
+        <TopBar />
         <StoreFront store={store} />
     </div>
   )

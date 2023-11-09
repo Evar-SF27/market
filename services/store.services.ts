@@ -12,6 +12,6 @@ const fetchStoreById = async (id: String) => {
     store = store.filter((obj: StoreProps) => obj._id == id)
     
     return store[0]
-  }
-
-  export { fetchStoreById }
+}
+  
+export { fetchStoreById }

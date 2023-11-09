@@ -17,6 +17,7 @@ const StoreForm = () => {
     const [photo, setPhoto] = useState("")
 
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
+    const accessToken = useAppSelector((state) => state.persistedAuthReducer.value.access_token)
     var store = useAppSelector((state) => state.persistedAuthReducer.value.store)
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
@@ -39,9 +40,12 @@ const StoreForm = () => {
         try {
             const response = await axios.post(
                 "/store/create",
-                values,
+                JSON.stringify(values),
                 { 
-                    headers: { "Content-Type": "application/json" },
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "Authorization" : `Bearer ${accessToken}`
+                    },
                     withCredentials: true
                 }
             )
@@ -57,6 +61,7 @@ const StoreForm = () => {
                 setErrorMessage("Store already exists")
             } else {
                 setErrorMessage("Cannot create store")
+                console.log(err.message)
             }
         }
     }
@@ -121,7 +126,7 @@ const StoreForm = () => {
                                 </div>
                                 <textarea 
                                     placeholder="Description"
-                                    className="input_2"
+                                    className="input_2 h-[50px]"
                                     onChange={(e) => setDescription(e.target.value)}
                                     onClick={resetError}
                                     value={description}

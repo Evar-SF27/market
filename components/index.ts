@@ -16,7 +16,6 @@ export { default as Sales } from "./sales/sales"
 // Store Components
 export { default as StoreFront } from "./store/store"
 export { default as StoreForm } from "./form/storeForm"
-export { default as StoreHeader } from  "./store/storeHeader"
 export { default as StorePoster } from "./store/storePoster"
 export { default as StoreDashboard } from "./store/storeDashboard"
 
@@ -24,7 +23,7 @@ export { default as StoreDashboard } from "./store/storeDashboard"
 export { default as CategoryForm } from "./form/categoryForm"
 export { default as Categories } from "./category/category"
 export { default as UserCategories } from "./category/categoryView"
-export { default as AddCategoryModal } from "./category/addCategoryModal"
+export { default as AddCategoryModal } from "./modals/addCategory"
 
 // Posters
 export { PosterOne } from "./poster/posters"
