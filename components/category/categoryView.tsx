@@ -15,7 +15,7 @@ interface PageProps {
 const CategoryView = ({ setActive, search }: PageProps) => {
   const [showForm, setShowForm] = useState(false)
   const [categories, setCategories] = useState([])
-  const category = useAppSelector(state =>  state.categoryReducer.categories)
+  const category = useAppSelector(state =>  state.persistedCategoryReducer.categories)
   const s = useAppSelector(state => state.persistedAuthReducer.value.user)
   const store = useAppSelector(state => state.persistedStoreReducer.store.user)
   const userId = useAppSelector(state => state.persistedAuthReducer.value.user?.username)
@@ -23,8 +23,10 @@ const CategoryView = ({ setActive, search }: PageProps) => {
   const isAdmin = store == userId
 
   useEffect(() => {
-    const cat = category.filter((c: CategoryProps) => c.category_name == search)
-    setCategories(cat)  
+    console.log(categories)
+    const cat = category?.filter((c: CategoryProps) => c.category_name == search)
+    setCategories(cat) 
+    console.log(categories) 
   }, [search])
 
   return (

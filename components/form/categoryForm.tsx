@@ -8,6 +8,7 @@ import { AppDispatch } from '@/redux/store'
 import { useDispatch } from 'react-redux'
 // import { registerStoreId } from '@/redux/features/authSlice'
 import { CategoryProps } from '@/types'
+import { setCategories } from '@/redux/features/categorySlice'
 
 const CategoryForm = ({ setActive }: Function | any) => {
     const [selectedFile, setSelectedFile] = useState<any>("")
@@ -16,7 +17,7 @@ const CategoryForm = ({ setActive }: Function | any) => {
     const [parentCategory, setParentCategory] = useState("none")
 
     var store = useAppSelector((state) => state.persistedStoreReducer.store._id)
-    var categories = useAppSelector((state) => state.categoryReducer.categories)
+    var categories = useAppSelector((state) => state.persistedCategoryReducer.categories)
     var accessToken = useAppSelector((state) => state.persistedAuthReducer.value.access_token)
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
@@ -43,6 +44,11 @@ const CategoryForm = ({ setActive }: Function | any) => {
                     withCredentials: true
                 }
             )
+
+            if (response) {
+                const allCategories = [response.data.message, ...categories]
+                dispatch(setCategories(allCategories))
+            }
             
         } catch (err: any) {
             if (!err?.response) {
@@ -86,12 +92,7 @@ const CategoryForm = ({ setActive }: Function | any) => {
                                     <label htmlFor="category_name" className="mr-4 mb-4">Parent Category:</label>
                                     <select className="input_2 px-4">
                                         <option value="none">None</option>
-                                        {categories.map((category: CategoryProps) => {
-                                            const k = category.id as Key
-                                            return (
-                                                <option key={k} value={parentCategory} onChange={() => setParentCategory(category.category_slug)}>{category.category_name}</option>
-                                            )
-                                        })}
+                                        {categories.map((category: CategoryProps) => <option key={category.id as Key} value={parentCategory} onChange={() => setParentCategory(category.category_slug)}>{category.category_name}</option>)}
                                     </select>
                                 </div>
                                 <div className="mb-4">
