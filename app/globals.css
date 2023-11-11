@@ -91,10 +91,10 @@
     @apply font-bold text-[18px] md:text-[22px] px-2 text-primary;
 }
 .store_nav {
-    @apply bg-secondary-100 border-b border-white py-6 px-4 text-[16px];
+    @apply bg-secondary-600 border-b border-white py-6 px-4 text-[20px] font-semibold;
 }
 .store_nav > span {
-    @apply bg-primary p-[4px] ml-[3px] text-[14px] rounded text-white font-bold;
+    @apply bg-primary p-[5px] ml-[3px] text-[14px] rounded text-white font-bold;
 }
 .zoom {
     @apply w-full h-full transition-transform transform scale-100 hover:scale-110 object-contain;

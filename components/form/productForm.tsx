@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import { CategoryProps } from '@/types'
 import { setCategories } from '@/redux/features/categorySlice'
 
-const CategoryForm = () => {
+const ProductForm = () => {
     const [selectedFile, setSelectedFile] = useState<any>("")
     const [errorMessage, setErrorMessage] = useState("")
     const [category_name, setCategory_name] = useState("")
@@ -108,7 +108,7 @@ const CategoryForm = () => {
                                     type="submit"
                                     className="mt-8 bg-primary w-[100%] py-4 rounded-[5px] text-white text-[18px] font-semibold"
                                 >
-                                    Add Category
+                                    Create Store
                                 </button>
                             </div>
                         </form>
@@ -121,4 +121,4 @@ const CategoryForm = () => {
   )
 }
 
-export default CategoryForm
+export default ProductForm

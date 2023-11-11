@@ -3,14 +3,14 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XCircleIcon,  } from '@heroicons/react/20/solid'
-import CategoryForm from '../form/categoryForm'
+import ProductForm from '../form/productForm'
 
 interface PageProps {
     isOpen: boolean,
     closeModal: () => void
 }
 
-const AddCategoryModal = ({ isOpen, closeModal }: PageProps) => {
+const AddProductModal = ({ isOpen, closeModal }: PageProps) => {
 
   return (
     <>
@@ -50,7 +50,7 @@ const AddCategoryModal = ({ isOpen, closeModal }: PageProps) => {
                                     className="icons-small text-secondary-800"
                                 />
                             </button>
-                            <CategoryForm />
+                            <ProductForm />
                         </Dialog.Panel>
                     </Transition.Child>
                     </div>
@@ -61,5 +61,4 @@ const AddCategoryModal = ({ isOpen, closeModal }: PageProps) => {
   )
 }
 
-export default AddCategoryModal
-
+export default AddProductModal

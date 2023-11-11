@@ -21,9 +21,14 @@ export { default as StoreDashboard } from "./store/storeDashboard"
 
 // Category Components
 export { default as CategoryForm } from "./form/categoryForm"
-export { default as Categories } from "./category/category"
+export { default as CategorySlider } from "./category/category"
 export { default as UserCategories } from "./category/categoryView"
 export { default as AddCategoryModal } from "./modals/addCategory"
+
+// Products Components
+export { default as ProductForm } from "./form/productForm"
+export { default as AddProductModal } from "./modals/addProducts"
+export { default as Products } from "./products/products"
 
 // Posters
 export { PosterOne } from "./poster/posters"

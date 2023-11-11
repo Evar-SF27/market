@@ -8,26 +8,18 @@ import { useRouter } from 'next/navigation'
 import { AddCategoryModal } from '..'
 
 interface PageProps {
-  setActive: Function | any,
-  search: string 
+  categories: Array<CategoryProps>
 }
 
-const CategoryView = ({ setActive, search }: PageProps) => {
+const CategoryView = ({ categories }: PageProps) => {
   const [showForm, setShowForm] = useState(false)
-  const [categories, setCategories] = useState([])
-  const category = useAppSelector(state =>  state.persistedCategoryReducer.categories)
   const s = useAppSelector(state => state.persistedAuthReducer.value.user)
   const store = useAppSelector(state => state.persistedStoreReducer.store.user)
   const userId = useAppSelector(state => state.persistedAuthReducer.value.user?.username)
   const router = useRouter()
   const isAdmin = store == userId
 
-  useEffect(() => {
-    console.log(categories)
-    const cat = category?.filter((c: CategoryProps) => c.category_name == search)
-    setCategories(cat) 
-    console.log(categories) 
-  }, [search])
+  
 
   return (
     <div className="mx-4">
@@ -41,7 +33,7 @@ const CategoryView = ({ setActive, search }: PageProps) => {
                         onClick={() => router.push('/')}
                           className="row-flex category-bg-v">
                             <Image 
-                                src="/images/laptops.png"
+                                src={`http://localhost:5000/uploads/${category.photo_url}`}
                                 alt={`${category.category_slug}`}
                                 width={150}
                                 height={150}

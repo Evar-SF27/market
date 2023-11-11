@@ -1,19 +1,21 @@
 "use client"
 
+import Image from 'next/image'
 import { setCategories } from '@/redux/features/categorySlice'
 import { AppDispatch } from '@/redux/store'
 import { CategoryProps } from '@/types'
-import Image from 'next/image'
-import { Key } from 'react'
+import { Key, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 const Category = ({ categories }: Array<CategoryProps> | any) => {
     const dispatch = useDispatch<AppDispatch>()
-    const set = () => {
+    const setCategoriesToStore = () => {
         dispatch(setCategories(categories))
     }
-
-    set()
+    useEffect(() => {
+        setCategoriesToStore()
+    }, [categories])
+    
   return (
     <div className="my-8 w-[100%]">
       <div className="w-[100%] text-primary col-flex">

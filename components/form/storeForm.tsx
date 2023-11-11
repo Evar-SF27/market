@@ -14,7 +14,13 @@ const StoreForm = () => {
     const [location, setLocation] = useState("")
     const [description, setDescription] = useState("")
     const [contact, setContact] = useState("")
-    const [photo, setPhoto] = useState("")
+    const [selectedFile, setSelectedFile] = useState<File | null>()
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length > 0) {
+            setSelectedFile(e.target.files[0])
+        }
+    }
 
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
     const accessToken = useAppSelector((state) => state.persistedAuthReducer.value.access_token)
@@ -35,7 +41,7 @@ const StoreForm = () => {
             "description": description,
             "contact": contact,
             "user": user && user._id,
-            "image": photo
+            "image": selectedFile
         }
         try {
             const response = await axios.post(
@@ -119,7 +125,7 @@ const StoreForm = () => {
                                     <input 
                                         placeholder="Choose Store Poster"
                                         type="file"
-                                        onChange={(e) => setPhoto(e.target.value)}
+                                        onChange={handleFileChange}
                                         onClick={resetError}
                                         name="image"
                                     />
