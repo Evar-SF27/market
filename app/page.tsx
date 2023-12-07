@@ -1,8 +1,10 @@
-import { CategorySlider, Hero, NavBar, Offers, PosterOne, ProtectedRoute, Sales } from '@/components'
+import { CategorySlider, Hero, NavBar, Offers, PosterOne, Products, ProtectedRoute, Sales } from '@/components'
 import { fetchCategories } from '@/services/categories.services'
+import { fetchProducts } from '@/services/products.services'
 
 export default async function Home() {
   const categories = await fetchCategories()
+  const products = await fetchProducts()
   
   return (
     <ProtectedRoute>
@@ -15,6 +17,7 @@ export default async function Home() {
           <CategorySlider categories={categories} />
         </main>
         <PosterOne />
+        <Products products={products} />
       </div>
     </ProtectedRoute>
     
