@@ -30,8 +30,16 @@ export { default as ProductForm } from "./form/productForm"
 export { default as AddProductModal } from "./modals/addProducts"
 export { default as Products } from "./products/products"
 
+// Review Components
+export { default as ReviewComponent } from "./reviews/review"
+export { default as Reviews } from "./reviews/reviews"
+export { default as ReviewForm } from "./reviews/addReview"
+
 // Posters
 export { PosterOne } from "./poster/posters"
 
 // Loader
 export { default as Loader } from "./loader/loader"
+
+// Reusables
+export { default as Avatar } from "./reusables/avatar"

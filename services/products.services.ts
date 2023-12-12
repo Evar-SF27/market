@@ -2,9 +2,7 @@ import axios from '@/config/axios'
 
 const fetchProducts = async () => {
     try {
-        const response = await axios.get(
-            "/product",
-        )
+        const response = await axios.get("/product")
 
         return response.data.message
         
@@ -13,4 +11,30 @@ const fetchProducts = async () => {
     }
 }
 
-export { fetchProducts }
+const fetchProductByID = async (id: String) => {
+    try {
+        const response = await axios.get(`/product`, {
+            params: { id: id }
+        })
+
+        return response.data.message
+        
+    } catch (err: any) {
+        console.error(err.message)
+    }
+}
+
+const fetchProductBySlug = async (slug: String) => {
+    try {
+        const response = await axios.get(`/product`, {
+            params: { slug: slug }
+        })
+
+        return response.data.message
+        
+    } catch (err: any) {
+        console.error(err.message)
+    }
+}
+
+export { fetchProducts, fetchProductByID, fetchProductBySlug }
