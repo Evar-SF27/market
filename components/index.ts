@@ -29,6 +29,7 @@ export { default as AddCategoryModal } from "./modals/addCategory"
 export { default as ProductForm } from "./form/productForm"
 export { default as AddProductModal } from "./modals/addProducts"
 export { default as Products } from "./products/products"
+export { default as Cart } from "./reusables/cart"
 
 // Review Components
 export { default as ReviewComponent } from "./reviews/review"
