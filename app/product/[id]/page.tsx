@@ -3,8 +3,8 @@ import { Cart, MainBar, ReviewComponent, TopBar } from '@/components'
 import { fetchProductBySlug } from '@/services/products.services'
 
 interface PageProps {
-    params: { id: String }
-  }
+  params: { id: String }
+}
 
 const ProductPage = async ({ params }: PageProps) => {
     const slug = params.id

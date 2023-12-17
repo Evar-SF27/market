@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useAppSelector } from '@/redux/store'
 import { CategoryProps } from '@/types'
-import { Key, useEffect, useState } from 'react'
+import { Key, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { AddCategoryModal } from '..'
 
@@ -18,8 +18,6 @@ const CategoryView = ({ categories }: PageProps) => {
   const userId = useAppSelector(state => state.persistedAuthReducer.value.user?.username)
   const router = useRouter()
   const isAdmin = store == userId
-
-  
 
   return (
     <div className="mx-4">

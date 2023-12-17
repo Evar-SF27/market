@@ -97,9 +97,12 @@ export interface CategoryProps {
 }
 
 export interface ProductProps {
-    id: string,
+    _id: string,
     product_slug: string,
-    product_category: string,
+    product_category: {
+        _id: string,
+        category_name: string
+    },
     product_name: string,
     product_image?: string,
     price: number
@@ -111,7 +114,10 @@ export interface ProductProps {
     color?: string
     description?: string
     features?: string,
-    store: string,
+    store: {
+        _id: string,
+        store_name: string
+    },
     photo_gallery?: Array<string>
 }
 
