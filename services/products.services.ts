@@ -37,4 +37,17 @@ const fetchProductBySlug = async (slug: String) => {
     }
 }
 
-export { fetchProducts, fetchProductByID, fetchProductBySlug }
+const fetchProductByStore = async (storeId: String) => {
+    try {
+        const response = await axios.get(`/product`, {
+            params: { store: storeId }
+        })
+
+        return response.data.message
+        
+    } catch (err: any) {
+        console.error(err.message)
+    }
+}
+
+export { fetchProducts, fetchProductByID, fetchProductBySlug, fetchProductByStore }

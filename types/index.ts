@@ -96,7 +96,27 @@ export interface CategoryProps {
     photo_url: string | File
 }
 
+export interface ProductProps {
+    id: string,
+    product_slug: string,
+    product_category: string,
+    product_name: string,
+    product_image?: string,
+    price: number
+    discount?: number
+    quantity?: number
+    quantity_sold?: number,
+    unit?: string,
+    brand?: string
+    color?: string
+    description?: string
+    features?: string,
+    store: string,
+    photo_gallery?: Array<string>
+}
+
 export interface StorePageProps {
-    store: StoreProps,
-    categories: Array<CategoryProps>
+    store?: StoreProps,
+    categories?: Array<CategoryProps>,
+    products?: Array<ProductProps>
 }

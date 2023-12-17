@@ -1,17 +1,18 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
-import { Products, UserCategories } from '@/components'
+import React, { useState, useEffect, useContext } from 'react'
+import { ProductDashboard, Products, UserCategories } from '@/components'
 import { useAppSelector } from '@/redux/store'
 import { CategoryProps } from '@/types'
 import { QueueListIcon, XMarkIcon } from '@heroicons/react/20/solid'
+import ProductContext from '@/context/products'
 
 const StoreDashboard = () => {
     const [active, setActive] = useState("")
     const [searchValue, setSearchValue] = useState("")
     const [toggledMenu, setToggledMenu] = useState(false)
     const [categories, setCategories] = useState([])
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState(useContext(ProductContext))
     const user = useAppSelector(state => state.persistedAuthReducer.value.user)
     const store = useAppSelector(state => state.persistedStoreReducer.store)
     const category = useAppSelector(state =>  state.persistedCategoryReducer.categories)
@@ -34,7 +35,7 @@ const StoreDashboard = () => {
             case "categories":
                 return <UserCategories categories={categories} />
             case "products":
-                return <Products />
+                return <ProductDashboard products={products} />
             case "add-products":
                 return <p>Add Products</p>
             default:
