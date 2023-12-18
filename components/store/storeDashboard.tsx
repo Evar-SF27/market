@@ -39,7 +39,7 @@ const StoreDashboard = () => {
             case "add-products":
                 return <p>Add Products</p>
             default:
-                return <p>Products</p>
+                return <ProductDashboard products={products} />
         }
     }
 
@@ -70,7 +70,7 @@ const StoreDashboard = () => {
             <div className={`${!toggledMenu && 'max-sm:hidden'} sm:w-[30%] lg:w-[20%] w-[50%] bg-secondary-500`}>
                 <nav className="border-b-[40px] border-secondary-700">
                     <p className="store_nav" onClick={() => setActive("categories")}>Categories<span>{category.length}</span></p>
-                    <p className="store_nav" onClick={() => setActive("products")}>Products<span>0</span></p>
+                    <p className="store_nav" onClick={() => setActive("products")}>Products<span>{products?.length}</span></p>
                     <p className="store_nav">Category Three</p>
                     <p className="store_nav">Category Four</p>
                 </nav>
