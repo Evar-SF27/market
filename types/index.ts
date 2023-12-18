@@ -105,15 +105,13 @@ export interface ProductProps {
     },
     product_name: string,
     product_image?: string,
-    price: number
-    discount?: number
-    quantity?: number
-    quantity_sold?: number,
+    price: number,
+    discount?: number,
+    quantity?: number,
     unit?: string,
-    brand?: string
-    color?: string
-    description?: string
-    features?: string,
+    brand?: string,
+    color?: string,
+    description?: string,
     store: {
         _id: string,
         store_name: string

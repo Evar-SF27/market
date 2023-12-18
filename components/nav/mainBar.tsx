@@ -12,22 +12,22 @@ const MainBar = () => {
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
 
   return (
-    <div className="max-sm:mx-2 mx-6 h-24 flex items-center justify-between">
+    <div className="max-sm:mx-2 mx-6 h-22 flex items-center justify-between">
         <div className="flex justify-between w-[77%]">
-            <div className="w-[250px] max-md:w-[120px] mr-2">
+            <div className="w-[200px] max-md:w-[120px] mr-2">
                 <Image 
                     src="/images/logo.png"
                     alt="logo"
-                    width={220}
+                    width={200}
                     height={150}
-                    className="w-[230px] h-[90%]"
+                    className="w-[200px] h-[90%]"
                 />
             </div>
             <div className="flex justify-center items-center w-[75%]">
                 <SearchBar otherStyles="md:block hidden ml-8 w-full" />
             </div>
         </div>
-        <div className="sm:w-[270px] w-[210px] flex justify-around mr-2">
+        <div className="sm:w-[300px] w-[220px] flex justify-center gap-4 mr-2">
             <div className="flex">
                 <button>
                     <UserIcon className="text-black-200 icons-medium" />
@@ -38,8 +38,7 @@ const MainBar = () => {
                         <p className="text-sm font-bold">{user && user?.username.length > 5 ? user?.username : user?.username.slice(0, 5) + "..."}</p>
                     ) : (
                         <Link href={`/signin`} className="text-sm font-bold">Sign In</Link>
-                    )}
-                    
+                    )}   
                 </div>
             </div>
             <button className="mb-6">

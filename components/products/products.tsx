@@ -1,7 +1,4 @@
-import { HeartIcon } from "@heroicons/react/20/solid"
-import Image from "next/image"
-import Link from "next/link"
-import ProductCard from "./productCard"
+import ProductCard from './productCard'
 
 
 const ProductsView = async ({ products }: { products: any }) => {
@@ -11,7 +8,7 @@ const ProductsView = async ({ products }: { products: any }) => {
         <h1 className="text-[24px] text-primary font-bold">Featured Products</h1>
       </div>
       <div>
-        {products.map((product: any) => <ProductCard product={product} />)}
+        {products.map((product: any) => <ProductCard key={product.product_slug} product={product} />)}
       </div>
     </div>
   )

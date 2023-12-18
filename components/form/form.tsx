@@ -206,9 +206,9 @@ const Form = () => {
                                                 name="password"
                                             />
                                             {toggledPassword ? 
-                                                <EyeIcon className="icons-small text-primary" onClick={handleTogglePassword} /> 
+                                                <EyeIcon className="icons-small text-primary mr-2" onClick={handleTogglePassword} /> 
                                                 : 
-                                                <EyeSlashIcon className="icons-small text-primary" onClick={handleTogglePassword} />}
+                                                <EyeSlashIcon className="icons-small text-primary mr-2" onClick={handleTogglePassword} />}
                                         </div>
                                         <div
                                             className={`${isRegister && "hidden"} flex justify-end text-[12px] -mt-2 mr-2 font-semibold text-gray-500`}
