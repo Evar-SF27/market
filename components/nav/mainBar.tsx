@@ -54,7 +54,7 @@ const MainBar = () => {
                     </div>
                     <ShoppingCartIcon className="text-black-200 icons-medium" />
                 </button>
-                <div className="mt-[18px] ml-[15px] hidden sm:block">
+                <div className="mt-[18px] ml-[20px] hidden sm:block">
                     <p className="text-[15px]">Total</p>
                     <p className="text-[18px] font-bold">$20.0</p>
                 </div>

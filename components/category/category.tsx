@@ -6,6 +6,7 @@ import { AppDispatch } from '@/redux/store'
 import { CategoryProps } from '@/types'
 import { Key, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { CategoryCard } from '..'
 
 const Category = ({ categories }: Array<CategoryProps> | any) => {
     const dispatch = useDispatch<AppDispatch>()
@@ -25,21 +26,7 @@ const Category = ({ categories }: Array<CategoryProps> | any) => {
         <div className="w-[90%] flex-wrap gap-4 my-8 flex justify-around max-sm:mx-2">
             {categories && categories.slice(0,4).map((category: CategoryProps) => {
                 let key: Key = category.category_slug as Key
-                return (
-                    <div key={key} className="col-flex">
-                        <div className="row-flex category-bg">
-                            <Image 
-                                src="/images/laptops.png"
-                                alt="category-one"
-                                width={200}
-                                height={200}
-                            />
-                        </div>
-                        <div className="my-4 row-flex">
-                            <h3 className="text-slate-900 font-sans text-[18px] max-sm:text-[14px] max-sm:font-semibold">{category.category_name}</h3>
-                        </div>
-                    </div>
-                )
+                return <CategoryCard key={key} category_name={category.category_name} category_slug={category.category_slug} photo_url={category.photo_url} />
             })}
         </div>
       </div>

@@ -5,7 +5,7 @@ import { useAppSelector } from '@/redux/store'
 import { CategoryProps } from '@/types'
 import { Key, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { AddCategoryModal } from '..'
+import { AddCategoryModal, CategoryCard } from '..'
 
 interface PageProps {
   categories: Array<CategoryProps>
@@ -25,23 +25,7 @@ const CategoryView = ({ categories }: PageProps) => {
       <div className="w-[100%] flex-wrap gap-2 my-8 flex justify-center max-sm:mx-2">
             {categories.map((category: CategoryProps) => {
                 let key: Key = category.category_slug as Key
-                return (
-                    <div key={key} className="col-flex-v">
-                        <div 
-                        onClick={() => router.push('/')}
-                          className="row-flex category-bg-v">
-                            <Image 
-                                src={`http://localhost:5000/uploads/${category.photo_url}`}
-                                alt={`${category.category_slug}`}
-                                width={150}
-                                height={150}
-                            />
-                        </div>
-                        <div className="my-2 flex justify-center items-center">
-                            <h3 className="text-primary font-sans text-[18px] max-sm:text-[14px] font-bold">{category.category_name}</h3>
-                        </div>
-                    </div>
-                )
+                return <CategoryCard key={key} category_name={category.category_name} category_slug={category.category_slug} photo_url={category.photo_url} />
             })}
         </div>
       {isAdmin && (

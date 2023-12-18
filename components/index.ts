@@ -22,6 +22,7 @@ export { default as StoreDashboard } from "./store/storeDashboard"
 // Category Components
 export { default as CategoryForm } from "./form/categoryForm"
 export { default as CategorySlider } from "./category/category"
+export { default as CategoryCard } from "./category/categoryCard"
 export { default as UserCategories } from "./category/categoryView"
 export { default as AddCategoryModal } from "./modals/addCategory"
 
