@@ -5,9 +5,12 @@ import { ProductProps } from '@/types'
 import { useAppSelector } from '@/redux/store'
 import ProductCard from './productCard'
 import AddProductModal from '../modals/addProducts'
+import { useDispatch } from 'react-redux'
+import { logOut } from '@/redux/features/authSlice'
 
 const ProductDashboard = ({ products }: { products: Array<ProductProps> | undefined }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const dispatch = useDispatch()
     
     const userId = useAppSelector(state => state.persistedAuthReducer.value.user?.username)
     const store = useAppSelector(state => state.persistedStoreReducer.store.user)
@@ -16,7 +19,7 @@ const ProductDashboard = ({ products }: { products: Array<ProductProps> | undefi
   return (
     <div className='h-[100%] w-[100%] flex flex-col justify-between items-start mt-2 mx-2' >
         <AddProductModal isOpen={isOpen} closeModal={() => setIsOpen(false)} />
-        <div className='mb-2 flex justify-start items-start'>
+        <div className='mb-2 flex justify-start items-start gap-6'>
             {products ? (
                 products.map((product) => <ProductCard key={product.product_slug} product={product} />)
             ) : (
