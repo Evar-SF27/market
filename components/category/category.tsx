@@ -21,7 +21,7 @@ const Category = ({ categories }: Array<CategoryProps> | any) => {
     <div className="my-8 w-[100%]">
       <div className="w-[100%] text-primary col-flex">
         <div>
-            <h1 className="font-bold text-[46px] max-sm:text-[40px]">Top Categories</h1>
+            <h1 className="font-bold text-[42px] max-sm:text-[40px]">Top Categories</h1>
         </div>
         <div className="w-[90%] flex-wrap gap-4 my-8 flex justify-around max-sm:mx-2">
             {categories && categories.slice(0,4).map((category: CategoryProps) => {
