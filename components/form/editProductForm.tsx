@@ -1,29 +1,28 @@
 "use client"
 
 import axios from '@/config/axios' 
-import { useState, Key, SetStateAction } from 'react'
+import { useState, Key } from 'react'
 import { useAppSelector } from '@/redux/store'
-import { CategoryProps } from '@/types'
+import { CategoryProps, ProductProps } from '@/types'
 
-const ProductForm = () => {
+const EditProductForm = ({ product }: { product: ProductProps }) => {
     const [errorMessage, setErrorMessage] = useState("")
     const [productCategory, setProductCategory] = useState("")
-    const [productName, setProductName] = useState("")
-    const [selectedFile, setSelectedFile] = useState<any>("")
-    const [selectedFiles, setSelectedFiles] = useState<any>([])
-    const [price, setPrice] = useState("")
-    const [discount, setDiscount] = useState("")
-    const [quantity, setQuantity] = useState("")
-    const [unit, setUnit] = useState("")
-    const [brand, setBrand] = useState("")
-    const [color, setColor] = useState("")
-    const [description, setDescription] = useState("")
-    const [shortDescription, setShortDescription] = useState("")
+    const [productName, setProductName] = useState(product.product_name)
+    const [selectedFile, setSelectedFile] = useState<any>(product.product_image)
+    const [selectedFiles, setSelectedFiles] = useState<any>(product.photo_gallery)
+    const [price, setPrice] = useState(product.price as unknown as string)
+    const [discount, setDiscount] = useState(product.discount as unknown as string)
+    const [quantity, setQuantity] = useState(product.quantity as unknown as string)
+    const [unit, setUnit] = useState(product?.unit ? product.unit : '')
+    const [brand, setBrand] = useState(product?.brand ? product.brand : '')
+    const [color, setColor] = useState(product?.color ? product.color : '')
+    const [description, setDescription] = useState(product?.description ? product.description : '')
+    const [shortDescription, setShortDescription] = useState(product?.short_description ? product.short_description : '')
     const [store] = useState(useAppSelector((state) => state.persistedStoreReducer.store._id))
     
     var categories = useAppSelector((state) => state.persistedCategoryReducer.categories)
     var accessToken = useAppSelector((state) => state.persistedAuthReducer.value.access_token)
-    console.log(accessToken)
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
@@ -59,8 +58,8 @@ const ProductForm = () => {
         formData.append("images", selectedFiles)
         
         try {
-            await axios.post(
-                "/product/create",
+            await axios.put(
+                "/product",
                 formData,
                 { 
                     headers: { "Content-Type": "multipart/form-data", "Authorization": `Bearer ${accessToken}` },
@@ -89,7 +88,7 @@ const ProductForm = () => {
                 <div>
                     <div className="flex flex-col items-center justify-center py-8">
                         <h1 className="text-primary font-bold text-[3rem] max-sm:text-[1.5rem]">MarketPlace</h1>
-                        <p className="text-center">Complete the fields to create a product</p>
+                        <p className="text-center">Complete the fields to edit the product</p>
                     </div>
                     <div>
                         <form onSubmit={createCategory} encType="multipart/form-data">
@@ -145,7 +144,7 @@ const ProductForm = () => {
                                 />
                                 <textarea 
                                     placeholder="Product Description"
-                                    className="input_3 w-[100%] h-[100px] py-2"
+                                    className="input_3 w-[100%] h-[80px] py-2"
                                     onChange={(e) => setDescription(e.target.value)}
                                     onClick={resetError}
                                     value={description}
@@ -201,7 +200,7 @@ const ProductForm = () => {
                                     type="submit"
                                     className="mt-8 bg-primary w-[100%] py-4 rounded-[5px] text-white text-[18px] font-semibold"
                                 >
-                                    Add Product
+                                    Edit Product
                                 </button>
                             </div>
                         </form>
@@ -214,4 +213,4 @@ const ProductForm = () => {
   )
 }
 
-export default ProductForm
+export default EditProductForm

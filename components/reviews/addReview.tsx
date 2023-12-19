@@ -19,7 +19,7 @@ const AddReview = () => {
           <label className='mx-2'>Your Rating</label>
           <div className='flex mb-4'>
             {[1,2,3,4,5].map(
-              (i) => <StarIcon className={`w-[40px] aspect-square ${i <= numRating ? 'text-primary' : 'text-secondary-700' }`} onClick={() => numRating != i ? setNumRating(i): setNumRating(i-1)} /> 
+              (i) => <StarIcon key={i} className={`w-[40px] aspect-square ${i <= numRating ? 'text-primary' : 'text-secondary-700' }`} onClick={() => numRating != i ? setNumRating(i): setNumRating(i-1)} /> 
             )}  
           </div>
         </div>

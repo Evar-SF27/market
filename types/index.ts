@@ -112,6 +112,7 @@ export interface ProductProps {
     brand?: string,
     color?: string,
     description?: string,
+    short_description?: string,
     store: {
         _id: string,
         store_name: string

@@ -4,6 +4,7 @@ import { ProductProps } from '@/types'
 import { HeartIcon } from '@heroicons/react/20/solid'
 
 const ProductCard = ({ product }: { product: ProductProps }) => {
+  console.log('Card', product)
   return (
     <Link href={`/product/${product.product_slug}`} key={product._id}>  
       <div className="w-[200px] h-[270px] border rounded-[10px] border-[#eee]">
@@ -11,9 +12,9 @@ const ProductCard = ({ product }: { product: ProductProps }) => {
               <div>
               <Image src="/images/laptops.png" alt={product.product_slug} width={180} height={180} />
               </div>
-              <div className="absolute top-4 -right-[20px] w-[40px] aspect-square bg-primary flex items-center justify-center rounded-full">
-              <p className="text-white text-[13px] font-semibold">10%</p>
-              </div>
+              {product?.discount && <div className="absolute top-4 -right-[20px] w-[40px] aspect-square bg-primary flex items-center justify-center rounded-full">
+                <p className="text-white text-[13px] font-semibold">{`${product.discount}%`}</p>
+              </div>}
               <div className="absolute bottom-2 opacity-80 hover:opacity-100 right-2 rounded-full border p-1 border-secondary-900">
               <HeartIcon className="w-[20px] aspect-square text-secondary-900" />
               </div>

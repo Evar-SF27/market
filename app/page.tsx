@@ -19,7 +19,6 @@ export default async function Home() {
         <PosterOne />
         <Products products={products} />
       </div>
-    </ProtectedRoute>
-    
+    </ProtectedRoute> 
   )
 }

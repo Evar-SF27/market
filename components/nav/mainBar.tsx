@@ -20,7 +20,6 @@ const MainBar = () => {
                     alt="logo"
                     width={200}
                     height={150}
-                    className="w-[200px] h-[90%]"
                 />
             </div>
             <div className="flex justify-center items-center w-[75%]">
