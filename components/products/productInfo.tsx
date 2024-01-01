@@ -9,7 +9,6 @@ import EditProductModal from '../modals/editProducts'
 import { useState } from 'react'
 
 const ProductInfo = ({ product }: { product: ProductProps }) => {
-    console.log('Info', product)
     const [isOpen, setIsOpen] = useState(false)
     const userId = useAppSelector(state => state.persistedAuthReducer.value.user?.username)
     const store = useAppSelector(state => state.persistedStoreReducer.store.user)
@@ -38,15 +37,15 @@ const ProductInfo = ({ product }: { product: ProductProps }) => {
             </div>
           </div>
           <div className='mt-8 w-[100%] md:w-[50%]'>
-            <p className="text-[20px] opacity-80">{product.product_category.category_name}</p>
-            <p className="text-primary text-[42px] -mt-2 font-bold">{product.product_name}</p>
-            <p className="-mt-1 text-[18px] text-slate-800">{product.store.store_name}</p>
+            <p className="text-[20px] opacity-80">{product?.product_category.category_name}</p>
+            <p className="text-primary text-[42px] -mt-2 font-bold">{product?.product_name}</p>
+            <p className="-mt-1 text-[18px] text-slate-800">{product?.store.store_name}</p>
             <p className='text-[14px] mt-2'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam consequatur ipsam molestias labore repellat corporis perspiciatis nemo harum quod temporibus aspernatur voluptatem possimus, sed necessitatibus veniam! Nam commodi dolorum quibusdam?</p>
             <div className='mt-4'>
               <p className="text-[18px] text-green-500 font-semibold"><span className='text-black'>Status: </span>In Stock</p>
-              <p className="text-[18px] text-slate-800"><span className='text-black font-semibold'>Brand: </span>{product.brand}</p>
+              <p className="text-[18px] text-slate-800"><span className='text-black font-semibold'>Brand: </span>{product?.brand}</p>
             </div>
-            <p className="text-[30px] mt-4 mx-4 font-bold text-primary">{product.price}</p>
+            <p className="text-[30px] mt-4 mx-4 font-bold text-primary">{product?.price}</p>
             <Cart />
             {isAdmin && (
                 <div className='flex gap-2 w-[100%] m-4'>
@@ -74,7 +73,7 @@ const ProductInfo = ({ product }: { product: ProductProps }) => {
         </div>
         <div className='my-6'>
           <p className='text-primary text-[24px] font-bold'>Product Description</p>
-          <p className='text-[16px] mt-2'>{product.description == null || product.description == '' ? 'There is no description' : product.description}</p>    
+          <p className='text-[16px] mt-2'>{product?.description == null || product.description == '' ? 'There is no description' : product.description}</p>    
         </div>
         <ReviewComponent />
         <div className='w-[100%] my-8 mx-4'>

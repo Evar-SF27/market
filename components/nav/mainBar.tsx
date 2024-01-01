@@ -14,14 +14,16 @@ const MainBar = () => {
   return (
     <div className="max-sm:mx-2 mx-6 h-22 flex items-center justify-between">
         <div className="flex justify-between w-[77%]">
-            <div className="w-[200px] max-md:w-[120px] mr-2">
-                <Image 
-                    src="/images/logo.png"
-                    alt="logo"
-                    width={200}
-                    height={150}
-                />
-            </div>
+            <Link href="/">
+                <div className="w-[200px] max-md:w-[120px] mr-2">
+                    <Image 
+                        src="/images/logo.png"
+                        alt="logo"
+                        width={200}
+                        height={150}
+                    />
+                </div>
+            </Link>
             <div className="flex justify-center items-center w-[75%]">
                 <SearchBar otherStyles="md:block hidden ml-8 w-full" />
             </div>

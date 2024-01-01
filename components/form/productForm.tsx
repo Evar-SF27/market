@@ -137,7 +137,7 @@ const ProductForm = () => {
                                 </div>
                                 <textarea 
                                     placeholder="Product Summary"
-                                    className="input_3 w-[100%] h-[60px] py-2"
+                                    className="input_3 w-[100%] h-[80px] py-2"
                                     onChange={(e) => setShortDescription(e.target.value)}
                                     onClick={resetError}
                                     value={shortDescription}
@@ -145,7 +145,7 @@ const ProductForm = () => {
                                 />
                                 <textarea 
                                     placeholder="Product Description"
-                                    className="input_3 w-[100%] h-[100px] py-2"
+                                    className="input_3 w-[100%] h-[130px] py-2"
                                     onChange={(e) => setDescription(e.target.value)}
                                     onClick={resetError}
                                     value={description}

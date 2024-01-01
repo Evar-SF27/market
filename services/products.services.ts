@@ -17,7 +17,7 @@ const fetchProductByID = async (id: String) => {
             params: { id: id }
         })
 
-        return response.data.message
+        return response.data.message[0]
         
     } catch (err: any) {
         console.error(err.message)
@@ -26,9 +26,9 @@ const fetchProductByID = async (id: String) => {
 
 const fetchProductBySlug = async (slug: String) => {
     try {
-        const response = await axios.get(`/product`, {
-            params: { slug: slug }
-        })
+        const response = await axios.get(`/product`, 
+            { params: { slug: slug } }
+        )
 
         return response.data.message
         

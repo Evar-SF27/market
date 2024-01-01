@@ -4,7 +4,6 @@ import { ProductProps } from '@/types'
 import { HeartIcon } from '@heroicons/react/20/solid'
 
 const ProductCard = ({ product }: { product: ProductProps }) => {
-  console.log('Card', product)
   return (
     <Link href={`/product/${product.product_slug}`} key={product._id}>  
       <div className="w-[200px] h-[270px] border rounded-[10px] border-[#eee]">

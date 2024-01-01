@@ -1,11 +1,12 @@
 "use client"
 
-import axios from '@/config/axios' 
 import { useState, Key } from 'react'
 import { useAppSelector } from '@/redux/store'
 import { CategoryProps, ProductProps } from '@/types'
+import useAxiosPrivate from '@/hooks/useAxiosPrivate'
 
 const EditProductForm = ({ product }: { product: ProductProps }) => {
+    const axios = useAxiosPrivate()
     const [errorMessage, setErrorMessage] = useState("")
     const [productCategory, setProductCategory] = useState("")
     const [productName, setProductName] = useState(product.product_name)
@@ -40,9 +41,10 @@ const EditProductForm = ({ product }: { product: ProductProps }) => {
         setProductCategory(e.target.value)
     }
 
-    const createCategory = async (e: { preventDefault: () => void }) => {
+    const editCategory = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
         const formData = new FormData()
+        formData.append("id", product._id)
         formData.append("product_name", productName)
         formData.append("product_category", productCategory)
         formData.append("price", price)
@@ -59,12 +61,8 @@ const EditProductForm = ({ product }: { product: ProductProps }) => {
         
         try {
             await axios.put(
-                "/product",
-                formData,
-                { 
-                    headers: { "Content-Type": "multipart/form-data", "Authorization": `Bearer ${accessToken}` },
-                    withCredentials: true
-                }
+                "/product/edit",
+                formData
             )
             
         } catch (err: any) {
@@ -81,6 +79,7 @@ const EditProductForm = ({ product }: { product: ProductProps }) => {
     const resetError = () => {
         setErrorMessage("")
     }
+
   return (
     <div className="h-[100%] my-6">
         <div className="flex justify-center items-center h-[100%]">
@@ -91,7 +90,7 @@ const EditProductForm = ({ product }: { product: ProductProps }) => {
                         <p className="text-center">Complete the fields to edit the product</p>
                     </div>
                     <div>
-                        <form onSubmit={createCategory} encType="multipart/form-data">
+                        <form onSubmit={editCategory} encType="multipart/form-data">
                             <div className="mx-8">
                                 <div className={`${!errorMessage && "hidden"} bg-red-100 rounded-[5px] h-fit py-4 px-4 mb-6 text-red-500`}>
                                     <span className="text-red-600 font-bold">Error: </span>{errorMessage}
@@ -136,7 +135,7 @@ const EditProductForm = ({ product }: { product: ProductProps }) => {
                                 </div>
                                 <textarea 
                                     placeholder="Product Summary"
-                                    className="input_3 w-[100%] h-[60px] py-2"
+                                    className="input_3 w-[100%] h-[80px] py-2"
                                     onChange={(e) => setShortDescription(e.target.value)}
                                     onClick={resetError}
                                     value={shortDescription}
@@ -144,7 +143,7 @@ const EditProductForm = ({ product }: { product: ProductProps }) => {
                                 />
                                 <textarea 
                                     placeholder="Product Description"
-                                    className="input_3 w-[100%] h-[80px] py-2"
+                                    className="input_3 w-[100%] h-[130px] py-2"
                                     onChange={(e) => setDescription(e.target.value)}
                                     onClick={resetError}
                                     value={description}
@@ -152,7 +151,7 @@ const EditProductForm = ({ product }: { product: ProductProps }) => {
                                 />
                                 <div className="mb-4">
                                     <label htmlFor="product_category" className="mr-4 mb-4">Parent Category:</label>
-                                    <select className="input_2 px-4" value={productCategory} onChange={handleSelectChange}>
+                                    <select className="input_2 px-4" key={productCategory} value={productCategory} onChange={handleSelectChange}>
                                         <option value="none">No Category</option>
                                         {categories.map((category: CategoryProps) => <option key={category.id as Key} value={category.category_slug}>{category.category_name}</option>)}
                                     </select>

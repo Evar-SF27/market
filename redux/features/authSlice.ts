@@ -5,7 +5,7 @@ const state = {
     value: {
         isAuth: false,
         user: null,
-        access_token: "",
+        access_token: null,
         store: null
     } as AuthState  
 } as InitialState
@@ -15,7 +15,11 @@ export const auth = createSlice({
     initialState: state,
     reducers: {
         logOut: (state) => {
-            return state
+            state.value.isAuth = false
+            state.value.user = null
+            state.value.access_token = null
+            state.value.store = null
+            
         },
         logIn: (state, action: PayloadAction<any>) => {
             state.value.isAuth = true

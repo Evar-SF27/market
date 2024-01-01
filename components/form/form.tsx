@@ -65,7 +65,6 @@ const Form = () => {
                 router.push("/")
             }
         } catch (err: any) {
-            console.log(err)
             if (!err?.response) {
                 setErrorMessage("No Server Response")
             } else if (err.response?.status === 409) {

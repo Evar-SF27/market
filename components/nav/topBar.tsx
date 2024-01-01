@@ -16,6 +16,10 @@ const topBar = () => {
     const user = useAppSelector((state) => state.persistedAuthReducer.value.user)
     const store = useAppSelector(state => state.persistedAuthReducer.value.store)
     const dispatch = useDispatch<AppDispatch>()
+
+    const signOut = () => {
+        dispatch(logOut())
+    }
     
   return (
     <div className="h-11 bg-secondary-800 flex-between px-3 text-white">
@@ -56,10 +60,9 @@ const topBar = () => {
                         <div className='flex flex-col gap-2 bg-secondary-700 border-b-4 border-secondary-900 px-2'>
                             <li className="list-nav-dropdown"><Link href="#">Store</Link></li>
                             <li className="list-nav-dropdown"><Link href="#">Profile</Link></li>
-                            <li className="flex justify-center p-2 text-sm text-white h-fit"><Link href="#">Log Out</Link></li>
+                            <li className="flex justify-center p-2 text-sm text-white h-fit" onClick={signOut}>Log Out</li>
                         </div>
                     </div>
-                    {/* <li onClick={() => dispatch(logOut())}>Logout</li> */}
                 </ul>
             </div>
             </div>

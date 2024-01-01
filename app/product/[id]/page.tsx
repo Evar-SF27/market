@@ -10,12 +10,13 @@ interface PageProps {
 const ProductPage = async ({ params }: PageProps) => {
     const slug = params.id
     const product = await fetchProductBySlug(slug)
+
   return (
     <>
       <TopBar />
       <MainBar />
       <div className='h-[60px] bg-secondary-700'></div>
-      <ProductInfo product={product[0]} />
+      <ProductInfo product={product} />
     </>
   )
 }
