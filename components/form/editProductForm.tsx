@@ -1,20 +1,22 @@
 "use client"
 
-import { useState, Key } from 'react'
+import useAxiosPrivate from '@/hooks/useAxiosPrivate'
+import { useState, Key, useContext } from 'react'
 import { useAppSelector } from '@/redux/store'
 import { CategoryProps, ProductProps } from '@/types'
-import useAxiosPrivate from '@/hooks/useAxiosPrivate'
+import { ProductIdContext } from '@/context/products'
 
-const EditProductForm = ({ product }: { product: ProductProps }) => {
+const EditProductForm = () => {
     const axios = useAxiosPrivate()
     const [errorMessage, setErrorMessage] = useState("")
     const [productCategory, setProductCategory] = useState("")
-    const [productName, setProductName] = useState(product.product_name)
-    const [selectedFile, setSelectedFile] = useState<any>(product.product_image)
-    const [selectedFiles, setSelectedFiles] = useState<any>(product.photo_gallery)
-    const [price, setPrice] = useState(product.price as unknown as string)
-    const [discount, setDiscount] = useState(product.discount as unknown as string)
-    const [quantity, setQuantity] = useState(product.quantity as unknown as string)
+    const product: ProductProps | null = useContext(ProductIdContext)
+    const [productName, setProductName] = useState(product?.product_name ? product.product_name : '')
+    const [selectedFile, setSelectedFile] = useState<any>(product?.product_image)
+    const [selectedFiles, setSelectedFiles] = useState<any>(product?.photo_gallery)
+    const [price, setPrice] = useState(product?.price as unknown as string)
+    const [discount, setDiscount] = useState(product?.discount as unknown as string)
+    const [quantity, setQuantity] = useState(product?.quantity as unknown as string)
     const [unit, setUnit] = useState(product?.unit ? product.unit : '')
     const [brand, setBrand] = useState(product?.brand ? product.brand : '')
     const [color, setColor] = useState(product?.color ? product.color : '')
@@ -23,7 +25,6 @@ const EditProductForm = ({ product }: { product: ProductProps }) => {
     const [store] = useState(useAppSelector((state) => state.persistedStoreReducer.store._id))
     
     var categories = useAppSelector((state) => state.persistedCategoryReducer.categories)
-    var accessToken = useAppSelector((state) => state.persistedAuthReducer.value.access_token)
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
@@ -44,20 +45,22 @@ const EditProductForm = ({ product }: { product: ProductProps }) => {
     const editCategory = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
         const formData = new FormData()
-        formData.append("id", product._id)
-        formData.append("product_name", productName)
-        formData.append("product_category", productCategory)
-        formData.append("price", price)
-        formData.append("discount", discount)
-        formData.append("quantity", quantity)
-        formData.append("unit", unit)
-        formData.append("brand", brand)
-        formData.append("color", color)
-        formData.append("description", description)
-        formData.append("short_description", shortDescription)
-        formData.append("store", store)
-        formData.append("image", selectedFile)
-        formData.append("images", selectedFiles)
+        if (product) {
+            formData.append("id", product._id)
+            formData.append("product_name", productName)
+            formData.append("product_category", productCategory)
+            formData.append("price", price)
+            formData.append("discount", discount)
+            formData.append("quantity", quantity)
+            formData.append("unit", unit)
+            formData.append("brand", brand)
+            formData.append("color", color)
+            formData.append("description", description)
+            formData.append("short_description", shortDescription)
+            formData.append("store", store)
+            formData.append("image", selectedFile)
+            formData.append("images", selectedFiles)
+        }
         
         try {
             await axios.put(

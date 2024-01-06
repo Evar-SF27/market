@@ -1,5 +1,6 @@
 'use client'
 
+import { axiosPrivate } from '@/config/axios'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react'
 
@@ -8,6 +9,20 @@ const AddReview = () => {
   const [name, setName] = useState<string>()
   const [email, setEmail] = useState<string>()
   const [numRating, setNumRating] = useState<number>(0)
+
+  const addReview = async () => {
+    const response = await axiosPrivate.post(
+      'reviews/',
+      {
+        username: name,
+        email: email,
+        rating: numRating,
+        review: review,
+        product: null
+    })
+
+  }
+
   return (
     <div className='border py-6 px-8 w-[100%] md:w-[700px] rounded-[15px]'>
       <div className='my-4'>

@@ -2,20 +2,29 @@
 
 import Image from 'next/image'
 import Cart from '../reusables/cart'
+import EditProductModal from '../modals/editProducts'
+import { useContext, useState } from 'react'
 import { ProductProps } from '@/types'
 import { ReviewComponent } from '..'
 import { useAppSelector } from '@/redux/store'
-import EditProductModal from '../modals/editProducts'
-import { useState } from 'react'
+import { ProductIdContext } from '@/context/products'
+import { useRouter } from 'next/navigation'
 
-const ProductInfo = ({ product }: { product: ProductProps }) => {
-    const [isOpen, setIsOpen] = useState(false)
-    const userId = useAppSelector(state => state.persistedAuthReducer.value.user?.username)
-    const store = useAppSelector(state => state.persistedStoreReducer.store.user)
-    const isAdmin = store == userId
+const ProductInfo = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const product: ProductProps | null = useContext(ProductIdContext) 
+  const userId = useAppSelector(state => state.persistedAuthReducer.value.user?.username)
+  const store = useAppSelector(state => state.persistedStoreReducer.store.user)
+  const router = useRouter()
+  const isAdmin = store == userId
+
+  if (product == null) {
+    router.back()
+  }
+    
   return (
     <div className='mx-4 md:mx-6'>
-        <EditProductModal isOpen={isOpen} closeModal={() => setIsOpen(false)} product={product} />
+        <EditProductModal isOpen={isOpen} closeModal={() => setIsOpen(false)} />
         <div className='mt-4 flex flex-col md:flex-row gap-6 lg:gap-10'>
           <div className='flex flex-col gap-2 h-[600px] w-[100%] md:w-[50%]'>
             <div className='bg-secondary-500 h-[450px] p-6 w-[100%] flex'>

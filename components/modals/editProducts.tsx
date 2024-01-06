@@ -1,20 +1,16 @@
 "use client"
 
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XCircleIcon,  } from '@heroicons/react/20/solid'
-import ProductForm from '../form/productForm'
 import EditProductForm from '../form/editProductForm'
-import { ProductProps } from '@/types'
 
 interface PageProps {
     isOpen: boolean,
-    closeModal: () => void,
-    product: ProductProps
+    closeModal: () => void
 }
 
-const EditProductModal = ({ isOpen, closeModal, product }: PageProps) => {
-
+const EditProductModal = ({ isOpen, closeModal }: PageProps) => {
   return (
     <>
         <Transition appear show={isOpen} as={Fragment}>
@@ -53,7 +49,7 @@ const EditProductModal = ({ isOpen, closeModal, product }: PageProps) => {
                                     className="icons-small text-secondary-800"
                                 />
                             </button>
-                            <EditProductForm product={product} />
+                            <EditProductForm />
                         </Dialog.Panel>
                     </Transition.Child>
                     </div>

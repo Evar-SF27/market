@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import { Cart, MainBar, ReviewComponent, TopBar } from '@/components'
+import { MainBar, TopBar } from '@/components'
 import { fetchProductBySlug } from '@/services/products.services'
+import { ProductIdContext } from '@/context/products'
 import ProductInfo from '@/components/products/productInfo'
 
 interface PageProps {
@@ -13,11 +13,13 @@ const ProductPage = async ({ params }: PageProps) => {
 
   return (
     <>
-      <TopBar />
-      <MainBar />
-      <div className='h-[60px] bg-secondary-700'></div>
-      <ProductInfo product={product} />
-    </>
+      <ProductIdContext.Provider value={product}>
+        <TopBar />
+        <MainBar />
+        <div className='h-[60px] bg-secondary-700'></div>
+        <ProductInfo />
+    </ProductIdContext.Provider>
+  </>
   )
 }
 
