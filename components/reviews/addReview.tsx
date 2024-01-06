@@ -1,14 +1,16 @@
 'use client'
 
 import { axiosPrivate } from '@/config/axios'
+import { ProductIdContext } from '@/context/products'
 import { StarIcon } from '@heroicons/react/20/solid'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 const AddReview = () => {
   const [review, setReview] = useState<string>()
   const [name, setName] = useState<string>()
   const [email, setEmail] = useState<string>()
   const [numRating, setNumRating] = useState<number>(0)
+  const product = useContext(ProductIdContext)
 
   const addReview = async () => {
     const response = await axiosPrivate.post(
@@ -18,7 +20,7 @@ const AddReview = () => {
         email: email,
         rating: numRating,
         review: review,
-        product: null
+        product: product?._id
     })
 
   }
