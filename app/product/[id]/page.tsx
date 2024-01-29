@@ -13,12 +13,10 @@ const ProductPage = async ({ params }: PageProps) => {
 
   return (
     <>
-      <ProductIdContext.Provider value={product}>
-        <TopBar />
-        <MainBar />
-        <div className='h-[60px] bg-secondary-700'></div>
-        <ProductInfo />
-    </ProductIdContext.Provider>
+      <TopBar />
+      <MainBar />
+      <div className='h-[60px] bg-secondary-700'></div>
+      <ProductInfo product={product} />
   </>
   )
 }

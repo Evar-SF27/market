@@ -1,3 +1,5 @@
+'use client'
+
 import { ProductProps } from '@/types'
 import { createContext } from 'react'
 

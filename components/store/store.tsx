@@ -1,7 +1,7 @@
 "use client"
 
 import { StoreDashboard, StorePoster } from '@/components'
-import ProductContext from '@/context/products'
+import { ProductContext } from '@/context/products'
 import { registerStore } from '@/redux/features/storeSlice'
 import { AppDispatch } from '@/redux/store'
 import { StorePageProps, StoreProps } from '@/types'

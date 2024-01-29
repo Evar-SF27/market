@@ -5,7 +5,7 @@ import { ProductDashboard, Products, UserCategories } from '@/components'
 import { useAppSelector } from '@/redux/store'
 import { CategoryProps } from '@/types'
 import { QueueListIcon, XMarkIcon } from '@heroicons/react/20/solid'
-import ProductContext from '@/context/products'
+import { ProductContext } from '@/context/products'
 
 const StoreDashboard = () => {
     const [active, setActive] = useState("")
